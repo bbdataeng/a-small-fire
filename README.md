@@ -26,7 +26,7 @@ Minimal denominators' findable in the Federated Platform tools:
     - Sampling date 
     - StorageTemperature     
     
-### MODULES
+## MODULES
 
 The main modules of the converter are: 
 
@@ -47,10 +47,10 @@ The FHIR final JSON is built by two separate modules:
 **FHIR-RESOURCES:** is employed by the FHIR-MODEL module and maps each field / entity to its FHIR counterpart 
 
 
-### USAGE
+## USAGE
 `convert.py --filename "..\fhir\data" --outdir "..\fhir\output"`
 
-### OUTPUT
+## OUTPUT
 
 * `organization.json`: information about the resource Organization
 
