@@ -6,6 +6,7 @@ from loguru import logger as log
 
 from fhir.resources.fhirtypes import Date
 import re
+import icd10
 
 class FHIRNormalization:
     @staticmethod
@@ -30,32 +31,38 @@ class FHIRNormalization:
         diag : models.DIAGNOSIS_ENUM
     ) -> str:
         
-        DIAG = models.DIAGNOSIS_ENUM
+        # DIAG = models.DIAGNOSIS_ENUM
         # can use icd10 library
-        if diag == DIAG.C_180_CECUM:
-            return "C18.0 - Cecum"
-        if diag == DIAG.C_181_APPENDIX:
-            return "C18.1 - Appendix"
-        if diag == DIAG.C_182_ASCENDING_RIGHT:
-            return "C18.2 - Ascending colon"
-        if diag == DIAG.C_183_HEPATIC_FLEXURE:
-            return "C18.3 - Hepatic flexure"
-        if diag == DIAG.C_184_TRANSVERSE_COLON:
-            return "C18.4 - Transverse colon"
-        if diag == DIAG.C_185_SPLENIC_FLEXURE:
-            return "C18.5 - Splenic flexure"
-        if diag == DIAG.C_186_DESCENDING_LEFT:
-            return "C18.6 - Descending colon"
-        if diag == DIAG.C_187_SIGMOID:
-            return "C18.7 - Sigmoid colon"
-        if diag == DIAG.C_199_RECTOSIGMOID:
-            return "C19.9 - Rectosigmoid junction"
-        if diag == DIAG.C_20_RECTUM:
-            return "C20 - Rectum"
-        # esempio da continuare
+        if icd10.exists(diag):
+            return diag
+        else:
+            log.error("Can't map IC10 value for {}", diag)
+            return "N/A"
+        
+        # if diag == DIAG.C_180_CECUM:
+        #     return "C18.0 - Cecum"
+        # if diag == DIAG.C_181_APPENDIX:
+        #     return "C18.1 - Appendix"
+        # if diag == DIAG.C_182_ASCENDING_RIGHT:
+        #     return "C18.2 - Ascending colon"
+        # if diag == DIAG.C_183_HEPATIC_FLEXURE:
+        #     return "C18.3 - Hepatic flexure"
+        # if diag == DIAG.C_184_TRANSVERSE_COLON:
+        #     return "C18.4 - Transverse colon"
+        # if diag == DIAG.C_185_SPLENIC_FLEXURE:
+        #     return "C18.5 - Splenic flexure"
+        # if diag == DIAG.C_186_DESCENDING_LEFT:
+        #     return "C18.6 - Descending colon"
+        # if diag == DIAG.C_187_SIGMOID:
+        #     return "C18.7 - Sigmoid colon"
+        # if diag == DIAG.C_199_RECTOSIGMOID:
+        #     return "C19.9 - Rectosigmoid junction"
+        # if diag == DIAG.C_20_RECTUM:
+        #     return "C20 - Rectum"
+        # # esempio da continuare
 
-        log.error("Can't map IC10 value for {}", diag)
-        return "N/A"
+        # log.error("Can't map IC10 value for {}", diag)
+        # return "N/A"
 
  
     
@@ -149,7 +156,7 @@ def normalize_input(patient_data: Dict[str, str]) -> Dict[str, str]:
 
 
     ## AGGIUNTA DI VALORI MANCANTI - PER PROVA
-    patient_data['DIAGNOSIS'] = "C 18.0 - Cecum"
+    patient_data['DIAGNOSIS'] = "C18.0"
     # patient_data['SAMPLE_MATERIAL_TYPE'] = "Tumor tissue"
     # patient_data['SAMPLE_PRESERVATION_MODE'] = "FFPE"
     print("PATIENT_DATA AFTER NORM\n", patient_data)

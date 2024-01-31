@@ -1,0 +1,51 @@
+{
+    "resourceType": "Bundle",
+    "id": "9aabdc9e-09e9-4dcf-a68c-3ff376780dc4",
+    "type": "transaction",
+    "entry": [
+        {
+            "fullUrl": "http://example.com/Organization/1606752281669494",
+            "request": {
+                "method": "PUT",
+                "url": "Organization/1606752281669494"
+            },
+            "resource": {
+                "resourceType": "Organization",
+                "id": "1606752281669494",
+                "active": true,
+                "name": "Istituto Nazionale Tumori Regina Elena",
+                "alias": [
+                    "IRE"
+                ],
+                "contact": [
+                    {
+                        "telecom": [
+                            {
+                                "system": "phone",
+                                "value": "+390652666931",
+                                "use": "work",
+                                "rank": 1
+                            },
+                            {
+                                "system": "email",
+                                "value": "laura.conti@ifo.gov.it",
+                                "use": "work",
+                                "rank": 1
+                            }
+                        ],
+                        "address": {
+                            "use": "work",
+                            "type": "physical",
+                            "line": [
+                                "Via Chianesi 53"
+                            ],
+                            "city": "Rome",
+                            "postalCode": "00144",
+                            "country": "IT"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,9 +1,10 @@
 from datetime import date
 from typing import List, Optional, Tuple, Union
 from uuid import uuid4
+import yaml
 
 import input_models as models
-from config import BBMRI_STRUCTURE_DEFINITION_URL, ORGANIZATION_ID, VERBOSE_WARNINGS,ORGANIZATION_NAME,ORGANIZATION_ALIAS
+# from config import BBMRI_STRUCTURE_DEFINITION_URL, ORGANIZATION_ID, VERBOSE_WARNINGS,ORGANIZATION_NAME,ORGANIZATION_ALIAS
 from loguru import logger as log
 from normalization import FHIRNormalization
 
@@ -32,26 +33,22 @@ fhir_resources.py -------------------------------------------------------------
 Employed by the FHIR-MODEL module to map each field/entity to its FHIR counterpart 
 """
 
+# Configuration Info
+with open("config.yaml", "r") as config_file:
+    config_data = yaml.safe_load(config_file)
 
+VERBOSE_WARNINGS = config_data.get("verbose_warnings", False)
+BBMRI_STRUCTURE_DEFINITION_URL = config_data.get("bbmri_structure_definition_url", "")
+SERVER_URL = config_data.get("server_url", "")
+ORGANIZATION_ID = config_data.get("organization_id", "")
+ORGANIZATION_NAME = config_data.get("organization_name", "")
+ORGANIZATION_ALIAS = config_data.get("organization_alias", [])
+ORGANIZATION_CONTACT = config_data.get("organization_contact", [])
 
-# LOINC, a universal standard for identifying laboratory observations
-LOINC_SYSTEM = "http://loinc.org"
 # Search on https://icd.who.int/browse10/2019/en
 ICD10_SYSTEM = "http://hl7.org/fhir/sid/icd-10"
-
-# url to be reviewed
-TNM_SYSTEM = "https://www.cancer.gov/about-cancer/diagnosis-staging/staging"
-UICC_SYSTEM = "https://www.uicc.org"
-# url to be reviewed
-WHO_SYSTEM = (
-    "https://www.cancer.gov/about-cancer/diagnosis-staging/"
-    "prognosis/tumor-grade-fact-sheet"
-)
-
 SNOMED_SYSTEM = "http://snomed.info/sct"
-DNARegionName = (
-    "http://hl7.org/fhir/StructureDefinition/observation-geneticsDNARegionName"
-)
+
 
 # Got from import_sample-synthetic_data-FHIR.json
 SAMPLE_MATERIAL_TYPE_SYSTEM = "https://fhir.bbmri.de/CodeSystem/SampleMaterialType"
@@ -71,44 +68,27 @@ class FHIRResources:
             entry=[],
         )
 
-    # TODO: mostly hardcoded, to be improved with an external configuration
     @staticmethod
     def get_organization() -> Organization:
-        # https://www.hl7.org/fhir/organization.html
         return Organization(
             id=ORGANIZATION_ID,
             active=True,
-            # Name used for the organization
             name=ORGANIZATION_NAME,
-            # A list of alternate names that the organization is known as,
-            # or was known as in the past
             alias=ORGANIZATION_ALIAS,
-            # A contact detail for the organization  (DA CONFIGURARE)
-            contact= [
-        {
-            "address": Address(use="work",
-                        type="physical",
-                        country="IT",
-                        city="Rome",
-                        postalCode="00144",
-                        line=["Via Chianesi 53"]),
-            "telecom": [
+            contact=[
                 {
-                    "system": "phone",
-                    "value": "+390652666931",
-                    "use": "work",
-                    "rank": 1
-                },
-                {
-                    "system": "email",
-                    "value": "laura.conti@ifo.gov.it",
-                    "use": "work",
-                    "rank": 1
-                }
+                    "address": Address(**contact["address"]),
+                    "telecom": [
+                        {
+                            "system": item["system"],
+                            "value": item["value"],
+                            "use": item["use"],
+                            "rank": item["rank"]
+                        } for item in contact["telecom"]
+                    ]
+                } for contact in ORGANIZATION_CONTACT
             ]
-        }]
         )
-
 
     @staticmethod
     def get_patient(
@@ -116,8 +96,6 @@ class FHIRResources:
         sex: str,
         birthDate: date
         # age : int
-        # vital_status: models.VITAL_STATUS_ENUM,
-        # vital_status_timestamp: Union[date, models.UNKNOWN],
     ) -> Patient:
         patient = Patient(
             id = id,
@@ -126,33 +104,13 @@ class FHIRResources:
             # age = age
         )
 
-       
         return patient
 
    
-        
-
+    
     def get_patient_ref(patient: Patient) -> Reference:
         return Reference(reference=f"{patient.resource_type}/{patient.id}")
 
-    @staticmethod
-    def get_positive_concept() -> CodeableConcept:
-
-        return CodeableConcept(
-            coding=[Coding(system=SNOMED_SYSTEM, code="10828004", display="Positive")]
-        )
-
-    @staticmethod
-    def get_negative_concept() -> CodeableConcept:
-        return CodeableConcept(
-            coding=[
-                Coding(
-                    system=SNOMED_SYSTEM,
-                    code="260385009",
-                    display="Negative",
-                )
-            ]
-        )
 
     # https://samply.github.io/bbmri-fhir-ig/ValueSet-SampleMaterialType.html
     @staticmethod

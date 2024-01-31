@@ -96,6 +96,7 @@ class SAMPLE_PRESERVATION_MODE_LIST(BaseModel):
 
 # https://training.seer.cancer.gov/colorectal/abstract-code-stage/codes.html
 class DIAGNOSIS_ENUM(str, Enum):
+    C_180 = "C18.0"
     C_180_CECUM = "C 18.0 - Cecum"
     C_181_APPENDIX = "C 18.1 - Appendix"
     C_182_ASCENDING_RIGHT = "C 18.2 - Ascending (right)"

@@ -1,5 +1,5 @@
 # ESEGUIRE LO SCRIPT DI CONVERSIONE
-convert.py --filename "..\fhir\data" --outdir "..\fhir\output"
+convert.py --filename "./data" --outdir "./output"
 
 
 CAMPI RICHIESTI ===============================================================

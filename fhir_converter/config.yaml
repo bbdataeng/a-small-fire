@@ -1,0 +1,31 @@
+verbose_warnings: false
+bbmri_structure_definition_url: "https://fhir.bbmri.de/StructureDefinition"
+server_url: "http://example.com"
+organization_id: "1606752281669494"
+organization_name: "Istituto Nazionale Tumori Regina Elena"
+
+organization_alias:
+  - "IRE"
+
+organization_contact:
+
+  - address:
+      use: "work"
+      type: "physical"
+      country: "IT"
+      city: "Rome"
+      postalCode: "00144"
+      line:
+        - "Via Chianesi 53"
+
+    telecom:
+
+      - system: "phone"
+        value: "+390652666931"
+        use: "work"
+        rank: 1
+
+      - system: "email"
+        value: "laura.conti@ifo.gov.it"
+        use: "work"
+        rank: 1
