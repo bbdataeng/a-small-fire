@@ -1,0 +1,44 @@
+# ESEGUIRE LO SCRIPT DI CONVERSIONE
+convert.py --filename "..\fhir\data" --outdir "..\fhir\output"
+
+
+CAMPI RICHIESTI ===============================================================
+* Donor/Clinical Information
+    ** Gender                  (male, female, other, unknown)
+    ** Diagnose ICD-10
+    ** Diagnosis age donor (years)    
+    ** Date of diagnosis
+    + ID
+* Sample
+    ** Donor Age
+    ** Sample Type             (Serum, Tissue snap frozen, Whole Blood, Plasma,
+                                Other derivative, Other tissue storage,
+                                Peripheral blood cells, Urine, RNA, 
+                                Other liquid biosample, Buffy coat, DNA, 
+                                Liquor/CSF, Faeces, Bone marrow, Tissue (FFPE), 
+                                Saliva, Ascites, Swab, Dried whole blood)
+    ** Sampling date 
+    ** StorageTemperature      (RT, 2°C to 10°C, 4°C, Minus 18°C to minus 35°C, 
+                                Minus 60°C to minus 85°C, Gaseous nitrogen, 
+                                Liquid nitrogen, Other storage temperature, 
+                                Uncharted storage temperature)
+    + ID
+===============================================================================
+
+
+- patient pseudonym               PATIENT_ID
+- sex                             SEX
+- diagnosis age donor (years)     AGE_AT_PRIMARY_DIAGNOSIS
+- date of diagnosis               DATE_DIAGNOSIS
+(pare che si possa inserire soltanto un campo tra onsetAge e onsetDateTime, non entrambi)
+- diagnosis ICD-10                *HIST_LOCALIZATION ?
+- donor age (years)               Rispetto a cosa??
+- sampling date                   *YEAR_OF_SAMPLE_COLLECTION ?
+- sample type                     SAMPLE_MATERIAL_TYPE
+- storage temperature             Specimen -> Extension -> StorageTemperature (RoomTemperature)
+#- available samples number        *Quantity in ciascuna specimen.collection?
+
+
+
+In order to upload resource to a server, creating Bundle resource containing all of the resources that you want to upload is necessary. 
+Bundle contains list of Entry resources, where each Entry resource represents specific resource(for example Patient resource). 
