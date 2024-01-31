@@ -49,7 +49,7 @@ The FHIR final JSON is built by two separate modules:
 
 ## USAGE
 ``` shell
-convert.py --filename "..\fhir\data" --outdir "..\fhir\output"
+convert.py --filename "../fhir/data" --outdir "../fhir/output"
 ```
 
 ## OUTPUT
