@@ -37,7 +37,7 @@ Employed by the FHIR-MODEL module to map each field/entity to its FHIR counterpa
 with open("config.yaml", "r") as config_file:
     config_data = yaml.safe_load(config_file)
 
-VERBOSE_WARNINGS = config_data.get("verbose_warnings", False)
+
 BBMRI_STRUCTURE_DEFINITION_URL = config_data.get("bbmri_structure_definition_url", "")
 SERVER_URL = config_data.get("server_url", "")
 ORGANIZATION_ID = config_data.get("organization_id", "")
