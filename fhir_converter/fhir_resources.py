@@ -121,7 +121,7 @@ class FHIRResources:
 
         mat_type = material_type
         # mat_type = FHIRNormalization.get_material_type(
-        #     material_type, material_preservation
+        #     material_type
         # )
 
         if mat_type:

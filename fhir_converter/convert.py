@@ -50,15 +50,6 @@ Questo modello ridotto utilizza soltanto i seguenti campi:
     # Room temperature
     ROOM_TEMPERATURE: Optional[str]
 
-PROBLEMA:
-prende in input un file excel in cui ogni riga corrisponde ad un sample (specimen)
--> crea un bundle per ogni paziente, inserendo soltanto l'ultimo sample, NON tutti i samples di un solo paziente
-
-
-1. Tenere traccia dei pazienti già visti e aggiungere lo specimen al corrispondente bundle già esistente?
-o un file json per ogni sample? (copie)
-2. Un solo bundle per tutto il file in input 
-
 """
 
 
@@ -84,8 +75,9 @@ def convert(
 
     header: Dict[int, str] = {}
 
-    # CREATE BUNDLE AND ADD THE ORGANIZATION 
+    ## create empty bundle
     bundle = FHIRResources.get_bundle()
+    ## add organization 
     organization = FHIRResources.get_organization()
     bundle.entry.append(organization)
     bundle_data = bundle.dict()
@@ -93,7 +85,7 @@ def convert(
 
     # counters = {}
 
-    # create json data with organization info
+    ## create a json file for the organization
     with open(f"{outdir}/organization.json", "w") as f:
         json.dump(bundle_data, f, default=str, indent=4)
 
@@ -105,7 +97,7 @@ def convert(
 
         log.info("Reading sheet {}", ws.title)
 
-        ## CREATE HEADER
+        ## create header
         ## for each cell save the value (header name), until None (columns end)
         for row in ws.iter_rows(min_row=1, max_row=1, max_col=999):
                 for cell in row:
@@ -132,7 +124,7 @@ def convert(
             patient_data = normalize_input(patient_data)
 
             try:
-                ## Create Patient Entity with patient_data
+                ## Create Patient Resource with patient_data
                 ## validation of fields with pydantic
                 patient = PatientInputModel(**patient_data)
             except ValidationError as e:

@@ -8,6 +8,7 @@ from fhir.resources.fhirtypes import Date
 import re
 import icd10
 
+
 class FHIRNormalization:
     @staticmethod
     def get_date_from_rel(diagnosis: date, weeks: float) -> Optional[date]:
@@ -38,40 +39,16 @@ class FHIRNormalization:
         else:
             log.error("Can't map IC10 value for {}", diag)
             return "N/A"
-        
-        # if diag == DIAG.C_180_CECUM:
-        #     return "C18.0 - Cecum"
-        # if diag == DIAG.C_181_APPENDIX:
-        #     return "C18.1 - Appendix"
-        # if diag == DIAG.C_182_ASCENDING_RIGHT:
-        #     return "C18.2 - Ascending colon"
-        # if diag == DIAG.C_183_HEPATIC_FLEXURE:
-        #     return "C18.3 - Hepatic flexure"
-        # if diag == DIAG.C_184_TRANSVERSE_COLON:
-        #     return "C18.4 - Transverse colon"
-        # if diag == DIAG.C_185_SPLENIC_FLEXURE:
-        #     return "C18.5 - Splenic flexure"
-        # if diag == DIAG.C_186_DESCENDING_LEFT:
-        #     return "C18.6 - Descending colon"
-        # if diag == DIAG.C_187_SIGMOID:
-        #     return "C18.7 - Sigmoid colon"
-        # if diag == DIAG.C_199_RECTOSIGMOID:
-        #     return "C19.9 - Rectosigmoid junction"
-        # if diag == DIAG.C_20_RECTUM:
-        #     return "C20 - Rectum"
-        # # esempio da continuare
 
-        # log.error("Can't map IC10 value for {}", diag)
-        # return "N/A"
 
  
     
 
-    # # https://samply.github.io/bbmri-fhir-ig/ValueSet-SampleMaterialType.html
+    # https://samply.github.io/bbmri-fhir-ig/ValueSet-SampleMaterialType.html
     # @staticmethod
     # def get_material_type( 
     #     material_type: models.SAMPLE_MATERIAL_TYPE_ENUM,
-    #     material_preservation: models.SAMPLE_PRESERVATION_MODE_ENUM,
+    #     # material_preservation: models.SAMPLE_PRESERVATION_MODE_ENUM,
     # ) -> Optional[str]:
 
     #     FROZEN = (
@@ -99,12 +76,17 @@ class FHIRNormalization:
     #         return "other-tissue-ffpe"
     #     return None
 
-
+    
+    
 def normalize_input(patient_data: Dict[str, str]) -> Dict[str, str]:
     
     def to_lower(key: str) -> None:
         if key in patient_data:
             patient_data[key] = patient_data[key].lower()
+
+    def to_upper(key: str) -> None:
+        if key in patient_data:
+            patient_data[key] = patient_data[key].upper()
 
     def to_title(key: str) -> None:
         if key in patient_data:
@@ -129,14 +111,12 @@ def normalize_input(patient_data: Dict[str, str]) -> Dict[str, str]:
 
 
 
-# THERAPY_RESPONSE_TIMESTAMP_RELATIVEWEEK
     ## Fix keys
     for dirty_key in list(patient_data):
         key = dirty_key.replace(" ", "_").replace("  ", "")
         patient_data[key] = patient_data[dirty_key]
         if key != dirty_key : del patient_data[dirty_key]
-    print("PATIENT_DATA AFTER NORM\n", patient_data)
-    ## Fix AGE_AT_PRIMARY_DIAGNOSIS
+
     
     if type(patient_data["DATE_DIAGNOSIS"]) == str : patient_data["DATE_DIAGNOSIS"] = datetime.strptime(patient_data["DATE_DIAGNOSIS"], r"%Y-%m-%d")
     if type(patient_data["DOB"]) == str : patient_data["DOB"] = datetime.strptime(patient_data["DOB"], r"%Y-%m-%d")
@@ -152,13 +132,11 @@ def normalize_input(patient_data: Dict[str, str]) -> Dict[str, str]:
 
     patient_data['YEAR_OF_SAMPLE_COLLECTION'] = datetime.strptime(patient_data['YEAR_OF_SAMPLE_COLLECTION'], r"%Y-%m-%d").year
 
-    if not "ROOM_TEMPERATURE" in patient_data: patient_data["ROOM_TEMPERATURE"] = "unknown"
+    if not "STORAGE_TEMPERATURE" in patient_data: patient_data["STORAGE_TEMPERATURE"] = "unknown"
 
 
-    ## AGGIUNTA DI VALORI MANCANTI - PER PROVA
+    ## AGGIUNTA CODICE ICD10 - PER PROVA
     patient_data['DIAGNOSIS'] = "C18.0"
-    # patient_data['SAMPLE_MATERIAL_TYPE'] = "Tumor tissue"
-    # patient_data['SAMPLE_PRESERVATION_MODE'] = "FFPE"
     print("PATIENT_DATA AFTER NORM\n", patient_data)
     return patient_data
 
@@ -214,10 +192,29 @@ def normalize_output(patient: models.Patient) -> models.Patient:
             "":"derivative-other",
             },
         ) 
+            # {"Tessuto":"tissue",
+            # "Liquid":"liquid",
+            # "Whole Blood":"whole-blood",
+            # "":"blood-plasma",
+            # "":"blood-serum",
+            # "":"peripheral-blood-cells-vital",
+            # "":"buffy-coat",
+            # "":"bone-marrow",
+            # "":"csf-liquor",
+            # "":"ascites",
+            # "":"urine",
+            # "":"saliva",
+            # "":"stool-faeces",
+            # "":"liquid-other",
+            # "":"derivative",
+            # "":"dna",
+            # "":"rna",
+            # "":"derivative-other",
+            # }
 
-    patient.ROOM_TEMPERATURE = apply_map(
-        "ROOM_TEMPERATURE",
-        patient.ROOM_TEMPERATURE,
+    patient.STORAGE_TEMPERATURE = apply_map(
+        "STORAGE_TEMPERATURE",
+        patient.STORAGE_TEMPERATURE,
         {
             "":"temperature2to10",
             "":"temperature-18to-35",
@@ -229,6 +226,23 @@ def normalize_output(patient: models.Patient) -> models.Patient:
         },
     )  # type: ignore
 
-
+    
+        
 
     return patient
+
+
+
+## custom validators
+# def validate_birthdate(cls, values: Dict):
+#     if not values:
+#         return values
+#     if "birthDate" not in values:
+#         raise ValueError("Patient's ``birthDate`` is required.")
+
+#     minimum_date = datetime.date(2002, 1, 1)
+#     if values["birthDate"] > minimum_date:
+#         raise ValueError("Minimum 18 years patient is allowed to use this system.")
+#     return values
+# # we want this validator to execute after data evaluating by individual field validators.
+# Patient.add_root_validator(validate_gender, pre=False)

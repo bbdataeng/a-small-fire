@@ -4,24 +4,24 @@ convert.py --filename "./data" --outdir "./output"
 
 CAMPI RICHIESTI ===============================================================
 * Donor/Clinical Information
-    ** Gender                  (male, female, other, unknown)
+    ** Gender               (male, female, other, unknown)
     ** Diagnose ICD-10
-    ** Diagnosis age donor (years)    
-    ** Date of diagnosis
+    ** Diagnosis age donor  (years)    
+    ** Date of diagnosis    
     + ID
 * Sample
-    ** Donor Age
-    ** Sample Type             (Serum, Tissue snap frozen, Whole Blood, Plasma,
-                                Other derivative, Other tissue storage,
-                                Peripheral blood cells, Urine, RNA, 
-                                Other liquid biosample, Buffy coat, DNA, 
-                                Liquor/CSF, Faeces, Bone marrow, Tissue (FFPE), 
-                                Saliva, Ascites, Swab, Dried whole blood)
+    ** Donor Age            
+    ** Sample Type          (Serum, Tissue snap frozen, Whole Blood, Plasma,
+                            Other derivative, Other tissue storage,
+                            Peripheral blood cells, Urine, RNA, 
+                            Other liquid biosample, Buffy coat, DNA, 
+                            Liquor/CSF, Faeces, Bone marrow, Tissue (FFPE), 
+                            Saliva, Ascites, Swab, Dried whole blood)
     ** Sampling date 
-    ** StorageTemperature      (RT, 2°C to 10°C, 4°C, Minus 18°C to minus 35°C, 
-                                Minus 60°C to minus 85°C, Gaseous nitrogen, 
-                                Liquid nitrogen, Other storage temperature, 
-                                Uncharted storage temperature)
+    ** StorageTemperature   (RT, 2°C to 10°C, 4°C, Minus 18°C to minus 35°C, 
+                            Minus 60°C to minus 85°C, Gaseous nitrogen, 
+                            Liquid nitrogen, Other storage temperature, 
+                            Uncharted storage temperature)
     + ID
 ===============================================================================
 

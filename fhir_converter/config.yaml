@@ -1,10 +1,10 @@
 bbmri_structure_definition_url: "https://fhir.bbmri.de/StructureDefinition"
 server_url: "http://example.com"
-organization_id: "1606752281669494"
-organization_name: "Istituto Nazionale Tumori Regina Elena"
+organization_id: "00000000000"
+organization_name: "Istituto Nazionale Tumori Pippo Baudo"
 
 organization_alias:
-  - "IRE"
+  - "PIPPO"
 
 organization_contact:
 
@@ -13,18 +13,18 @@ organization_contact:
       type: "physical"
       country: "IT"
       city: "Rome"
-      postalCode: "00144"
+      postalCode: "00123"
       line:
-        - "Via Chianesi 53"
+        - "Via Manzoni 35"
 
     telecom:
 
       - system: "phone"
-        value: "+390652666931"
+        value: "+395453534534"
         use: "work"
         rank: 1
 
       - system: "email"
-        value: "laura.conti@ifo.gov.it"
+        value: "pippo.baudo@isnt.it"
         use: "work"
         rank: 1
