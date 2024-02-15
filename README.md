@@ -7,7 +7,7 @@ The toolkit is based on the open source FHIR RESOURCES library available at http
 <!-- The toolkit uses the [CRC-ADOPT](https://ec.europa.eu/research/participants/documents/downloadPublic?documentIds=080166e5c9716d4e&appId=PPGMS) common data model. -->
 
 
-## BASIC MODEL - a small FHIR
+## Basic Model - a small FHIR
 
 Minimal denominators' findable in the Federated Platform tools:  
 
@@ -26,7 +26,7 @@ Minimal denominators' findable in the Federated Platform tools:
     - Sampling date 
     - StorageTemperature     
     
-## MODULES
+## Modules
 
 The main modules of the converter are: 
 
@@ -46,14 +46,16 @@ The FHIR final JSON is built by two separate modules:
 
 **FHIR-RESOURCES:** is employed by the FHIR-MODEL module and maps each field / entity to its FHIR counterpart 
 
+## Requirements
 
-## USAGE
+
+## Usage
 ``` shell
 cd fhir_converter
 convert.py --filename "../fhir/data/<.xlsx FILENAME>" --outdir "../fhir/output"
 ```
 
-## OUTPUT
+## Output
 
 * `organization.json`: information about the resource Organization
 
