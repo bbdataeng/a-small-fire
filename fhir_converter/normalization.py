@@ -31,11 +31,11 @@ class FHIRNormalization:
     def get_diagnosis_icd10(
         diag : models.DIAGNOSIS_ENUM
     ) -> str:
-        
+        print("DIAGNOSIS CODE", diag)
         # DIAG = models.DIAGNOSIS_ENUM
         # can use icd10 library
         if icd10.exists(diag):
-            return diag
+            return diag.value
         else:
             log.error("Can't map IC10 value for {}", diag)
             return "N/A"
@@ -44,40 +44,9 @@ class FHIRNormalization:
  
     
 
-    # https://samply.github.io/bbmri-fhir-ig/ValueSet-SampleMaterialType.html
-    # @staticmethod
-    # def get_material_type( 
-    #     material_type: models.SAMPLE_MATERIAL_TYPE_ENUM,
-    #     # material_preservation: models.SAMPLE_PRESERVATION_MODE_ENUM,
-    # ) -> Optional[str]:
-
-    #     FROZEN = (
-    #         material_preservation
-    #         == models.SAMPLE_PRESERVATION_MODE_ENUM.CRYOPRESERVATION
-    #     )
-    #     FFPE = material_preservation == models.SAMPLE_PRESERVATION_MODE_ENUM.FFPE
-    #     HEALTHY = material_type == models.SAMPLE_MATERIAL_TYPE_ENUM.HEALTHY_COLON_TISSUE
-    #     TUMOR_TISSUE = material_type == models.SAMPLE_MATERIAL_TYPE_ENUM.TUMOR_TISSUE
-    #     OTHER = material_type == models.SAMPLE_MATERIAL_TYPE_ENUM.OTHER
-
-    #     if material_preservation == models.SAMPLE_PRESERVATION_MODE_ENUM.OTHER:
-    #         return "tissue-other"
-    #     if FROZEN and HEALTHY:
-    #         return "normal-tissue-frozen"
-    #     if FROZEN and TUMOR_TISSUE:
-    #         return "tumor-tissue-frozen"
-    #     if FROZEN and OTHER:
-    #         return "other-tissue-frozen"
-    #     if FFPE and HEALTHY:
-    #         return "normal-tissue-ffpe"
-    #     if FFPE and TUMOR_TISSUE:
-    #         return "tumor-tissue-ffpe"
-    #     if FFPE and OTHER:
-    #         return "other-tissue-ffpe"
-    #     return None
-
     
-    
+            
+
 def normalize_input(patient_data: Dict[str, str]) -> Dict[str, str]:
     
     def to_lower(key: str) -> None:
@@ -110,10 +79,9 @@ def normalize_input(patient_data: Dict[str, str]) -> Dict[str, str]:
             patient_data[key] = patient_data[key].strip()
 
 
-
     ## Fix keys
     for dirty_key in list(patient_data):
-        key = dirty_key.replace(" ", "_").replace("  ", "")
+        key = dirty_key.replace(" ", "_").replace("  ", "").upper()
         patient_data[key] = patient_data[dirty_key]
         if key != dirty_key : del patient_data[dirty_key]
 
@@ -132,11 +100,12 @@ def normalize_input(patient_data: Dict[str, str]) -> Dict[str, str]:
 
     patient_data['YEAR_OF_SAMPLE_COLLECTION'] = datetime.strptime(patient_data['YEAR_OF_SAMPLE_COLLECTION'], r"%Y-%m-%d").year
 
-    if not "STORAGE_TEMPERATURE" in patient_data: patient_data["STORAGE_TEMPERATURE"] = "unknown"
 
-
-    ## AGGIUNTA CODICE ICD10 - PER PROVA
+    ## AGGIUNTA valori mancanti - PER PROVA
     patient_data['DIAGNOSIS'] = "C18.0"
+    if not "STORAGE_TEMPERATURE" in patient_data: patient_data["STORAGE_TEMPERATURE"] = -80
+    patient_data["STORAGE_TEMPERATURE"] = str(patient_data['STORAGE_TEMPERATURE'])
+
     print("PATIENT_DATA AFTER NORM\n", patient_data)
     return patient_data
 
@@ -149,7 +118,27 @@ def apply_map(label: str, value: str, mapping: Dict[str, str]) -> str:
     return mapping[value]
 
 
-
+def convert_temperature(value: str):
+        try:
+            value = int(value)
+            if value < -60 and value > -85:
+                return "temperature-60to-85"
+            elif value < -18 and value > -35:
+                return "temperature-18to-35"
+            elif value > 2 and value < 10:
+                return "temperature2to10"
+            else:
+                return "temperatureOther"
+        except:
+            if value == "RT":
+                return "temperatureRoom"
+            elif value == "Liquid nitrogen":
+                return "temperatureLN"
+            elif value == "Gaseous nitrogen":
+                return "temperatureGN"
+            else:
+                return "temperatureOther"
+            
 def normalize_output(patient: models.Patient) -> models.Patient:
     '''mapping of values according to BBMRI.de/GBA Implementation Guide'''
     patient.SEX = apply_map(
@@ -167,8 +156,7 @@ def normalize_output(patient: models.Patient) -> models.Patient:
             "SAMPLE_MATERIAL_TYPE",
             patient.SAMPLE_MATERIAL_TYPE,
             {"Tessuto":"tissue",
-             "FFPE":"tissue",
-            "" : "tissue-formalin",
+            "FFPE" : "tissue-formalin",
             "":"tissue-frozen",
             "":"tissue-paxgene-or-else",
             "":"tissue-other",
@@ -181,50 +169,20 @@ def normalize_output(patient: models.Patient) -> models.Patient:
             "":"bone-marrow",
             "":"csf-liquor",
             "":"ascites",
-            "":"urine",
-            "":"saliva",
+            "URINE":"urine",
+            "SALIVA":"saliva",
             "":"stool-faeces",
             "":"liquid-other",
             "":"derivative",
-            "":"dna",
+            "DNA":"dna",
             "":"cf-dna",
-            "":"rna",
+            "RNA":"rna",
             "":"derivative-other",
             },
         ) 
-            # {"Tessuto":"tissue",
-            # "Liquid":"liquid",
-            # "Whole Blood":"whole-blood",
-            # "":"blood-plasma",
-            # "":"blood-serum",
-            # "":"peripheral-blood-cells-vital",
-            # "":"buffy-coat",
-            # "":"bone-marrow",
-            # "":"csf-liquor",
-            # "":"ascites",
-            # "":"urine",
-            # "":"saliva",
-            # "":"stool-faeces",
-            # "":"liquid-other",
-            # "":"derivative",
-            # "":"dna",
-            # "":"rna",
-            # "":"derivative-other",
-            # }
 
-    patient.STORAGE_TEMPERATURE = apply_map(
-        "STORAGE_TEMPERATURE",
-        patient.STORAGE_TEMPERATURE,
-        {
-            "":"temperature2to10",
-            "":"temperature-18to-35",
-            "":"temperature-60to-85",
-            "":"temperatureGN",
-            "":"temperatureLN",
-            "":"temperatureRoom",
-            "unknown":"temperatureOther"
-        },
-    )  # type: ignore
+    patient.STORAGE_TEMPERATURE = convert_temperature(patient.STORAGE_TEMPERATURE)
+    
 
     
         

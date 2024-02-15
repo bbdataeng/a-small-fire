@@ -1,6 +1,6 @@
 {
     "resourceType": "Bundle",
-    "id": "87af9a7a-eadb-4e78-85b1-8bdf49994126",
+    "id": "209b9b28-a15c-4bd9-a5c7-3d79d797eb30",
     "type": "transaction",
     "entry": [
         {
@@ -118,8 +118,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -263,8 +263,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -408,8 +408,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -426,7 +426,7 @@
                     "coding": [
                         {
                             "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
-                            "code": "tissue"
+                            "code": "tissue-formalin"
                         }
                     ]
                 },
@@ -553,8 +553,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -698,8 +698,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -716,7 +716,7 @@
                     "coding": [
                         {
                             "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
-                            "code": "tissue"
+                            "code": "tissue-formalin"
                         }
                     ]
                 },
@@ -825,8 +825,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -952,8 +952,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -970,7 +970,7 @@
                     "coding": [
                         {
                             "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
-                            "code": "tissue"
+                            "code": "tissue-formalin"
                         }
                     ]
                 },
@@ -1097,8 +1097,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -1224,8 +1224,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -1351,8 +1351,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -1496,8 +1496,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -1641,8 +1641,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -1768,8 +1768,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -1786,7 +1786,7 @@
                     "coding": [
                         {
                             "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
-                            "code": "tissue"
+                            "code": "tissue-formalin"
                         }
                     ]
                 },
@@ -1913,8 +1913,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -2040,8 +2040,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -2167,8 +2167,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -2294,8 +2294,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -2421,8 +2421,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -2548,8 +2548,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -2675,8 +2675,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -2802,8 +2802,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -2929,8 +2929,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -3056,8 +3056,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -3183,8 +3183,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -3201,7 +3201,7 @@
                     "coding": [
                         {
                             "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
-                            "code": "tissue"
+                            "code": "tissue-formalin"
                         }
                     ]
                 },
@@ -3310,8 +3310,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -3437,8 +3437,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -3564,8 +3564,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }
@@ -3582,7 +3582,7 @@
                     "coding": [
                         {
                             "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
-                            "code": "tissue"
+                            "code": "tissue-formalin"
                         }
                     ]
                 },
@@ -3691,8 +3691,8 @@
                             "coding": [
                                 {
                                     "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
-                                    "code": "temperatureOther",
-                                    "display": "temperatureOther"
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
                                 }
                             ]
                         }

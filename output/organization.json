@@ -1,6 +1,6 @@
 {
     "resourceType": "Bundle",
-    "id": "7d3d0bc3-2958-460e-86a7-44b5a95b8fd2",
+    "id": "e5dd5da2-633b-4a5e-bac7-718317eecd8e",
     "type": "transaction",
     "entry": [
         {
@@ -15,7 +15,7 @@
                 "active": true,
                 "name": "Istituto Nazionale Tumori Pippo Baudo",
                 "alias": [
-                    "IRE"
+                    "PIPPO"
                 ],
                 "contact": [
                     {
@@ -28,7 +28,7 @@
                             },
                             {
                                 "system": "email",
-                                "value": "pippo.baudo@int.it",
+                                "value": "pippo.baudo@isnt.it",
                                 "use": "work",
                                 "rank": 1
                             }

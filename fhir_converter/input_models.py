@@ -1,9 +1,10 @@
 from datetime import date
-from enum import Enum
+from enum import Enum, auto
 from typing import Optional, Union
 from pydantic import BaseModel
 from pydantic import parse_obj_as
 from typing import List
+import icd10
 
 # all the possible values for the input employed in the validation and normalization process.
 
@@ -11,16 +12,19 @@ class UNKNOWN(str, Enum):
     UNKNOWN = "Unknown"
 
 class SEX_ENUM(str, Enum):
-    FEMALE = "F"
-    MALE = "M"
-    OTHER = "other"
+    F = "F"
+    M = "M"
+    other = "other"
 
 class SAMPLE_MATERIAL_TYPE_ENUM(str, Enum):
-    # HEALTHY_COLON_TISSUE = "Healthy colon tissue"
-    # TUMOR_TISSUE = "Tumor tissue"
-    # OTHER = "Other"
-    Tessuto = "Tessuto"
+    Tissue = "Tessuto"
     FFPE = "FFPE"
+    Liquid = "Liquido"
+    Blood = "Sangue"
+    Saliva = "Saliva"
+    Urine = "Urine"
+    RNA = "RNA"
+    DNA = "DNA"
 
     # "tissue",
 	# "tissue-formalin",
@@ -46,20 +50,45 @@ class SAMPLE_MATERIAL_TYPE_ENUM(str, Enum):
 	# "rna",
 	# "derivative-other",
 
-
-# https://training.seer.cancer.gov/colorectal/abstract-code-stage/codes.html
 class DIAGNOSIS_ENUM(str, Enum):
     C18 = "C18.0"
+#     DEFAULT = auto()
 
-class ROOM_TEMPERATURE_ENUM(str, Enum):
-    pass
-	# "temperature2to10",
-	# "temperature-18to-35",
-	# "temperature-60to-85",
-	# "temperatureGN",
-	# "temperatureLN",
-	# "temperatureRoom",
-	# "temperatureOther",
+# codici_icd  = [i for i in icd10.codes.keys() if i.startswith("C")]
+# for codice in codici_icd:
+#     setattr(DIAGNOSIS_ENUM, f'{codice}', f"{codice[:3]}.{codice[3:]}")
+
+
+
+# class STORAGE_TEMPERATURE_ENUM(str, Enum):
+#     RT = "RT"
+#     TEMP_2to10 = "2C to 10C"
+#     TEMP_18to35 = "-18C to -35C"
+#     TEMP_60to85 = "-60C to -85C"
+#     TEMP_GN = "Liquid nitrogen vapor phase"
+#     TEMP_LN = "Liquid nitrogen liquid phase"
+#     TEMP_other = "Other"
+
+
+# def convert_temperature(value: str) -> STORAGE_TEMPERATURE_ENUM:
+#     try:
+#         int(value)
+#         if value < -60 and value > -85:
+#             return STORAGE_TEMPERATURE_ENUM.TEMP_60to85
+#         elif value < -18 and value > -35:
+#             return STORAGE_TEMPERATURE_ENUM.TEMP_18to35
+#         else:
+#             return STORAGE_TEMPERATURE_ENUM.TEMP_other
+#     except:
+#         if value == "RT":
+#             return STORAGE_TEMPERATURE_ENUM.RT
+#         elif value == "Liquid nitrogen":
+#             return STORAGE_TEMPERATURE_ENUM.TEMP_LN
+#         else:
+#             return STORAGE_TEMPERATURE_ENUM.TEMP_other
+
+
+
 
 class Patient(BaseModel):
 
@@ -87,4 +116,4 @@ class Patient(BaseModel):
     # Year of sample collection
     YEAR_OF_SAMPLE_COLLECTION: int
     # Room temperature
-    ROOM_TEMPERATURE: Optional[str]
+    STORAGE_TEMPERATURE: Optional[str]

@@ -52,17 +52,6 @@ from fhir.resources.resource import Resource
         BRAF_PIC3CA_HER_MUTATION_STATUS
 """
 
-"""
-Minimal denominators' findable in the Federated Platform tools:
-Date of diagnosis
-Diagnosis
-Diagnosis age donor (years)
-Donor age (years)
-Sampling date
-Sample type
-Sex
-Storage temperature
-"""
 
 class FHIRSerializer:
     def __init__(self, input_patient: models.Patient) -> None:
@@ -84,10 +73,6 @@ class FHIRSerializer:
         self.MATERIAL_TYPE = FHIRResources.get_material_type(self.input_patient.SAMPLE_MATERIAL_TYPE)
        
        
-        # self.MATERIAL_TYPE = FHIRResources.get_material_type(
-        #     self.input_patient.SAMPLE_MATERIAL_TYPE,
-        #     self.input_patient.SAMPLE_PRESERVATION_MODE,
-        # )
 
     def add_to_bundle(
         self,
@@ -127,8 +112,7 @@ class FHIRSerializer:
             # age=self.input_patient.AGE
             birthDate=self.input_patient.DONOR_AGE
         )
-        if not copy :
-            self.add_to_bundle(bundle, patient, resource_id=self.PATIENT_ID)
+        if not copy: self.add_to_bundle(bundle, patient, resource_id=self.PATIENT_ID)
 
         patient_ref = FHIRResources.get_patient_ref(patient)
 
@@ -139,7 +123,7 @@ class FHIRSerializer:
 
         diagnosis = FHIRResources.get_diagnosis(
             patient_ref=patient_ref,
-            diagnosis=self.DIAGNOSIS,
+            diagnosis=self.input_patient.DIAGNOSIS,
             # hist_morphology=self.input_patient.HIST_MORPHOLOGY,
             date_diagnosis=self.input_patient.DATE_DIAGNOSIS,
             age=self.input_patient.AGE_AT_PRIMARY_DIAGNOSIS,
@@ -154,10 +138,10 @@ class FHIRSerializer:
         specimen = FHIRResources.get_specimen(
 
             patient_ref=patient_ref,
-            diagnosis=self.DIAGNOSIS,
+            diagnosis=self.input_patient.DIAGNOSIS,
             collection_year=self.input_patient.YEAR_OF_SAMPLE_COLLECTION,
             material_type=self.MATERIAL_TYPE,
-            temperature_room=self.input_patient.ROOM_TEMPERATURE
+            temperature_room=self.input_patient.STORAGE_TEMPERATURE
             # surgery_start=self.SURGERY_START,
         )
         self.add_to_bundle(bundle, specimen, patient_id=self.PATIENT_ID)

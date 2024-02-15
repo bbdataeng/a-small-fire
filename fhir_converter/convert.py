@@ -24,7 +24,7 @@ on the Biobank Locator
 
 -------------------------------------------------------------------------------
 
-Questo modello ridotto utilizza soltanto i seguenti campi:
+Minimal denominators' findable in the Federated Platform tools:
     # ########## Donor/Clinical Information
     # Patient pseudonym
     PATIENT_ID: Optional[str]
@@ -47,8 +47,8 @@ Questo modello ridotto utilizza soltanto i seguenti campi:
     SAMPLE_MATERIAL_TYPE: SAMPLE_MATERIAL_TYPE_ENUM
     # Year of sample collection
     YEAR_OF_SAMPLE_COLLECTION: int
-    # Room temperature
-    ROOM_TEMPERATURE: Optional[str]
+    # Storage temperature
+    STORAGE_TEMPERATURE: Optional[str]
 
 """
 
@@ -145,24 +145,6 @@ def convert(
                 pat_id = patient_serializer.PATIENT_ID
                 copy = pat_id in patients_ids
                 patients_ids.append(pat_id)
-                ## una lista che tiene traccia dei pazienti già inseriti nel bundle (poco efficiente?)
-                ## creando un bundle per ogni paziente il bridgehead lo accetta?
-
-                # sample_id, bundle = patient_serializer.serialize_patient()
-                # bundle_data = bundle.dict()
-                # bundle_data = bbmri_post_serialization(bundle_data)
-
-                # # appending?
-                # # problema: aggiunge un bundle per ogni specimen
-                # with open(f"{outdir}/{sample_id}.json", "a+") as f: 
-                #     json.dump(bundle_data, f, default=str, indent=4)
-
-                # patient_id history
-                # counter = counters.get(patient_data['PATIENT_ID'], 0)
-                # counters[patient_data['PATIENT_ID']] = counter + 1
-                # with open(f"{outdir}/{sample_id}-{counter}.json", "w") as f: 
-                #     json.dump(bundle_data, f, default=str, indent=4)
-                
             
                 sample_id, bundle = patient_serializer.serialize_patient(bundle, copy)
                 bundle_data = bundle.dict()

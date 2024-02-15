@@ -49,7 +49,8 @@ The FHIR final JSON is built by two separate modules:
 
 ## USAGE
 ``` shell
-convert.py --filename "../fhir/data" --outdir "../fhir/output"
+cd fhir_converter
+convert.py --filename "../fhir/data/<.xlsx FILENAME>" --outdir "../fhir/output"
 ```
 
 ## OUTPUT
@@ -57,7 +58,7 @@ convert.py --filename "../fhir/data" --outdir "../fhir/output"
 * `organization.json`: information about the resource Organization
 
 <!-- * `test{patient_ID}SAMPLE.json`: information about the resource Patient -->
-* `bundle{bundle_id}.json`: bundle with all the Resources in the .xlsx file 
+* `bundle-<BUNDLE_ID>.json`: bundle with all the Resources in the .xlsx file 
 
 
 

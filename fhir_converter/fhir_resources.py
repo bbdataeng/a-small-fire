@@ -115,7 +115,7 @@ class FHIRResources:
     # https://samply.github.io/bbmri-fhir-ig/ValueSet-SampleMaterialType.html
     @staticmethod
     def get_material_type(    # da modificare. includere tutti i tipi di material type e il loro mapping
-        material_type: models.SAMPLE_MATERIAL_TYPE_ENUM,
+        material_type: models.SAMPLE_MATERIAL_TYPE_ENUM
         # material_preservation: models.SAMPLE_PRESERVATION_MODE_ENUM,
     ) -> Optional[CodeableConcept]:
 
@@ -253,10 +253,6 @@ class FHIRResources:
                 collectedDateTime=FHIRNormalization.get_collection_date(
                     collection_year
                 )
-                # quantity=, available samples number ?
-        #         bodySite=CodeableReference(    ## HIST_LOCALIZATION replaced
-        #     reference=patient_ref
-        # ),
             ),
         )
 
