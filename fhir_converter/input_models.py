@@ -1,7 +1,7 @@
 from datetime import date
 from enum import Enum, auto
 from typing import Optional, Union
-from pydantic import BaseModel
+from pydantic import BaseModel, root_validator
 from pydantic import parse_obj_as
 from typing import List
 import icd10
@@ -50,43 +50,6 @@ class SAMPLE_MATERIAL_TYPE_ENUM(str, Enum):
 	# "rna",
 	# "derivative-other",
 
-class DIAGNOSIS_ENUM(str, Enum):
-    C18 = "C18.0"
-#     DEFAULT = auto()
-
-# codici_icd  = [i for i in icd10.codes.keys() if i.startswith("C")]
-# for codice in codici_icd:
-#     setattr(DIAGNOSIS_ENUM, f'{codice}', f"{codice[:3]}.{codice[3:]}")
-
-
-
-# class STORAGE_TEMPERATURE_ENUM(str, Enum):
-#     RT = "RT"
-#     TEMP_2to10 = "2C to 10C"
-#     TEMP_18to35 = "-18C to -35C"
-#     TEMP_60to85 = "-60C to -85C"
-#     TEMP_GN = "Liquid nitrogen vapor phase"
-#     TEMP_LN = "Liquid nitrogen liquid phase"
-#     TEMP_other = "Other"
-
-
-# def convert_temperature(value: str) -> STORAGE_TEMPERATURE_ENUM:
-#     try:
-#         int(value)
-#         if value < -60 and value > -85:
-#             return STORAGE_TEMPERATURE_ENUM.TEMP_60to85
-#         elif value < -18 and value > -35:
-#             return STORAGE_TEMPERATURE_ENUM.TEMP_18to35
-#         else:
-#             return STORAGE_TEMPERATURE_ENUM.TEMP_other
-#     except:
-#         if value == "RT":
-#             return STORAGE_TEMPERATURE_ENUM.RT
-#         elif value == "Liquid nitrogen":
-#             return STORAGE_TEMPERATURE_ENUM.TEMP_LN
-#         else:
-#             return STORAGE_TEMPERATURE_ENUM.TEMP_other
-
 
 
 
@@ -101,7 +64,7 @@ class Patient(BaseModel):
     SEX: SEX_ENUM
     # Date of diagnosis
     DATE_DIAGNOSIS: date
-    DIAGNOSIS : DIAGNOSIS_ENUM
+    DIAGNOSIS : str
 
     DONOR_AGE : date
     # AGE: int
@@ -117,3 +80,23 @@ class Patient(BaseModel):
     YEAR_OF_SAMPLE_COLLECTION: int
     # Room temperature
     STORAGE_TEMPERATURE: Optional[str]
+
+    @root_validator
+    def validate_fields(cls, values):
+        diagnosis_value = values.get('DIAGNOSIS')
+
+        if diagnosis_value and diagnosis_value not in codici_icd:
+            raise ValueError(f"DIAGNOSIS must be one of the values in the list {codici_icd}")
+        return values
+
+
+
+
+codici_icd = [i[:3] + "." + i[3:]  for i in icd10.codes.keys() if i.startswith("C")]
+
+
+
+
+
+
+

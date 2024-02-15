@@ -29,13 +29,13 @@ class FHIRNormalization:
     # https://www.icd10data.com/search
     @staticmethod
     def get_diagnosis_icd10(
-        diag : models.DIAGNOSIS_ENUM
+        diag : str
     ) -> str:
         print("DIAGNOSIS CODE", diag)
         # DIAG = models.DIAGNOSIS_ENUM
         # can use icd10 library
         if icd10.exists(diag):
-            return diag.value
+            return diag
         else:
             log.error("Can't map IC10 value for {}", diag)
             return "N/A"
