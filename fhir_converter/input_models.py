@@ -20,7 +20,9 @@ class SAMPLE_MATERIAL_TYPE_ENUM(str, Enum):
     Tissue = "Tessuto"
     FFPE = "FFPE"
     Liquid = "Liquido"
-    Blood = "Sangue"
+    WholeBlood = "Sangue intero"
+    Plasma = "Plasma"
+    Serum = "Siero"
     Saliva = "Saliva"
     Urine = "Urine"
     RNA = "RNA"
@@ -79,20 +81,24 @@ class Patient(BaseModel):
     # Year of sample collection
     YEAR_OF_SAMPLE_COLLECTION: int
     # Room temperature
-    STORAGE_TEMPERATURE: Optional[str]
+    STORAGE_TEMPERATURE: str
 
     @root_validator
     def validate_fields(cls, values):
         diagnosis_value = values.get('DIAGNOSIS')
+        # codici_icd = [i[:3] + "." + i[3:]  for i in icd10.codes.keys() if i.startswith("C")] # neoplasms only
+        # codici_icd = [i[:3] + "." + i[3:]  for i in icd10.codes.keys()] # all ICDs
+        codici_icd = [i  for i in icd10.codes.keys()] # all ICDs
 
+        diagnosis_value = diagnosis_value.replace(".", "")
         if diagnosis_value and diagnosis_value not in codici_icd:
-            raise ValueError(f"DIAGNOSIS must be one of the values in the list {codici_icd}")
+            raise ValueError(f"DIAGNOSIS must be a valid ICD-10 code")
         return values
 
 
 
 
-codici_icd = [i[:3] + "." + i[3:]  for i in icd10.codes.keys() if i.startswith("C")]
+
 
 
 

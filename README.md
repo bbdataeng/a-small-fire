@@ -25,7 +25,7 @@ Minimal denominators' findable in the Federated Platform tools:
     - Sample Type             
     - Sampling date 
     - StorageTemperature     
-    
+
 ## Modules
 
 The main modules of the converter are: 
@@ -47,6 +47,21 @@ The FHIR final JSON is built by two separate modules:
 **FHIR-RESOURCES:** is employed by the FHIR-MODEL module and maps each field / entity to its FHIR counterpart 
 
 ## Requirements
+``` shell
+Packages:
+...
+```
+
+Mandatory colnames:
+-SEX
+-DIAGNOSIS
+-DATE_DIAGNOSIS
+-DOB
+-YEAR_OF_SAMPLE_COLLECTION
+-SAMPLE_MATERIAL_TYPE
+-STORAGE_TEMPERATURE
+-PATIENT_ID
+-SAMPLE_ID
 
 
 ## Usage

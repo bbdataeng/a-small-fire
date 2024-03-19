@@ -31,7 +31,6 @@ class FHIRNormalization:
     def get_diagnosis_icd10(
         diag : str
     ) -> str:
-        print("DIAGNOSIS CODE", diag)
         # DIAG = models.DIAGNOSIS_ENUM
         # can use icd10 library
         if icd10.exists(diag):
@@ -85,7 +84,7 @@ def normalize_input(patient_data: Dict[str, str]) -> Dict[str, str]:
         patient_data[key] = patient_data[dirty_key]
         if key != dirty_key : del patient_data[dirty_key]
 
-    
+    # convert str into date    
     if type(patient_data["DATE_DIAGNOSIS"]) == str : patient_data["DATE_DIAGNOSIS"] = datetime.strptime(patient_data["DATE_DIAGNOSIS"], r"%Y-%m-%d")
     if type(patient_data["DOB"]) == str : patient_data["DOB"] = datetime.strptime(patient_data["DOB"], r"%Y-%m-%d")
 
@@ -94,17 +93,23 @@ def normalize_input(patient_data: Dict[str, str]) -> Dict[str, str]:
     patient_data["AGE_AT_PRIMARY_DIAGNOSIS"] = int(age_diff.days/365) 
 
     # AGE = Date of birth - Sample Collection Date
-    age_from_DOB = datetime.strptime(patient_data['YEAR_OF_SAMPLE_COLLECTION'], r"%Y-%m-%d") - patient_data["DOB"]
-    patient_data['AGE'] = int(age_from_DOB.days/365) 
+    if type(patient_data['YEAR_OF_SAMPLE_COLLECTION']) == str: 
+        age_from_DOB = datetime.strptime(patient_data['YEAR_OF_SAMPLE_COLLECTION'], r"%Y-%m-%d") - patient_data["DOB"]
+        patient_data['YEAR_OF_SAMPLE_COLLECTION'] = datetime.strptime(patient_data['YEAR_OF_SAMPLE_COLLECTION'], r"%Y-%m-%d").year
+    else:
+        age_from_DOB = patient_data['YEAR_OF_SAMPLE_COLLECTION'] - patient_data["DOB"]
+        patient_data['YEAR_OF_SAMPLE_COLLECTION'] = patient_data['YEAR_OF_SAMPLE_COLLECTION'].year
+
+    if not "AGE" in patient_data: patient_data['AGE'] = int(age_from_DOB.days/365) 
     patient_data['DONOR_AGE'] = patient_data["DOB"]
 
-    patient_data['YEAR_OF_SAMPLE_COLLECTION'] = datetime.strptime(patient_data['YEAR_OF_SAMPLE_COLLECTION'], r"%Y-%m-%d").year
+    
 
 
-    ## AGGIUNTA valori mancanti - PER PROVA
-    patient_data['DIAGNOSIS'] = "C18.0"
-    if not "STORAGE_TEMPERATURE" in patient_data: patient_data["STORAGE_TEMPERATURE"] = -80
-    patient_data["STORAGE_TEMPERATURE"] = str(patient_data['STORAGE_TEMPERATURE'])
+    ## AGGIUNTA valori mancanti - PER PROVA 
+    # patient_data['DIAGNOSIS'] = "C18.0"
+    # if not "STORAGE_TEMPERATURE" in patient_data: patient_data["STORAGE_TEMPERATURE"] = -80
+    # patient_data["STORAGE_TEMPERATURE"] = str(patient_data['STORAGE_TEMPERATURE'])
 
     print("PATIENT_DATA AFTER NORM\n", patient_data)
     return patient_data
@@ -161,9 +166,9 @@ def normalize_output(patient: models.Patient) -> models.Patient:
             "":"tissue-paxgene-or-else",
             "":"tissue-other",
             "":"liquid",
-            "":"whole-blood",
-            "":"blood-plasma",
-            "":"blood-serum",
+            "Whole blood":"whole-blood",
+            "Plasma":"blood-plasma",
+            "Serum":"blood-serum",
             "":"peripheral-blood-cells-vital",
             "":"buffy-coat",
             "":"bone-marrow",
@@ -171,7 +176,7 @@ def normalize_output(patient: models.Patient) -> models.Patient:
             "":"ascites",
             "URINE":"urine",
             "SALIVA":"saliva",
-            "":"stool-faeces",
+            "Faeces":"stool-faeces",
             "":"liquid-other",
             "":"derivative",
             "DNA":"dna",
@@ -190,17 +195,3 @@ def normalize_output(patient: models.Patient) -> models.Patient:
     return patient
 
 
-
-## custom validators
-# def validate_birthdate(cls, values: Dict):
-#     if not values:
-#         return values
-#     if "birthDate" not in values:
-#         raise ValueError("Patient's ``birthDate`` is required.")
-
-#     minimum_date = datetime.date(2002, 1, 1)
-#     if values["birthDate"] > minimum_date:
-#         raise ValueError("Minimum 18 years patient is allowed to use this system.")
-#     return values
-# # we want this validator to execute after data evaluating by individual field validators.
-# Patient.add_root_validator(validate_gender, pre=False)
