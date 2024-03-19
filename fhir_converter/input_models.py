@@ -4,7 +4,7 @@ from typing import Optional, Union
 from pydantic import BaseModel, root_validator
 from pydantic import parse_obj_as
 from typing import List
-import icd10
+# import icd10
 
 # all the possible values for the input employed in the validation and normalization process.
 
@@ -85,14 +85,16 @@ class Patient(BaseModel):
 
     @root_validator
     def validate_fields(cls, values):
-        diagnosis_value = values.get('DIAGNOSIS')
-        # codici_icd = [i[:3] + "." + i[3:]  for i in icd10.codes.keys() if i.startswith("C")] # neoplasms only
-        # codici_icd = [i[:3] + "." + i[3:]  for i in icd10.codes.keys()] # all ICDs
-        codici_icd = [i  for i in icd10.codes.keys()] # all ICDs
+        with open(r'codici_icd.txt', 'r') as fp:
+            codici_icd = fp.read().split('\n')[:-1]
+            diagnosis_value = values.get('DIAGNOSIS')
+            # codici_icd = [i[:3] + "." + i[3:]  for i in icd10.codes.keys() if i.startswith("C")] # neoplasms only
+            # codici_icd = [i[:3] + "." + i[3:]  for i in icd10.codes.keys()] # all ICDs
+            # codici_icd = [i  for i in icd10.codes.keys()] # all ICDs
 
-        icd_val = diagnosis_value.replace(".", "")
-        if icd_val and icd_val not in codici_icd:
-            raise ValueError(f"DIAGNOSIS must be a valid ICD-10 code")
+            icd_val = diagnosis_value.replace(".", "")
+            if icd_val and icd_val not in codici_icd:
+                raise ValueError(f"DIAGNOSIS must be a valid ICD-10 code")
         return values
 
 

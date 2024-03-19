@@ -6,7 +6,7 @@ from loguru import logger as log
 
 from fhir.resources.fhirtypes import Date
 import re
-import icd10
+# import icd10
 
 
 class FHIRNormalization:
@@ -33,11 +33,12 @@ class FHIRNormalization:
     ) -> str:
         # DIAG = models.DIAGNOSIS_ENUM
         # can use icd10 library
-        if icd10.exists(diag):
-            return diag
-        else:
-            log.error("Can't map IC10 value for {}", diag)
-            return "N/A"
+        # if icd10.exists(diag):
+        #     return diag
+        # else:
+        #     log.error("Can't map IC10 value for {}", diag)
+        #     return "N/A"
+        return diag
 
 
 

@@ -3,8 +3,7 @@ fhir_biobank==0.1.3
 loguru==0.7.2
 openpyxl==3.1.2
 pydantic==2.6.4
-PyYAML==5.4.1
 PyYAML==6.0.1
 simplejson==3.19.2
 typer==0.9.0
-icd10-cm==0.0.5
+# icd10-cm==0.0.5

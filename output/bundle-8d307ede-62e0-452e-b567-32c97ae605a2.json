@@ -1,0 +1,3779 @@
+{
+    "resourceType": "Bundle",
+    "id": "8d307ede-62e0-452e-b567-32c97ae605a2",
+    "type": "transaction",
+    "entry": [
+        {
+            "fullUrl": "http://example.com/Patient/2059587703",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/2059587703"
+            },
+            "resource": {
+                "resourceType": "Patient",
+                "id": "2059587703",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Patient"
+                    ]
+                },
+                "gender": "male",
+                "birthDate": "1975-10-26"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536243240",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536243240"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536243240",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C18"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C18",
+                                "display": "C18"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/2059587703"
+                },
+                "onsetDateTime": "2023-09-08"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536243240",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536243240"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536243240",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C18",
+                                    "display": "C18"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/2059587703"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Patient/13567872213",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/13567872213"
+            },
+            "resource": {
+                "resourceType": "Patient",
+                "id": "13567872213",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Patient"
+                    ]
+                },
+                "gender": "male",
+                "birthDate": "1960-01-20"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536241660",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536241660"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536241660",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C18"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C18",
+                                "display": "C18"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/13567872213"
+                },
+                "onsetDateTime": "2023-11-16"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536241660",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536241660"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536241660",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C18",
+                                    "display": "C18"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperatureRoom",
+                                    "display": "temperatureRoom"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/13567872213"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Patient/14707134913",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/14707134913"
+            },
+            "resource": {
+                "resourceType": "Patient",
+                "id": "14707134913",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Patient"
+                    ]
+                },
+                "gender": "female",
+                "birthDate": "1947-04-14"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/BBIRET2385KFFPE0",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/BBIRET2385KFFPE0"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "BBIRET2385KFFPE0",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C18"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C18",
+                                "display": "C18"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/14707134913"
+                },
+                "onsetDateTime": "2023-09-11"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/BBIRET2385KFFPE0",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/BBIRET2385KFFPE0"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "BBIRET2385KFFPE0",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C18",
+                                    "display": "C18"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue-formalin"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/14707134913"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Patient/321015230",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/321015230"
+            },
+            "resource": {
+                "resourceType": "Patient",
+                "id": "321015230",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Patient"
+                    ]
+                },
+                "gender": "female",
+                "birthDate": "1943-03-18"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536242970",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536242970"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536242970",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C18"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C18",
+                                "display": "C18"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/321015230"
+                },
+                "onsetDateTime": "2023-09-08"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536242970",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536242970"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536242970",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C18",
+                                    "display": "C18"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/321015230"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Patient/418821840",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/418821840"
+            },
+            "resource": {
+                "resourceType": "Patient",
+                "id": "418821840",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Patient"
+                    ]
+                },
+                "gender": "female",
+                "birthDate": "1936-12-25"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/28853200",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/28853200"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "28853200",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C18"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C18",
+                                "display": "C18"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/418821840"
+                },
+                "onsetDateTime": "2023-10-04"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/28853200",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/28853200"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "28853200",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C18",
+                                    "display": "C18"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue-formalin"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/418821840"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536243900",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536243900"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536243900",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C18"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C18",
+                                "display": "C18"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/418821840"
+                },
+                "onsetDateTime": "2023-10-04"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536243900",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536243900"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536243900",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C18",
+                                    "display": "C18"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/418821840"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Patient/1470713491",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/1470713491"
+            },
+            "resource": {
+                "resourceType": "Patient",
+                "id": "1470713491",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Patient"
+                    ]
+                },
+                "gender": "female",
+                "birthDate": "1947-04-14"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/BBIRET2385SFFPE0",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/BBIRET2385SFFPE0"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "BBIRET2385SFFPE0",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C18"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C18",
+                                "display": "C18"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1470713491"
+                },
+                "onsetDateTime": "2023-09-11"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/BBIRET2385SFFPE0",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/BBIRET2385SFFPE0"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "BBIRET2385SFFPE0",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C18",
+                                    "display": "C18"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue-formalin"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1470713491"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Patient/1112369521",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/1112369521"
+            },
+            "resource": {
+                "resourceType": "Patient",
+                "id": "1112369521",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Patient"
+                    ]
+                },
+                "gender": "male",
+                "birthDate": "1973-08-13"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536241060",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536241060"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536241060",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C34.9"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C34.9",
+                                "display": "C34.9"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1112369521"
+                },
+                "onsetDateTime": "2023-07-06"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536241060",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536241060"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536241060",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C34.9",
+                                    "display": "C34.9"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1112369521"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536243020",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536243020"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536243020",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C34.9"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C34.9",
+                                "display": "C34.9"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1470713491"
+                },
+                "onsetDateTime": "2023-09-11"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536243020",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536243020"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536243020",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C34.9",
+                                    "display": "C34.9"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1470713491"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Patient/1356787221",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/1356787221"
+            },
+            "resource": {
+                "resourceType": "Patient",
+                "id": "1356787221",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Patient"
+                    ]
+                },
+                "gender": "male",
+                "birthDate": "1960-01-20"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536241850",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536241850"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536241850",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C34.9"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C34.9",
+                                "display": "C34.9"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1356787221"
+                },
+                "onsetDateTime": "2023-11-16"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536241850",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536241850"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536241850",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C34.9",
+                                    "display": "C34.9"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1356787221"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Patient/1356301051",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/1356301051"
+            },
+            "resource": {
+                "resourceType": "Patient",
+                "id": "1356301051",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Patient"
+                    ]
+                },
+                "gender": "female",
+                "birthDate": "1963-09-28"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536241360",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536241360"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536241360",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C34.9"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C34.9",
+                                "display": "C34.9"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1356301051"
+                },
+                "onsetDateTime": "2023-09-15"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536241360",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536241360"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536241360",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C34.9",
+                                    "display": "C34.9"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1356301051"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Patient/85969800",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/85969800"
+            },
+            "resource": {
+                "resourceType": "Patient",
+                "id": "85969800",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Patient"
+                    ]
+                },
+                "gender": "female",
+                "birthDate": "1942-03-21"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00162228250",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00162228250"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00162228250",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C34.9"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C34.9",
+                                "display": "C34.9"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/85969800"
+                },
+                "onsetDateTime": "2023-07-26"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00162228250",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00162228250"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00162228250",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C34.9",
+                                    "display": "C34.9"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/85969800"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/28853190",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/28853190"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "28853190",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C34.9"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C34.9",
+                                "display": "C34.9"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/418821840"
+                },
+                "onsetDateTime": "2023-10-04"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/28853190",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/28853190"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "28853190",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C34.9",
+                                    "display": "C34.9"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue-formalin"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/418821840"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Patient/1368965921",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/1368965921"
+            },
+            "resource": {
+                "resourceType": "Patient",
+                "id": "1368965921",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Patient"
+                    ]
+                },
+                "gender": "male",
+                "birthDate": "1947-03-20"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536345730",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536345730"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536345730",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C34.9"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C34.9",
+                                "display": "C34.9"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1368965921"
+                },
+                "onsetDateTime": "2023-10-19"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536345730",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536345730"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536345730",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C34.9",
+                                    "display": "C34.9"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1368965921"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536243940",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536243940"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536243940",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C34.9"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C34.9",
+                                "display": "C34.9"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/418821840"
+                },
+                "onsetDateTime": "2023-10-04"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536243940",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536243940"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536243940",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C34.9",
+                                    "display": "C34.9"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/418821840"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536243110",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536243110"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536243110",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C19"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C19",
+                                "display": "C19"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/321015230"
+                },
+                "onsetDateTime": "2023-09-08"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536243110",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536243110"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536243110",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C19",
+                                    "display": "C19"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/321015230"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536244070",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536244070"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536244070",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C19"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C19",
+                                "display": "C19"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/418821840"
+                },
+                "onsetDateTime": "2023-10-04"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536244070",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536244070"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536244070",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C19",
+                                    "display": "C19"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/418821840"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536244190",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536244190"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536244190",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C19"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C19",
+                                "display": "C19"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/418821840"
+                },
+                "onsetDateTime": "2023-10-04"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536244190",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536244190"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536244190",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C19",
+                                    "display": "C19"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/418821840"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536345710",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536345710"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536345710",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C19"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C19",
+                                "display": "C19"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1368965921"
+                },
+                "onsetDateTime": "2023-10-19"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536345710",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536345710"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536345710",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C19",
+                                    "display": "C19"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1368965921"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536241250",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536241250"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536241250",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C19"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C19",
+                                "display": "C19"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1356301051"
+                },
+                "onsetDateTime": "2023-09-15"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536241250",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536241250"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536241250",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C19",
+                                    "display": "C19"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1356301051"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536243050",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536243050"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536243050",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C19."
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C19.",
+                                "display": "C19."
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1470713491"
+                },
+                "onsetDateTime": "2023-09-11"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536243050",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536243050"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536243050",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C19.",
+                                    "display": "C19."
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1470713491"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00162534310",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00162534310"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00162534310",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C34"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C34",
+                                "display": "C34"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/85969800"
+                },
+                "onsetDateTime": "2023-07-26"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00162534310",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00162534310"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00162534310",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C34",
+                                    "display": "C34"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/85969800"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Patient/205958770",
+            "request": {
+                "method": "PUT",
+                "url": "Patient/205958770"
+            },
+            "resource": {
+                "resourceType": "Patient",
+                "id": "205958770",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Patient"
+                    ]
+                },
+                "gender": "male",
+                "birthDate": "1975-10-26"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536242880",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536242880"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536242880",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C34"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C34",
+                                "display": "C34"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/205958770"
+                },
+                "onsetDateTime": "2023-09-08"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536242880",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536242880"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536242880",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C34",
+                                    "display": "C34"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/205958770"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/28728440",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/28728440"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "28728440",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C34.9"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C34.9",
+                                "display": "C34.9"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/85969800"
+                },
+                "onsetDateTime": "2023-07-26"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/28728440",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/28728440"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "28728440",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C34.9",
+                                    "display": "C34.9"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue-formalin"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/85969800"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536244020",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536244020"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536244020",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C34.9"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C34.9",
+                                "display": "C34.9"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/418821840"
+                },
+                "onsetDateTime": "2023-10-04"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536244020",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536244020"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536244020",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C34.9",
+                                    "display": "C34.9"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/418821840"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536243270",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536243270"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536243270",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C34.9"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C34.9",
+                                "display": "C34.9"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1470713491"
+                },
+                "onsetDateTime": "2023-09-11"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536243270",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536243270"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536243270",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C34.9",
+                                    "display": "C34.9"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1470713491"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/28886210",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/28886210"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "28886210",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C34.9"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C34.9",
+                                "display": "C34.9"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1368965921"
+                },
+                "onsetDateTime": "2023-10-19"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/28886210",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/28886210"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "28886210",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C34.9",
+                                    "display": "C34.9"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue-formalin"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1368965921"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Condition/NA00536242990",
+            "request": {
+                "method": "PUT",
+                "url": "Condition/NA00536242990"
+            },
+            "resource": {
+                "resourceType": "Condition",
+                "id": "NA00536242990",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Condition"
+                    ]
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                            "code": "resolved"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "display": "C34.2"
+                        }
+                    ]
+                },
+                "bodySite": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/icd-10",
+                                "code": "C34.2",
+                                "display": "C34.2"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/1470713491"
+                },
+                "onsetDateTime": "2023-09-11"
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Specimen/NA00536242990",
+            "request": {
+                "method": "PUT",
+                "url": "Specimen/NA00536242990"
+            },
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "NA00536242990",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Specimen"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/SampleDiagnosis",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/sid/icd-10",
+                                    "code": "C34.2",
+                                    "display": "C34.2"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/StorageTemperature",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/StorageTemperature",
+                                    "code": "temperature-60to-85",
+                                    "display": "temperature-60to-85"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/Custodian",
+                        "valueReference": {
+                            "reference": "Organization/00000000000"
+                        }
+                    }
+                ],
+                "status": "available",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.bbmri.de/CodeSystem/SampleMaterialType",
+                            "code": "tissue"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/1470713491"
+                },
+                "collection": {
+                    "collectedDateTime": "2023-01-01"
+                }
+            }
+        }
+    ]
+}
