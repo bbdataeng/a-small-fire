@@ -48,20 +48,28 @@ The FHIR final JSON is built by two separate modules:
 
 ## Requirements
 ``` shell
-pip install -r requirements.txt
+pip install -r fhir_converter/requirements.txt
 ```
 
-Mandatory colnames:
+<!-- Mandatory colnames:
 
 -SEX
+
 -DIAGNOSIS
+
 -DATE_DIAGNOSIS
+
 -DOB
+
 -YEAR_OF_SAMPLE_COLLECTION
+
 -SAMPLE_MATERIAL_TYPE
+
 -STORAGE_TEMPERATURE
+
 -PATIENT_ID
--SAMPLE_ID
+
+-SAMPLE_ID -->
 
 
 ## Usage

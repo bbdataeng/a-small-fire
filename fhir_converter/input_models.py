@@ -90,8 +90,8 @@ class Patient(BaseModel):
         # codici_icd = [i[:3] + "." + i[3:]  for i in icd10.codes.keys()] # all ICDs
         codici_icd = [i  for i in icd10.codes.keys()] # all ICDs
 
-        diagnosis_value = diagnosis_value.replace(".", "")
-        if diagnosis_value and diagnosis_value not in codici_icd:
+        icd_val = diagnosis_value.replace(".", "")
+        if icd_val and icd_val not in codici_icd:
             raise ValueError(f"DIAGNOSIS must be a valid ICD-10 code")
         return values
 

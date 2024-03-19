@@ -40,11 +40,6 @@ class FHIRNormalization:
             return "N/A"
 
 
- 
-    
-
-    
-            
 
 def normalize_input(patient_data: Dict[str, str]) -> Dict[str, str]:
     
@@ -105,7 +100,6 @@ def normalize_input(patient_data: Dict[str, str]) -> Dict[str, str]:
 
     
 
-
     ## AGGIUNTA valori mancanti - PER PROVA 
     # patient_data['DIAGNOSIS'] = "C18.0"
     # if not "STORAGE_TEMPERATURE" in patient_data: patient_data["STORAGE_TEMPERATURE"] = -80
@@ -146,6 +140,7 @@ def convert_temperature(value: str):
             
 def normalize_output(patient: models.Patient) -> models.Patient:
     '''mapping of values according to BBMRI.de/GBA Implementation Guide'''
+
     patient.SEX = apply_map(
         "SEX",
         patient.SEX,
@@ -165,7 +160,7 @@ def normalize_output(patient: models.Patient) -> models.Patient:
             "":"tissue-frozen",
             "":"tissue-paxgene-or-else",
             "":"tissue-other",
-            "":"liquid",
+            "Liquid":"liquid",
             "Whole blood":"whole-blood",
             "Plasma":"blood-plasma",
             "Serum":"blood-serum",
@@ -174,8 +169,8 @@ def normalize_output(patient: models.Patient) -> models.Patient:
             "":"bone-marrow",
             "":"csf-liquor",
             "":"ascites",
-            "URINE":"urine",
-            "SALIVA":"saliva",
+            "Urine":"urine",
+            "Saliva":"saliva",
             "Faeces":"stool-faeces",
             "":"liquid-other",
             "":"derivative",
@@ -190,8 +185,6 @@ def normalize_output(patient: models.Patient) -> models.Patient:
     
 
     
-        
-
     return patient
 
 
