@@ -4,7 +4,7 @@ from typing import Optional, Union
 from pydantic import BaseModel, root_validator
 from pydantic import parse_obj_as
 from typing import List
-# import icd10
+import icd10
 
 # all the possible values for the input employed in the validation and normalization process.
 
@@ -12,47 +12,36 @@ class UNKNOWN(str, Enum):
     UNKNOWN = "Unknown"
 
 class SEX_ENUM(str, Enum):
-    F = "F"
-    M = "M"
-    other = "other"
+    F = "Female"
+    M = "Male"
+    unknown = "Unknown"
+    undifferentiated = "Undifferentiated"
 
 class SAMPLE_MATERIAL_TYPE_ENUM(str, Enum):
-    Tissue = "Tessuto"
-    FFPE = "FFPE"
-    Liquid = "Liquido"
-    WholeBlood = "Sangue intero"
-    Plasma = "Plasma"
-    Serum = "Siero"
-    Saliva = "Saliva"
-    Urine = "Urine"
-    RNA = "RNA"
-    DNA = "DNA"
-
-    # "tissue",
-	# "tissue-formalin",
-	# "tissue-frozen",
-	# "tissue-paxgene-or-else",
-	# "tissue-other",
-	# "liquid",
-	# "whole-blood",
-	# "blood-plasma",
-	# "blood-serum",
-	# "peripheral-blood-cells-vital",
-	# "buffy-coat",
-	# "bone-marrow",
-	# "csf-liquor",
-	# "ascites",
-	# "urine",
-	# "saliva",
-	# "stool-faeces",
-	# "liquid-other",
-	# "derivative",
-	# "dna",
-	# "cf-dna",
-	# "rna",
-	# "derivative-other",
+    TISSUE_FFPE = 'Tissue (FFPE)'
+    TISSUE_FROZEN = 'Tissue (Frozen)'
+    BLOOD = 'Blood'
+    CELL = 'Immortalized Cell Lines'
+    DNA = 'DNA'
+    RNA = 'RNA'
+    FAECES = 'Faeces'
+    PATHOGEN = 'Isolated Pathogen'
+    PLASMA = 'Plasma'
+    OTHER = 'Other'
+    SALIVA = 'Saliva'
+    SERUM = 'Serum'
+    URINE = 'Urine'
 
 
+
+class STORAGE_TEMPERATURE_ENUM(str, Enum):
+    MIN60TOMIN85 = "-60 °C to -85 °C"
+    MIN18TOMIN36 = "-18 °C to -35 °C"
+    TEMMP2TO10 = "2 °C to 10°C"
+    OTHER ="Other"
+    RT = "RT"
+    GN = "GN"
+    LN = "LN"
 
 
 class Patient(BaseModel):
@@ -66,22 +55,22 @@ class Patient(BaseModel):
     SEX: SEX_ENUM
     # Date of diagnosis
     DATE_DIAGNOSIS: date
+    # Dignosis (ICD-10)
     DIAGNOSIS : str
-
+    # Donor Age
     DONOR_AGE : date
     # AGE: int
+
     # ########## Sample
     # Sample ID
-    SAMPLE_ID: str
+    SAMPLE_ID: Optional[str]
     # Material type
     SAMPLE_MATERIAL_TYPE: SAMPLE_MATERIAL_TYPE_ENUM
-    # Preservation mode
-    # SAMPLE_PRESERVATION_MODE: SAMPLE_PRESERVATION_MODE_ENUM
-    # SAMPLE_PRESERVATION_MODE: List[SAMPLE_PRESERVATION_MODE_ENUM]
     # Year of sample collection
-    YEAR_OF_SAMPLE_COLLECTION: int
+    # YEAR_OF_SAMPLE_COLLECTION: int
+    SAMPLING_DATE: date
     # Room temperature
-    STORAGE_TEMPERATURE: str
+    STORAGE_TEMPERATURE: STORAGE_TEMPERATURE_ENUM
 
     @root_validator
     def validate_fields(cls, values):
@@ -89,8 +78,8 @@ class Patient(BaseModel):
             codici_icd = fp.read().split('\n')[:-1]
             diagnosis_value = values.get('DIAGNOSIS')
             # codici_icd = [i[:3] + "." + i[3:]  for i in icd10.codes.keys() if i.startswith("C")] # neoplasms only
-            # codici_icd = [i[:3] + "." + i[3:]  for i in icd10.codes.keys()] # all ICDs
-            # codici_icd = [i  for i in icd10.codes.keys()] # all ICDs
+            codici_icd = [i[:3] + "." + i[3:]  for i in icd10.codes.keys()] # all ICDs
+            codici_icd = [i  for i in icd10.codes.keys()] # all ICDs
 
             icd_val = diagnosis_value.replace(".", "")
             if icd_val and icd_val not in codici_icd:

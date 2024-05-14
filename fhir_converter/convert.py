@@ -14,6 +14,7 @@ from normalization import normalize_input, normalize_output
 from openpyxl import load_workbook
 from openpyxl.utils.exceptions import InvalidFileException
 from pydantic import ValidationError
+# from tqdm import tqdm
 
 
 """
@@ -74,16 +75,16 @@ def convert(
         sys.exit(str(e))
 
     header: Dict[int, str] = {}
-
-    ## create empty bundle
+    
+    # create a bundle with collection resource and biobank resource
     bundle = FHIRResources.get_bundle()
-    ## add organization 
-    organization = FHIRResources.get_organization()
-    bundle.entry.append(organization)
+
+    collection = FHIRResources.get_organization("Collection")
+    biobank = FHIRResources.get_organization("Biobank")
+    bundle.entry.append(collection)
+    bundle.entry.append(biobank)
     bundle_data = bundle.dict()
     bundle_data = bbmri_post_serialization(bundle_data)
-
-    # counters = {}
 
     ## create a json file for the organization
     with open(f"{outdir}/organization.json", "w") as f:
@@ -139,7 +140,7 @@ def convert(
                     )
             else:
                 patient = normalize_output(patient) # another mapping 
-                print("PATIENT\n", patient)
+                # print("PATIENT\n", patient)
                 patient_serializer = FHIRSerializer(patient)
 
                 pat_id = patient_serializer.PATIENT_ID

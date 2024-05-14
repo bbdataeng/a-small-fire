@@ -1,17 +1,74 @@
 {
     "resourceType": "Bundle",
-    "id": "b4a3865c-1455-49cf-8bbd-d6f7db5a11ec",
+    "id": "87541bd8-ebd4-4583-863b-9780224fa4c1",
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "http://example.com/Organization/00000000000",
+            "fullUrl": "http://example.com/Organization/11111",
             "request": {
                 "method": "PUT",
-                "url": "Organization/00000000000"
+                "url": "Organization/11111"
             },
             "resource": {
                 "resourceType": "Organization",
-                "id": "00000000000",
+                "id": "11111",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Collection"
+                    ]
+                },
+                "active": true,
+                "name": "Colorectal Cancer Collection",
+                "alias": [
+                    "CRC"
+                ],
+                "contact": [
+                    {
+                        "telecom": [
+                            {
+                                "system": "phone",
+                                "value": "+395453534534",
+                                "use": "work",
+                                "rank": 1
+                            },
+                            {
+                                "system": "email",
+                                "value": "pippo.baudo@isnt.it",
+                                "use": "work",
+                                "rank": 1
+                            }
+                        ],
+                        "address": {
+                            "use": "work",
+                            "type": "physical",
+                            "line": [
+                                "Via Manzoni 35"
+                            ],
+                            "city": "Rome",
+                            "postalCode": "00123",
+                            "country": "IT"
+                        }
+                    }
+                ],
+                "partOf": {
+                    "reference": "Organization/01001"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://example.com/Organization/01001",
+            "request": {
+                "method": "PUT",
+                "url": "Organization/01001"
+            },
+            "resource": {
+                "resourceType": "Organization",
+                "id": "01001",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Biobank"
+                    ]
+                },
                 "active": true,
                 "name": "Istituto Nazionale Tumori Pippo Baudo",
                 "alias": [

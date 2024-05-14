@@ -3,9 +3,8 @@ BBMRI: Biobanking and BioMolecular Resources Research Infrastructure
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6739205/
 """
 from typing import Any, Dict, Optional, Tuple
-
+import yaml
 import input_models as models
-from config import SERVER_URL
 from fhir_resources import FHIRResources
 from loguru import logger as log
 from normalization import FHIRNormalization
@@ -51,7 +50,9 @@ from fhir.resources.resource import Resource
         MM_RISK_SITUATION_HNPCC
         BRAF_PIC3CA_HER_MUTATION_STATUS
 """
-
+with open("config.yaml", "r") as config_file:
+    config_data = yaml.safe_load(config_file)
+SERVER_URL = config_data.get("server_url", "")
 
 class FHIRSerializer:
     def __init__(self, input_patient: models.Patient) -> None:
@@ -84,13 +85,12 @@ class FHIRSerializer:
         resource.meta = FHIRResources.get_meta(resource.resource_type)
         if resource_id:
             
-            resource_id = resource_id.replace("-", "").replace(" ","")
+            # resource_id = resource_id.replace("-", "").replace(" ","")
             resource.id = resource_id
         elif patient_id:
-            
             patient_id = patient_id.replace("-", "").replace(" ","")
-            # resource.id = self.generate_id(patient_id, resource.resource_type)
-            resource.id = self.input_patient.SAMPLE_ID.replace("-", "").replace(" ","")
+            resource.id = self.generate_id(patient_id, resource.resource_type)
+            # resource.id = self.input_patient.SAMPLE_ID.replace("-", "").replace(" ","")
 
         bundle.entry.append(resource)
 
@@ -139,7 +139,7 @@ class FHIRSerializer:
 
             patient_ref=patient_ref,
             diagnosis=self.input_patient.DIAGNOSIS,
-            collection_year=self.input_patient.YEAR_OF_SAMPLE_COLLECTION,
+            collection_date=self.input_patient.SAMPLING_DATE,
             material_type=self.MATERIAL_TYPE,
             temperature_room=self.input_patient.STORAGE_TEMPERATURE
             # surgery_start=self.SURGERY_START,

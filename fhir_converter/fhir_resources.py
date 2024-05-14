@@ -37,12 +37,19 @@ Employed by the FHIR-MODEL module to map each field/entity to its FHIR counterpa
 with open("config.yaml", "r") as config_file:
     config_data = yaml.safe_load(config_file)
 
+
 BBMRI_STRUCTURE_DEFINITION_URL = config_data.get("bbmri_structure_definition_url", "")
 SERVER_URL = config_data.get("server_url", "")
-ORGANIZATION_ID = config_data.get("organization_id", "")
-ORGANIZATION_NAME = config_data.get("organization_name", "")
-ORGANIZATION_ALIAS = config_data.get("organization_alias", [])
-ORGANIZATION_CONTACT = config_data.get("organization_contact", [])
+
+ORGANIZATION_ID_COLL = config_data.get("collection_id", "")
+ORGANIZATION_NAME_COLL = config_data.get("collection_name", "")
+ORGANIZATION_ALIAS_COLL = config_data.get("collection_alias", [])
+ORGANIZATION_CONTACT_COLL = config_data.get("collection_contact", [])
+ORGANIZATION_ID_BIO = config_data.get("biobank_id", "")
+ORGANIZATION_NAME_BIO = config_data.get("biobank_name", "")
+ORGANIZATION_ALIAS_BIO = config_data.get("biobank_alias", [])
+ORGANIZATION_CONTACT_BIO = config_data.get("biobank_contact", [])
+
 
 # Search on https://icd.who.int/browse10/2019/en
 ICD10_SYSTEM = "http://hl7.org/fhir/sid/icd-10"
@@ -68,26 +75,50 @@ class FHIRResources:
         )
 
     @staticmethod
-    def get_organization() -> Organization:
-        return Organization(
-            id=ORGANIZATION_ID,
-            active=True,
-            name=ORGANIZATION_NAME,
-            alias=ORGANIZATION_ALIAS,
-            contact=[
-                {
-                    "address": Address(**contact["address"]),
-                    "telecom": [
-                        {
-                            "system": item["system"],
-                            "value": item["value"],
-                            "use": item["use"],
-                            "rank": item["rank"]
-                        } for item in contact["telecom"]
-                    ]
-                } for contact in ORGANIZATION_CONTACT
-            ]
-        )
+    def get_organization(type) -> Organization:
+        if type == "Collection":
+            return Organization(
+                id=ORGANIZATION_ID_COLL,
+                meta=Meta(profile=[f"{BBMRI_STRUCTURE_DEFINITION_URL}/Collection"]),
+                active=True,
+                name=ORGANIZATION_NAME_COLL,
+                alias=ORGANIZATION_ALIAS_COLL,
+                partOf=Reference(reference=f"Organization/{ORGANIZATION_ID_BIO}"),
+                contact=[
+                    {
+                        "address": Address(**contact["address"]),
+                        "telecom": [
+                            {
+                                "system": item["system"],
+                                "value": item["value"],
+                                "use": item["use"],
+                                "rank": item["rank"]
+                            } for item in contact["telecom"]
+                        ]
+                    } for contact in ORGANIZATION_CONTACT_COLL
+                ]
+            )
+        else:
+                        return Organization(
+                id=ORGANIZATION_ID_BIO,
+                meta=Meta(profile=[f"{BBMRI_STRUCTURE_DEFINITION_URL}/Biobank"]),
+                active=True,
+                name=ORGANIZATION_NAME_BIO,
+                alias=ORGANIZATION_ALIAS_BIO,
+                contact=[
+                    {
+                        "address": Address(**contact["address"]),
+                        "telecom": [
+                            {
+                                "system": item["system"],
+                                "value": item["value"],
+                                "use": item["use"],
+                                "rank": item["rank"]
+                            } for item in contact["telecom"]
+                        ]
+                    } for contact in ORGANIZATION_CONTACT_BIO
+                ]
+            )
 
     @staticmethod
     def get_patient(
@@ -195,7 +226,7 @@ class FHIRResources:
     def get_specimen(
         patient_ref: Reference,
         diagnosis: str,
-        collection_year: int,
+        collection_date: date,
         material_type: Optional[CodeableConcept],
         # surgery_start: Optional[date],
         temperature_room : Optional[int]
@@ -241,7 +272,7 @@ class FHIRResources:
                 Extension(
                     url=f"{BBMRI_STRUCTURE_DEFINITION_URL}/Custodian",
                     valueReference=Reference(
-                        reference=f"Organization/{ORGANIZATION_ID}"
+                        reference=f"Organization/{ORGANIZATION_ID_COLL}"
                     ),
                 ),
             ],
@@ -249,9 +280,7 @@ class FHIRResources:
             type=material_type,
             subject=patient_ref,
             collection=SpecimenCollection(
-                collectedDateTime=FHIRNormalization.get_collection_date(
-                    collection_year
-                )
+                collectedDateTime=collection_date
             ),
         )
 

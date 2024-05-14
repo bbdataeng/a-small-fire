@@ -42,3 +42,4 @@ CAMPI RICHIESTI ===============================================================
 
 In order to upload resource to a server, creating Bundle resource containing all of the resources that you want to upload is necessary. 
 Bundle contains list of Entry resources, where each Entry resource represents specific resource(for example Patient resource). 
+
