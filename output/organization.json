@@ -1,17 +1,17 @@
 {
     "resourceType": "Bundle",
-    "id": "792cf89f-504d-49b8-ad7c-50539ee9a79a",
+    "id": "a8eb5af1-501c-48e3-b132-080ab360e9e1",
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "http://example.com/Organization/11111",
+            "fullUrl": "http://example.com/Organization/1606752281669494",
             "request": {
                 "method": "PUT",
-                "url": "Organization/11111"
+                "url": "Organization/1606752281669494"
             },
             "resource": {
                 "resourceType": "Organization",
-                "id": "11111",
+                "id": "1606752281669494",
                 "meta": {
                     "profile": [
                         "https://fhir.bbmri.de/StructureDefinition/Collection"
@@ -51,28 +51,28 @@
                     }
                 ],
                 "partOf": {
-                    "reference": "Organization/01001"
+                    "reference": "Organization/1606752281669494"
                 }
             }
         },
         {
-            "fullUrl": "http://example.com/Organization/01001",
+            "fullUrl": "http://example.com/Organization/1606752281669494",
             "request": {
                 "method": "PUT",
-                "url": "Organization/01001"
+                "url": "Organization/1606752281669494"
             },
             "resource": {
                 "resourceType": "Organization",
-                "id": "01001",
+                "id": "1606752281669494",
                 "meta": {
                     "profile": [
                         "https://fhir.bbmri.de/StructureDefinition/Biobank"
                     ]
                 },
                 "active": true,
-                "name": "Istituto Nazionale Tumori Pippo Baudo",
+                "name": "Istituto Nazionale Tumori Regina Elena",
                 "alias": [
-                    "PIPPO"
+                    "IRE"
                 ],
                 "contact": [
                     {
@@ -94,7 +94,7 @@
                             "use": "work",
                             "type": "physical",
                             "line": [
-                                "Via Manzoni 35"
+                                "Via Chianesi 35"
                             ],
                             "city": "Rome",
                             "postalCode": "00123",

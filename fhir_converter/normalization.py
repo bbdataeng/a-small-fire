@@ -109,8 +109,9 @@ def normalize_input(patient_data: Dict[str, str]) -> Dict[str, str]:
         'SNAP': 'Tissue (Frozen)',
         'FROZEN': 'Tissue (Frozen)',
         'FRESH FROZEN': 'Tissue (Frozen)',
-        'OCT': 'Tissue (Frozen)'},
-) 
+        'OCT': 'Tissue (Frozen)',
+        "SN":"Other"} ,#surnatante?
+ ) 
 
     # DIAGNOSIS
     patient_data['DIAGNOSIS'] = patient_data['ICD-10']
@@ -128,8 +129,8 @@ def normalize_input(patient_data: Dict[str, str]) -> Dict[str, str]:
     #  not "AGE" in patient_data: patient_data['AGE'] = int(age_from_DOB.days/365) 
     # patient_data['DONOR_AGE'] = patient_data["DOB"]
 
-    
-
+    # DIAGNOSIS
+    if "." not in patient_data['DIAGNOSIS']: patient_data['DIAGNOSIS'] = patient_data['DIAGNOSIS'][:3] + "." + patient_data['DIAGNOSIS'][3:]
 
     # SEX
     patient_data['SEX'] = apply_map(
@@ -214,7 +215,7 @@ def normalize_output(patient: models.Patient) -> models.Patient:
             "Urine":"urine",
             "Saliva":"saliva",
             "Faeces":"stool-faeces",
-            "":"liquid-other",
+            "Other":"liquid-other",
             "":"derivative",
             "DNA":"dna",
             "":"cf-dna",

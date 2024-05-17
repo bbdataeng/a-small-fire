@@ -2,7 +2,7 @@ bbmri_structure_definition_url: "https://fhir.bbmri.de/StructureDefinition"
 server_url: "http://example.com"
 
 # Collection info 
-collection_id: "11111"
+collection_id: "1606752281669494"
 collection_name: "Colorectal Cancer Collection"
 
 collection_alias:
@@ -32,11 +32,11 @@ collection_contact:
         rank: 1
 
 # Biobank info 
-biobank_id: "01001"
-biobank_name: "Istituto Nazionale Tumori Pippo Baudo"
+biobank_id: "1606752281669494"
+biobank_name: "Istituto Nazionale Tumori Regina Elena"
 
 biobank_alias:
-  - "PIPPO"
+  - "IRE"
 
 biobank_contact:
 
@@ -47,7 +47,7 @@ biobank_contact:
       city: "Rome"
       postalCode: "00123"
       line:
-        - "Via Manzoni 35"
+        - "Via Chianesi 35"
 
     telecom:
 

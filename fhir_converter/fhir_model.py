@@ -55,10 +55,10 @@ with open("config.yaml", "r") as config_file:
 SERVER_URL = config_data.get("server_url", "")
 
 class FHIRSerializer:
-    def __init__(self, input_patient: models.Patient) -> None:
-        self.counters: Dict[str, int] = {}
+    def __init__(self, input_patient: models.Patient, counters) -> None:
+        self.counters = counters
         self.input_patient = input_patient
-
+        
         # We decided to use the SAMPLE_ID as PATIENT_ID
         # SAMPLE_ID will be assigned as PATIENT_ID-specimen-0
         self.PATIENT_ID = self.input_patient.PATIENT_ID
@@ -72,8 +72,8 @@ class FHIRSerializer:
         )
 
         self.MATERIAL_TYPE = FHIRResources.get_material_type(self.input_patient.SAMPLE_MATERIAL_TYPE)
-       
-       
+
+  
 
     def add_to_bundle(
         self,
@@ -83,20 +83,21 @@ class FHIRSerializer:
         patient_id: Optional[str] = None,
     ) -> None:
         resource.meta = FHIRResources.get_meta(resource.resource_type)
+    
+
         if resource_id:
-            
             # resource_id = resource_id.replace("-", "").replace(" ","")
             resource.id = resource_id
         elif patient_id:
-            patient_id = patient_id.replace("-", "").replace(" ","")
+            # patient_id = patient_id.replace("-", "").replace(" ","")
             resource.id = self.generate_id(patient_id, resource.resource_type)
             # resource.id = self.input_patient.SAMPLE_ID.replace("-", "").replace(" ","")
 
         bundle.entry.append(resource)
 
     def generate_id(self, patient_id: str, resource_type: str) -> str:
-        counter = self.counters.get(resource_type, 0)
-        self.counters[resource_type] = counter + 1
+        counter = self.counters.get(patient_id+resource_type, 0)
+        self.counters[patient_id+resource_type] = counter + 1
         return f"{patient_id}-{resource_type.lower()}-{counter}"
 
     def serialize_patient(self, bundle, copy) -> Tuple[str, Bundle]:
@@ -129,7 +130,8 @@ class FHIRSerializer:
             age=self.input_patient.AGE_AT_PRIMARY_DIAGNOSIS,
         )
 
-        self.add_to_bundle(bundle, diagnosis, patient_id=self.PATIENT_ID)
+        # if the patient has been added yet-- > no duplicate diagnosis
+        if not copy: self.add_to_bundle(bundle, diagnosis, patient_id=self.PATIENT_ID)
 
 
         # ##############################################
