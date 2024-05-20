@@ -6,7 +6,7 @@ The toolkit is based on the open source FHIR RESOURCES library available at http
 
 <!-- The toolkit uses the [CRC-ADOPT](https://ec.europa.eu/research/participants/documents/downloadPublic?documentIds=080166e5c9716d4e&appId=PPGMS) common data model. -->
 
-![workflow](https://github.com/antocruo/bbdataeng/a-small-fhir/extra/graphical_abstract.png)
+![workflow](https://github.com/bbdataeng/a-small-fhir/blob/simpler-fhir/extra/graphical_abstract.png)
 
 
 ## Basic Model - a small FHIR
