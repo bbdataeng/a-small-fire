@@ -10,21 +10,7 @@ import re
 
 
 class FHIRNormalization:
-    @staticmethod
-    def get_date_from_rel(diagnosis: date, weeks: float) -> Optional[date]:
-        # When 0 is intended to be Unknown
-        if weeks <= 0:
-            return None
-        days: int = round(weeks * 7)
-        return diagnosis + timedelta(days=days)
 
-    # Return surgery date, if any
-    # otherwise return collection year at 1st of January
-    # @staticmethod
-    # def get_collection_date(collection_year: int, surgery: Date) -> Date:
-    #     return surgery or Date(collection_year, 1, 1)
-    # def get_collection_date(collection_year: int) -> Date:
-    #     return Date(collection_year, 1, 1)
     # https://www.icd10data.com/search
     @staticmethod
     def get_diagnosis_icd10(
@@ -73,12 +59,6 @@ def normalize_input(patient_data: Dict[str, str]) -> Dict[str, str]:
     for key in patient_data:
         if type(patient_data[key]) == str:
             patient_data[key] = patient_data[key].strip()
-
-    # ## Fix keys
-    # for dirty_key in list(patient_data):
-    #     key = dirty_key.replace(" ", "_").replace("  ", "").upper()
-    #     patient_data[key] = patient_data[dirty_key]
-    #     if key != dirty_key : del patient_data[dirty_key]
 
 
     
@@ -130,7 +110,7 @@ def normalize_input(patient_data: Dict[str, str]) -> Dict[str, str]:
     # patient_data['DONOR_AGE'] = patient_data["DOB"]
 
     # DIAGNOSIS
-    if "." not in patient_data['DIAGNOSIS']: patient_data['DIAGNOSIS'] = patient_data['DIAGNOSIS'][:3] + "." + patient_data['DIAGNOSIS'][3:]
+    # if "." not in patient_data['DIAGNOSIS']: patient_data['DIAGNOSIS'] = patient_data['DIAGNOSIS'][:3] + "." + patient_data['DIAGNOSIS'][3:]
 
     # SEX
     patient_data['SEX'] = apply_map(

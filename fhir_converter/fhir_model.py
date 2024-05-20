@@ -1,7 +1,3 @@
-"""
-BBMRI: Biobanking and BioMolecular Resources Research Infrastructure
-# https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6739205/
-"""
 from typing import Any, Dict, Optional, Tuple
 import yaml
 import input_models as models
@@ -12,44 +8,7 @@ from normalization import FHIRNormalization
 from fhir.resources.bundle import Bundle
 from fhir.resources.resource import Resource
 
-"""
-    # BASIC BBMRI MODEL
 
-    - Ho dovuto rimuovere onsetAge da Specimen per fare posto ad onsetDateTime
-    - Query da Sample Locator:
-        - sex funziona
-        - date diagnosis funziona
-        - diagnosis age donor non funziona (ho dovuto togliere onsetAge x onsetDateTime)
-        - diagnosis ICD-10 non funziona
-        - Donor Age non funziona, come si imposta l'età? Birthday !?
-        - Sample type liquid non funziona, non abbiamo questo campo
-        - Sample type tissue non funziona, non abbiamo questo campo?
-        - Sample Date non funziona
-        - Storage temperature funziona
-
-    # COMPLETE DATA MODEL
-    - HIST_MORPHOLOGY code and system is missing :|
-    - HIST_METASTASIS is not implemented :-\
-    - SURGERY_RADICALITY SYSTEM !? https://pubmed.ncbi.nlm.nih.gov/8115781   ?
-    - RADIATION_THERAPY Procedure snomed identifier is missing
-    - TARGET_THERAPY Procedure snomed identifier is missing
-    - PHARMACOTHERAPY_SCHEME_ENUM should be exploded in a MedicationStatement
-    - differenza concreta tra not done e unknown? (es DIAG_COLONOSCOPY, DIAG_CT_DONE)
-    - OVERALL_SURVIVAL_STATUS gli manca un code
-    - DIAG_X non trovo un LOINC (https://loinc.org/18726-0)
-    - DIAG_CT è CT pelvis study o CT Abdomen? (vedi: https://loinc.org/18726-0/)
-    - DIAG_LIVER_IMAGING è Ultrasound of liver study? (https://loinc.org/18726-0)
-    - DIAG_MRI è MRI pelvis and hips study o MRI abdomen study https://loinc.org/18726-0
-    - some system url has to be reviewed
-
-    # Campi non inseriti perché non presenti nei dati:
-        TIME_OF_RECURRENCE_RELATIVE
-        BIOLOGICAL_MATERIAL_FROM_RECURRENCE_AVAILABLE
-        DIGITAL_IMAGING_AVAILABILITY
-        DIGITAL_IMAGING_INVASION_FRONT_AVAILABILITY
-        MM_RISK_SITUATION_HNPCC
-        BRAF_PIC3CA_HER_MUTATION_STATUS
-"""
 with open("config.yaml", "r") as config_file:
     config_data = yaml.safe_load(config_file)
 SERVER_URL = config_data.get("server_url", "")

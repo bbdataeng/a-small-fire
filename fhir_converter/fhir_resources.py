@@ -4,7 +4,6 @@ from uuid import uuid4
 import yaml
 
 import input_models as models
-# from config import BBMRI_STRUCTURE_DEFINITION_URL, ORGANIZATION_ID, VERBOSE_WARNINGS,ORGANIZATION_NAME,ORGANIZATION_ALIAS
 from loguru import logger as log
 from normalization import FHIRNormalization
 
@@ -37,10 +36,8 @@ Employed by the FHIR-MODEL module to map each field/entity to its FHIR counterpa
 with open("config.yaml", "r") as config_file:
     config_data = yaml.safe_load(config_file)
 
-
 BBMRI_STRUCTURE_DEFINITION_URL = config_data.get("bbmri_structure_definition_url", "")
 SERVER_URL = config_data.get("server_url", "")
-
 ORGANIZATION_ID_COLL = config_data.get("collection_id", "")
 ORGANIZATION_NAME_COLL = config_data.get("collection_name", "")
 ORGANIZATION_ALIAS_COLL = config_data.get("collection_alias", [])
@@ -99,7 +96,7 @@ class FHIRResources:
                 ]
             )
         else:
-                        return Organization(
+            return Organization(
                 id=ORGANIZATION_ID_BIO,
                 meta=Meta(profile=[f"{BBMRI_STRUCTURE_DEFINITION_URL}/Biobank"]),
                 active=True,

@@ -39,6 +39,16 @@ data["STORAGE_TEMPERATURE"] = data["SAMPLE_PRESERVATION_MODE"].map(map_storagete
 data["ICD-10"] = data["ICD-10"].str.replace(",", "")
 data["ICD-10"] = data["ICD-10"].str.replace(".", "")
 
+def add_point(icd):
+    icd = str(icd)
+    if "." not in icd: 
+        icd = icd[:3] + "." + icd[3:]
+        return icd
+
+data["ICD-10"] = data["ICD-10"].apply(add_point)
+
+
+
 # check for empty columns
 # data.dropna(inplace=True)
 
