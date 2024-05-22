@@ -190,16 +190,15 @@ class FHIRResources:
         # https://www.hl7.org/fhir/condition-example-f202-malignancy.json.html
         return Condition(
             subject=patient_ref,
-            bodySite=[DIAGNOSIS],
+            # bodySite=[DIAGNOSIS],
             onsetDateTime=date_diagnosis,
             # onsetAge= AgeType(value = age, unit = "yr"),
             code=CodeableConcept(
                 coding=[
                     Coding(
-                        # code=hist_morphology_id,
-                        # display=f"{diagnosis}",
-                        display = diagnosis_code
-                        # system=SNOMED_SYSTEM,
+                        code=diagnosis_code,
+                        display = diagnosis_code,
+                        system=ICD10_SYSTEM,
                     )
                 ]
             ), clinicalStatus=CodeableConcept(

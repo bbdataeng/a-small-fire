@@ -4,7 +4,9 @@ from typing import Optional, Union
 from pydantic import BaseModel, root_validator
 from pydantic import parse_obj_as
 from typing import List
-import icd10
+import simple_icd_10 as icd
+
+# import icd10
 
 # all the possible values for the input employed in the validation and normalization process.
 
@@ -80,11 +82,11 @@ class Patient(BaseModel):
         #     codici_icd = fp.read().split('\n')[:-1]
         #     diagnosis_value = values.get('DIAGNOSIS')
             # codici_icd = [i[:3] + "." + i[3:]  for i in icd10.codes.keys() if i.startswith("C")] # neoplasms only
-        codici_icd = [i[:3] + "." + i[3:]  for i in icd10.codes.keys()] # all ICDs
-        codici_icd = [i  for i in icd10.codes.keys()] # all ICDs
+        # codici_icd = [i[:3] + "." + i[3:]  for i in icd10.codes.keys()] # all ICDs
+        # codici_icd = [i  for i in icd10.codes.keys()] # all ICDs
 
         icd_val = diagnosis_value.replace(".", "")
-        if icd_val and icd_val not in codici_icd:
+        if icd_val and not icd.is_valid_item(icd_val):
             raise ValueError(f"DIAGNOSIS must be a valid ICD-10 code")
         return values
 

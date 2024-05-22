@@ -1,6 +1,6 @@
 {
     "resourceType": "Bundle",
-    "id": "058f7e9d-2b16-484d-8cf6-55e9c9d95905",
+    "id": "a85d29d7-ab29-4c0d-9acc-90aaf9ffc1b8",
     "type": "transaction",
     "entry": [
         {
@@ -51,19 +51,19 @@
                     }
                 ],
                 "partOf": {
-                    "reference": "Organization/1606752281669494"
+                    "reference": "Organization/1504858990324590"
                 }
             }
         },
         {
-            "fullUrl": "http://example.com/Organization/1606752281669494",
+            "fullUrl": "http://example.com/Organization/1504858990324590",
             "request": {
                 "method": "PUT",
-                "url": "Organization/1606752281669494"
+                "url": "Organization/1504858990324590"
             },
             "resource": {
                 "resourceType": "Organization",
-                "id": "1606752281669494",
+                "id": "1504858990324590",
                 "meta": {
                     "profile": [
                         "https://fhir.bbmri.de/StructureDefinition/Biobank"
