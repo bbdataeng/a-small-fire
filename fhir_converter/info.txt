@@ -32,11 +32,10 @@ CAMPI RICHIESTI ===============================================================
 - date of diagnosis               DATE_DIAGNOSIS
 (pare che si possa inserire soltanto un campo tra onsetAge e onsetDateTime, non entrambi)
 - diagnosis ICD-10                *HIST_LOCALIZATION ?
-- donor age (years)               Rispetto a cosa??
-- sampling date                   *YEAR_OF_SAMPLE_COLLECTION ?
+- donor age (years)              
+- sampling date                   
 - sample type                     SAMPLE_MATERIAL_TYPE
 - storage temperature             Specimen -> Extension -> StorageTemperature (RoomTemperature)
-#- available samples number        *Quantity in ciascuna specimen.collection?
 
 
 

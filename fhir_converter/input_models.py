@@ -9,6 +9,7 @@ import simple_icd_10 as icd
 # import icd10
 
 # all the possible values for the input employed in the validation and normalization process.
+# should be MIABIS model
 
 class UNKNOWN(str, Enum):
     UNKNOWN = "Unknown"
@@ -35,20 +36,18 @@ class SAMPLE_MATERIAL_TYPE_ENUM(str, Enum):
     URINE = 'Urine'
 
 
-
 class STORAGE_TEMPERATURE_ENUM(str, Enum):
-    MIN60TOMIN85 = "-60 °C to -85 °C"
-    MIN18TOMIN36 = "-18 °C to -35 °C"
-    TEMMP2TO10 = "2 °C to 10°C"
+    MIN60TOMIN85 = "-60 C to -85 C"
+    MIN18TOMIN36 = "-18 C to -35 C"
+    TEMMP2TO10 = "2 C to 10 C"
     OTHER ="Other"
     RT = "RT"
     GN = "GN"
     LN = "LN"
 
-
 class Patient(BaseModel):
 
-    # ########## Patient Data
+    # ########## Patient Data ##########
     # Patient pseudonym
     PATIENT_ID: Optional[str]
     # Age at diagnosis (rounded to years)
@@ -60,10 +59,10 @@ class Patient(BaseModel):
     # Dignosis (ICD-10)
     DIAGNOSIS : str
     # Donor Age
-    DONOR_AGE : date
+    DOB : date
     # AGE: int
 
-    # ########## Sample
+    # ############# Sample #############
     # Sample ID
     SAMPLE_ID: Optional[str]
     # Material type
@@ -74,7 +73,7 @@ class Patient(BaseModel):
     # Room temperature
     STORAGE_TEMPERATURE: STORAGE_TEMPERATURE_ENUM
 
-    @root_validator
+    @root_validator # validate ICD10 codes
     def validate_fields(cls, values):
         diagnosis_value = values.get('DIAGNOSIS')
 

@@ -61,6 +61,7 @@ app = typer.Typer()
 def convert(
     filename: Path = typer.Option(..., help="Path of input file"),
     outdir: Path = typer.Option(..., help="Path of output folder"),
+    miabis: bool = typer.Option(default= False, help= "Flag for MIABIS normalization"),
 ) -> None:
 
     if not filename.exists():
@@ -126,11 +127,15 @@ def convert(
                 value is None for value in patient_data.values()
             ):  # if all the fields are None --> stop (no more rows)
                 break
-            patient_data = normalize_input(patient_data)
+
+            # normalize_input: make input fields MIABIS compliant
+            if not miabis: # if data is not MIABIS compliant 
+                # patient_data = normalize_input(patient_data)  # aggiungere Flag!
+                patient_data = normalize_input(patient_data, "value_config.yml")
 
             try:
                 ## Create Patient Resource with patient_data
-                ## validation of fields with pydantic
+                ## validation of fields with pydantic --> check MIABIS compliance
                 patient = PatientInputModel(**patient_data)
             except ValidationError as e:
                 print(e)
@@ -143,9 +148,9 @@ def convert(
                         patient_data.get(field, "N/A"),
                     )
             else:
-                patient = normalize_output(patient)  # another mapping
+                patient = normalize_output(patient)  # mapping to BBMRI implementation guide
                 # print("PATIENT\n", patient)
-                patient_serializer = FHIRSerializer(patient, counters)
+                patient_serializer = FHIRSerializer(patient, counters) # mapping to FHIR resources
 
                 pat_id = patient_serializer.PATIENT_ID
                 copy = pat_id in patients_ids

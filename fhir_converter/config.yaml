@@ -1,9 +1,12 @@
+# Configuration
+
 bbmri_structure_definition_url: "https://fhir.bbmri.de/StructureDefinition"
-server_url: "http://example.com"
+# Server URL
+server_url: "http://localhost:8080/fhir"
 
 # Collection info 
 collection_id: "1606752281669494"
-collection_name: "Colorectal Cancer Collection"
+collection_name: "Biobanca Tessuti e Liquidi Biologici IRE"
 
 collection_alias:
   - "CRC"

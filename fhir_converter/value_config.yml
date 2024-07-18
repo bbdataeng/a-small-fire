@@ -1,0 +1,45 @@
+# This configuration file defines the mapping of local data into MIABIS CDM fields
+
+# Define the names of each field
+field_mappings:
+  PATIENT_ID: PATIENT_ID
+  SAMPLE_ID: SAMPLE_ID
+  DOB: DOB
+  SEX: SEX
+  DIAGNOSIS: ICD-10
+  AGE_AT_PRIMARY_DIAGNOSIS: AGE_AT_PRIMARY_DIAGNOSIS
+  SAMPLE_MATERIAL_TYPE: SAMPLE_PRESERVATION_MODE
+  STORAGE_TEMPERATURE: STORAGE_TEMPERATURE
+
+# Define the names of each value
+value_mappings:
+  SEX:
+    Male: M
+    Female: F
+    Undifferentiated: undifferentiated
+    Unknown: unknown
+
+  SAMPLE_MATERIAL_TYPE:
+    Tissue (FFPE): FFPE
+    Tissue (Frozen):
+      - SNAP FROZEN
+      - FROZEN
+      - OCT
+    Blood: BLOOD
+    Immortalized Cell Lines: CELL
+    Other: SN
+
+
+  STORAGE_TEMPERATURE:
+
+    -60 C to -85 C:
+      - "-85"
+      - "-80"
+    -18 C to -35 C:
+      - "-35"
+    2 C to 10 C:
+      - "10"
+    RT: RT
+    LN: LN
+    Other: Other
+

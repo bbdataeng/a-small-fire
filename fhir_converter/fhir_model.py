@@ -21,6 +21,7 @@ class FHIRSerializer:
         # We decided to use the SAMPLE_ID as PATIENT_ID
         # SAMPLE_ID will be assigned as PATIENT_ID-specimen-0
         self.PATIENT_ID = self.input_patient.PATIENT_ID
+        self.SAMPLE_ID = self.input_patient.SAMPLE_ID
 
         # Underscore is not allowed in IDs, converting _ to -
         if "_" in self.PATIENT_ID:
@@ -70,7 +71,7 @@ class FHIRSerializer:
             id = self.PATIENT_ID,
             sex=self.input_patient.SEX,
             # age=self.input_patient.AGE
-            birthDate=self.input_patient.DONOR_AGE
+            birthDate=self.input_patient.DOB
         )
         if not copy: self.add_to_bundle(bundle, patient, resource_id=self.PATIENT_ID)
 
@@ -97,7 +98,7 @@ class FHIRSerializer:
         # ################  Specimen   #################
         # ##############################################
         specimen = FHIRResources.get_specimen(
-
+            id = self.SAMPLE_ID,
             patient_ref=patient_ref,
             diagnosis=self.input_patient.DIAGNOSIS,
             collection_date=self.input_patient.SAMPLING_DATE,
@@ -105,7 +106,7 @@ class FHIRSerializer:
             temperature_room=self.input_patient.STORAGE_TEMPERATURE
             # surgery_start=self.SURGERY_START,
         )
-        self.add_to_bundle(bundle, specimen, patient_id=self.PATIENT_ID)
+        self.add_to_bundle(bundle, specimen, patient_id=self.PATIENT_ID, resource_id=self.SAMPLE_ID)
 
 
         return self.PATIENT_ID, bundle

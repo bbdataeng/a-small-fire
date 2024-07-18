@@ -220,6 +220,7 @@ class FHIRResources:
    
     @staticmethod
     def get_specimen(
+        id: str,
         patient_ref: Reference,
         diagnosis: str,
         collection_date: date,
@@ -228,12 +229,12 @@ class FHIRResources:
         temperature_room : Optional[int]
     ) -> Specimen:
 
-        hist_loc_code = diagnosis.split(" - ")[0]
+        diagnosis_code = diagnosis.split(" - ")[0]
         DIAGNOSIS = CodeableConcept(
             coding=[
                 Coding(
-                    code=hist_loc_code, 
-                    display=hist_loc_code,  #display=diagnosis, 
+                    code=diagnosis_code, 
+                    display=diagnosis_code,  #display=diagnosis, 
                     system=ICD10_SYSTEM
                 )
             ]
@@ -246,8 +247,8 @@ class FHIRResources:
                     valueCodeableConcept=CodeableConcept(
                         coding=[
                             Coding(
-                                code=hist_loc_code,
-                                display=hist_loc_code,#display=diagnosis,
+                                code=diagnosis_code,
+                                display=diagnosis_code,#display=diagnosis,
                                 system=ICD10_SYSTEM,
                             )
                         ]

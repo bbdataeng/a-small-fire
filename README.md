@@ -1,6 +1,6 @@
 # FHIR converter
 
-FHIR converter/Transformer “toolkit” developed by the BBMRI-IT team to support the Transform step of the ETL process. 
+FHIR converter/transformer “toolkit” developed by the BBMRI-IT team to support the Transform step of the ETL process. 
 
 The toolkit is based on the open source FHIR RESOURCES library available at https://github.com/nazrulworld/fhir.resources.
 
@@ -17,30 +17,30 @@ Minimal denominators' findable in the Federated Platform tools:
     - Patient_ID
     - Gender                  
     - Diagnose ICD-10
-    - Diagnosis age donor 
-    - Date of diagnosis
+    - Diagnosis Age Donor 
+    - Date of Diagnosis
 
 
 * Sample
     - Sample_ID
     - Donor Age
     - Sample Type             
-    - Sampling date 
-    - StorageTemperature     
+    - Sampling Date 
+    - Storage Temperature     
 
 ## Modules
 
 The main modules of the converter are: 
 
-<img src="https://github.com/antocruo/bbdataeng/assets/51079644/1e590644-4a46-48ba-9331-2499c8725259" width="500" height="500"/>
+<!-- <img src="https://github.com/antocruo/bbdataeng/assets/51079644/1e590644-4a46-48ba-9331-2499c8725259" width="500" height="500"/> -->
 
-**Conversion:** overall wrapper, takes as input one excel (classic dataset table) written in the BBMRI appendix format and creates the FHIR-structured JSON to be uploaded on the Biobank Locator. 
+**Conversion:** overall wrapper, takes as input one excel (classic dataset table) and creates the FHIR-structured JSON to be uploaded on the Biobank Locator. 
 
-**Configuration:** contains a series of configuration values such as the organization id and the locator URL
+**Configuration:** contains a series of configuration values such as the organization id and the locator URL.
 
-**Normalization:** the normalization module maps many non-compliant fields to a series of normalized fields, for instance patient.SEX to M; F; other; unknown; 
+**Normalization:** the normalization module maps many non-compliant fields to a series of normalized fields, according to BBMRI implementation guide.
 
-**INPUT-MODELS:** contains all the possible values for the input employed in the validation and normalization process.
+**INPUT-MODELS:** contains all the possible values for the input employed in the validation and normalization process, according to MIABIS cdm.
 
 The FHIR final JSON is built by two separate modules: 
 

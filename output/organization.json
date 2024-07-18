@@ -1,10 +1,10 @@
 {
     "resourceType": "Bundle",
-    "id": "a85d29d7-ab29-4c0d-9acc-90aaf9ffc1b8",
+    "id": "3e49be5c-f192-4a93-b8cd-36849810ab56",
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "http://example.com/Organization/1606752281669494",
+            "fullUrl": "http://localhost:8080/fhir/Organization/1606752281669494",
             "request": {
                 "method": "PUT",
                 "url": "Organization/1606752281669494"
@@ -18,7 +18,7 @@
                     ]
                 },
                 "active": true,
-                "name": "Colorectal Cancer Collection",
+                "name": "Biobanca Tessuti e Liquidi Biologici IRE",
                 "alias": [
                     "CRC"
                 ],
@@ -56,7 +56,7 @@
             }
         },
         {
-            "fullUrl": "http://example.com/Organization/1504858990324590",
+            "fullUrl": "http://localhost:8080/fhir/Organization/1504858990324590",
             "request": {
                 "method": "PUT",
                 "url": "Organization/1504858990324590"
