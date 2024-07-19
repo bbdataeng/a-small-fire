@@ -9,7 +9,7 @@ from fhir.resources.bundle import Bundle
 from fhir.resources.resource import Resource
 
 
-with open("config.yaml", "r") as config_file:
+with open("general_config.yaml", "r") as config_file:
     config_data = yaml.safe_load(config_file)
 SERVER_URL = config_data.get("server_url", "")
 
@@ -31,7 +31,7 @@ class FHIRSerializer:
             self.input_patient.DIAGNOSIS
         )
 
-        self.MATERIAL_TYPE = FHIRResources.get_material_type(self.input_patient.SAMPLE_MATERIAL_TYPE)
+        self.MATERIAL_TYPE = FHIRResources.get_material_type(self.input_patient.MATERIAL_TYPE)
 
   
 
@@ -71,7 +71,7 @@ class FHIRSerializer:
             id = self.PATIENT_ID,
             sex=self.input_patient.SEX,
             # age=self.input_patient.AGE
-            birthDate=self.input_patient.DOB
+            birthDate=self.input_patient.BIRTH_DATE
         )
         if not copy: self.add_to_bundle(bundle, patient, resource_id=self.PATIENT_ID)
 

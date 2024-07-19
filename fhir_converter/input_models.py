@@ -59,14 +59,14 @@ class Patient(BaseModel):
     # Dignosis (ICD-10)
     DIAGNOSIS : str
     # Donor Age
-    DOB : date
+    BIRTH_DATE : date
     # AGE: int
 
     # ############# Sample #############
     # Sample ID
     SAMPLE_ID: Optional[str]
     # Material type
-    SAMPLE_MATERIAL_TYPE: SAMPLE_MATERIAL_TYPE_ENUM
+    MATERIAL_TYPE: SAMPLE_MATERIAL_TYPE_ENUM
     # Year of sample collection
     # YEAR_OF_SAMPLE_COLLECTION: int
     SAMPLING_DATE: date

@@ -65,7 +65,7 @@ def normalize_input(patient_data: Dict[str, Any], config_path: str) -> Dict[str,
     try:
         patient_data['DATE_DIAGNOSIS']
     except: # if there's no diagnosis date, it is equal to year of DOB + AGE_AT_PRIMARY_DIAGNOSIS
-        diagnosis_year = patient_data["DOB"].year + patient_data["AGE_AT_PRIMARY_DIAGNOSIS"]
+        diagnosis_year = patient_data["BIRTH_DATE"].year + patient_data["AGE_AT_PRIMARY_DIAGNOSIS"]
         patient_data['DATE_DIAGNOSIS'] = datetime.strptime(f"{diagnosis_year}-01-01", r"%Y-%m-%d")
 
     print("patient_data: ", patient_data)
@@ -88,9 +88,9 @@ def normalize_output(patient: models.Patient) -> models.Patient:
         },
     )  
 
-    patient.SAMPLE_MATERIAL_TYPE = apply_map_IG(
-            "SAMPLE_MATERIAL_TYPE",
-            patient.SAMPLE_MATERIAL_TYPE,
+    patient.MATERIAL_TYPE = apply_map_IG(
+            "MATERIAL_TYPE",
+            patient.MATERIAL_TYPE,
             {"Tissue":"tissue",
             "Tissue (FFPE)" : "tissue-formalin",
             "Tissue (Frozen)":"tissue-frozen",

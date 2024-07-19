@@ -74,10 +74,17 @@ pip install -r fhir_converter/requirements.txt
 -SAMPLE_ID -->
 
 
+## Configuration Files
+There are two main configuration files:
+
+- `general_config.yml`: Contains general configuration information such as the organization ID, the collection ID and server URL.
+
+- `field_mapping_config.yml`: Defines the mapping of local data into MIABIS CDM fields.
+
 ## Usage
 ``` shell
 cd fhir_converter
-convert.py --filename "../fhir/data/<.xlsx FILENAME>" --outdir "../fhir/output"
+convert.py --filename "../fhir/data/<INPUT_XLSX>" --outdir "../fhir/output"
 ```
 
 ## Output
