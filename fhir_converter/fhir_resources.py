@@ -121,15 +121,45 @@ class FHIRResources:
     def get_patient(
         id : str,
         sex: str,
-        birthDate: date
+        birthDate: Optional[date] = None,
+        age: Optional[int] = None
         # age : int
     ) -> Patient:
+       
         patient = Patient(
-            id = id,
+            id=id,
             gender=sex,
             birthDate=birthDate
-            # age = age
         )
+        
+        # if age is provided instead of birthdate
+        if age is not None:
+            age_extension = Extension(
+                url="http://example.org/fhir/StructureDefinition/age",
+                valueAge=Age(
+                    value=age,
+                    unit="years",
+                    system="http://unitsofmeasure.org",
+                    code="a"
+                )
+            )
+            patient.extension = [age_extension]
+        # if birthDate:
+        #     patient = Patient(
+        #         id = id,
+        #         gender=sex,
+        #         birthDate=birthDate
+        #         # age = age
+        #     )
+        # elif age:
+        #     patient = Patient(
+        #         id = id,
+        #         gender=sex,
+        #         # birthDate=birthDate
+        #         age = age
+        #     )
+        # else:
+        #     raise ValueError("Either birthDate or age must be provided")
 
         return patient
 

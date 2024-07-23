@@ -45,6 +45,8 @@ def load_config(config_path: str) -> Dict:
 def normalize_input(patient_data: Dict[str, Any], config_path: str) -> Dict[str, Any]:
     '''Normalize input data based on configuration'''
 
+    
+
     config = load_config(config_path)
     field_mappings = config.get("field_mappings", {})
     value_mappings = config.get("value_mappings", {})
@@ -54,6 +56,7 @@ def normalize_input(patient_data: Dict[str, Any], config_path: str) -> Dict[str,
         if biobank_field in patient_data:
             patient_data[miabis_field] = patient_data.pop(biobank_field)
 
+    patient_data['STORAGE_TEMPERATURE'] = str(patient_data['STORAGE_TEMPERATURE'])
     # value mappings
     for key, mapping in value_mappings.items():
         print("KEY: ", key)

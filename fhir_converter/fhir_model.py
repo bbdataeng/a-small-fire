@@ -67,12 +67,20 @@ class FHIRSerializer:
         # ##############################################
         # ################   Patient   #################
         # ##############################################
-        patient = FHIRResources.get_patient(
-            id = self.PATIENT_ID,
-            sex=self.input_patient.SEX,
-            # age=self.input_patient.AGE
-            birthDate=self.input_patient.BIRTH_DATE
-        )
+        if self.input_patient.BIRTH_DATE:
+            patient = FHIRResources.get_patient(
+                id = self.PATIENT_ID,
+                sex=self.input_patient.SEX,
+                # age=self.input_patient.AGE
+                birthDate=self.input_patient.BIRTH_DATE
+            )
+        else:
+            patient = FHIRResources.get_patient(
+                id = self.PATIENT_ID,
+                sex=self.input_patient.SEX,
+                age=self.input_patient.DONOR_AGE
+                # birthDate=self.input_patient.BIRTH_DATE
+            )
         if not copy: self.add_to_bundle(bundle, patient, resource_id=self.PATIENT_ID)
 
         patient_ref = FHIRResources.get_patient_ref(patient)

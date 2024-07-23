@@ -1,16 +1,26 @@
 # This configuration file defines the mapping of local data into MIABIS CDM fields
 
+
 # Define the names of each field
 field_mappings:
-  PATIENT_ID: PATIENT_ID
-  SAMPLE_ID: SAMPLE_ID
-  BIRTH_DATE: DOB
-  DATE_DIAGNOSIS : DATE_DIAGNOSIS
-  SEX: SEX
-  DIAGNOSIS: ICD-10
-  AGE_AT_PRIMARY_DIAGNOSIS: AGE_AT_PRIMARY_DIAGNOSIS
-  MATERIAL_TYPE: SAMPLE_PRESERVATION_MODE
-  STORAGE_TEMPERATURE: STORAGE_TEMPERATURE
+
+  # Donor/Clinical Information
+  PATIENT_ID: ID Patient
+  SEX: Sex
+  BIRTH_DATE: 
+  DONOR_AGE: Donor age
+  DIAGNOSIS: Biobanca_ICD code
+  AGE_AT_PRIMARY_DIAGNOSIS: Age at Diagnosis #manca
+  DATE_DIAGNOSIS : Diagnosis Date #manca
+
+  # Sample Information
+  SAMPLE_ID: ID Sample
+  SAMPLING_DATE: Sampling date
+  MATERIAL_TYPE: Sample Type
+  STORAGE_TEMPERATURE: Storage Temperature
+  
+  
+  
 
 # Define the names of each value
 value_mappings:
@@ -27,12 +37,18 @@ value_mappings:
       - FROZEN
       - OCT
     Blood: BLOOD
-    Immortalized Cell Lines: CELL
+    Faeces: FECIS
+    Buffy Coat: BUFFY COAT
+    RNA: RNA
+    DNA:
+    - DNA
+    - GDNA
+    Saliva: SALIVA
+    Urine: URINE
+    Immortalized Cell Lines: CELLS
     Other: SN
 
-
   STORAGE_TEMPERATURE:
-
     -60 C to -85 C:
       - "-85"
       - "-80"

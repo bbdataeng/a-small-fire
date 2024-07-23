@@ -59,8 +59,8 @@ class Patient(BaseModel):
     # Dignosis (ICD-10)
     DIAGNOSIS : str
     # Donor Age
-    BIRTH_DATE : date
-    # AGE: int
+    BIRTH_DATE : Optional[date]
+    DONOR_AGE: Optional[int]
 
     # ############# Sample #############
     # Sample ID

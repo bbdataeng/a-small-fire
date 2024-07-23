@@ -1,27 +1,24 @@
 {
     "resourceType": "Bundle",
-    "id": "14f9aa3e-dd0e-4bdc-9b33-9955e4b026d1",
+    "id": "e8977749-d94d-4213-8b6f-0b1e9416d810",
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "http://localhost:8080/fhir/Organization/1606752281669494",
+            "fullUrl": "http://localhost:8080/fhir/Organization/1548666951181832",
             "request": {
                 "method": "PUT",
-                "url": "Organization/1606752281669494"
+                "url": "Organization/1548666951181832"
             },
             "resource": {
                 "resourceType": "Organization",
-                "id": "1606752281669494",
+                "id": "1548666951181832",
                 "meta": {
                     "profile": [
                         "https://fhir.bbmri.de/StructureDefinition/Collection"
                     ]
                 },
                 "active": true,
-                "name": "Biobanca Tessuti e Liquidi Biologici IRE",
-                "alias": [
-                    "CRC"
-                ],
+                "name": "Rare and Ultra Rare Diseases",
                 "contact": [
                     {
                         "telecom": [
@@ -42,37 +39,37 @@
                             "use": "work",
                             "type": "physical",
                             "line": [
-                                "Via Manzoni 35"
+                                "Viale Ferdinando Baldelli Roma"
                             ],
                             "city": "Rome",
-                            "postalCode": "00123",
+                            "postalCode": "00146",
                             "country": "IT"
                         }
                     }
                 ],
                 "partOf": {
-                    "reference": "Organization/1504858990324590"
+                    "reference": "Organization/1547222650173780"
                 }
             }
         },
         {
-            "fullUrl": "http://localhost:8080/fhir/Organization/1504858990324590",
+            "fullUrl": "http://localhost:8080/fhir/Organization/1547222650173780",
             "request": {
                 "method": "PUT",
-                "url": "Organization/1504858990324590"
+                "url": "Organization/1547222650173780"
             },
             "resource": {
                 "resourceType": "Organization",
-                "id": "1504858990324590",
+                "id": "1547222650173780",
                 "meta": {
                     "profile": [
                         "https://fhir.bbmri.de/StructureDefinition/Biobank"
                     ]
                 },
                 "active": true,
-                "name": "Istituto Nazionale Tumori Regina Elena",
+                "name": "Biobanca Di Ricerca OPBG",
                 "alias": [
-                    "IRE"
+                    "BB-OPBG"
                 ],
                 "contact": [
                     {
@@ -94,10 +91,10 @@
                             "use": "work",
                             "type": "physical",
                             "line": [
-                                "Via Chianesi 35"
+                                "Viale Ferdinando Baldelli Roma"
                             ],
                             "city": "Rome",
-                            "postalCode": "00123",
+                            "postalCode": "00146",
                             "country": "IT"
                         }
                     }
