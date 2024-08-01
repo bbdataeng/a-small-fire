@@ -5,11 +5,11 @@ bbmri_structure_definition_url: "https://fhir.bbmri.de/StructureDefinition"
 server_url: "http://localhost:8080/fhir"
 
 # Biobank info 
-biobank_id: "1547222650173780"
-biobank_name: "Biobanca Di Ricerca OPBG"
+biobank_id: "0000001234"
+biobank_name: "Biobanca Di Ricerca BBDATA"
 
 biobank_alias:
-  - "BB-OPBG"
+  - "BB-BBDATA"
 
 biobank_contact:
 
@@ -18,9 +18,9 @@ biobank_contact:
       type: "physical"
       country: "IT"
       city: "Rome"
-      postalCode: "00146"
+      postalCode: "00161"
       line:
-        - "Viale Ferdinando Baldelli Roma"
+        - "Viale Manzoni"
 
     telecom:
       - system: "phone"
@@ -35,8 +35,8 @@ biobank_contact:
 
 
 # Collection info 
-collection_id: "1548666951181832"
-collection_name: "Rare and Ultra Rare Diseases"
+collection_id: "123456789"
+collection_name: "XX Diseases"
 
 collection_alias:
 
@@ -47,9 +47,9 @@ collection_contact:
       type: "physical"
       country: "IT"
       city: "Rome"
-      postalCode: "00146"
+      postalCode: "00161"
       line:
-        - "Viale Ferdinando Baldelli Roma"
+        - "Viale Manzoni"
 
     telecom:
 

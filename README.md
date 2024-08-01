@@ -1,4 +1,4 @@
-# FHIR converter
+# aSmallFHIR
 
 FHIR converter/transformer “toolkit” developed by the BBMRI-IT team to support the Transform step of the ETL process. 
 
@@ -6,10 +6,10 @@ The toolkit is based on the open source FHIR RESOURCES library available at http
 
 <!-- The toolkit uses the [CRC-ADOPT](https://ec.europa.eu/research/participants/documents/downloadPublic?documentIds=080166e5c9716d4e&appId=PPGMS) common data model. -->
 
-![workflow](https://github.com/bbdataeng/a-small-fhir/blob/simpler-fhir/extra/graphical_abstract.png)
+![workflow](https://github.com/bbdataeng/a-small-fhir/blob/simpler-fhir/figures/graphical_abstract.png)
 
 
-## Basic Model - a small FHIR
+## Basic Model 
 
 Minimal denominators' findable in the Federated Platform tools:  
 

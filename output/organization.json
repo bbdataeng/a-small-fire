@@ -1,24 +1,24 @@
 {
     "resourceType": "Bundle",
-    "id": "8e21114a-98c8-454a-afe6-f01b0e92abd1",
+    "id": "8a39ff7a-7ea3-45c9-80be-55fb196bad20",
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "http://localhost:8080/fhir/Organization/1548666951181832",
+            "fullUrl": "http://localhost:8080/fhir/Organization/123456789",
             "request": {
                 "method": "PUT",
-                "url": "Organization/1548666951181832"
+                "url": "Organization/123456789"
             },
             "resource": {
                 "resourceType": "Organization",
-                "id": "1548666951181832",
+                "id": "123456789",
                 "meta": {
                     "profile": [
                         "https://fhir.bbmri.de/StructureDefinition/Collection"
                     ]
                 },
                 "active": true,
-                "name": "Rare and Ultra Rare Diseases",
+                "name": "XX Diseases",
                 "contact": [
                     {
                         "telecom": [
@@ -39,37 +39,37 @@
                             "use": "work",
                             "type": "physical",
                             "line": [
-                                "Viale Ferdinando Baldelli Roma"
+                                "Viale Manzoni"
                             ],
                             "city": "Rome",
-                            "postalCode": "00146",
+                            "postalCode": "00161",
                             "country": "IT"
                         }
                     }
                 ],
                 "partOf": {
-                    "reference": "Organization/1547222650173780"
+                    "reference": "Organization/0000001234"
                 }
             }
         },
         {
-            "fullUrl": "http://localhost:8080/fhir/Organization/1547222650173780",
+            "fullUrl": "http://localhost:8080/fhir/Organization/0000001234",
             "request": {
                 "method": "PUT",
-                "url": "Organization/1547222650173780"
+                "url": "Organization/0000001234"
             },
             "resource": {
                 "resourceType": "Organization",
-                "id": "1547222650173780",
+                "id": "0000001234",
                 "meta": {
                     "profile": [
                         "https://fhir.bbmri.de/StructureDefinition/Biobank"
                     ]
                 },
                 "active": true,
-                "name": "Biobanca Di Ricerca OPBG",
+                "name": "Biobanca Di Ricerca BBDATA",
                 "alias": [
-                    "BB-OPBG"
+                    "BB-BBDATA"
                 ],
                 "contact": [
                     {
@@ -91,10 +91,10 @@
                             "use": "work",
                             "type": "physical",
                             "line": [
-                                "Viale Ferdinando Baldelli Roma"
+                                "Viale Manzoni"
                             ],
                             "city": "Rome",
-                            "postalCode": "00146",
+                            "postalCode": "00161",
                             "country": "IT"
                         }
                     }
