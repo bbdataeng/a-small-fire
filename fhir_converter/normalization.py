@@ -21,7 +21,7 @@ class FHIRNormalization:
 
 
 def apply_map(label: str, value: str, mapping: Dict[str, str]) -> str:
-    print("value", value)
+    # print("value", value)
     for miabis_value, biobank_values in mapping.items():
         if isinstance(biobank_values, str):
             # if a single string, convert it to a list
@@ -59,25 +59,25 @@ def normalize_input(patient_data: Dict[str, Any], config_path: str) -> Dict[str,
     patient_data['STORAGE_TEMPERATURE'] = str(patient_data['STORAGE_TEMPERATURE'])
     # value mappings
     for key, mapping in value_mappings.items():
-        print("KEY: ", key)
-        print("MAPPING: ", mapping)
-        print("patient_data[key]", patient_data[key])
+        # print("KEY: ", key)
+        # print("MAPPING: ", mapping)
+        # print("patient_data[key]", patient_data[key])
         if key in patient_data:
             patient_data[key] = apply_map(key, patient_data[key], mapping)
 
-    try:
-        patient_data['DATE_DIAGNOSIS']
-    except: # if there's no diagnosis date, it is equal to year of DOB + AGE_AT_PRIMARY_DIAGNOSIS
-        diagnosis_year = patient_data["BIRTH_DATE"].year + patient_data["AGE_AT_PRIMARY_DIAGNOSIS"]
-        patient_data['DATE_DIAGNOSIS'] = datetime.strptime(f"{diagnosis_year}-01-01", r"%Y-%m-%d")
+    # try:
+    #     patient_data['DATE_DIAGNOSIS']
+    # except: # if there's no diagnosis date, it is equal to year of DOB + AGE_AT_PRIMARY_DIAGNOSIS
+    #     diagnosis_year = patient_data["BIRTH_DATE"].year + patient_data["AGE_AT_PRIMARY_DIAGNOSIS"]
+    #     patient_data['DATE_DIAGNOSIS'] = datetime.strptime(f"{diagnosis_year}-01-01", r"%Y-%m-%d")
 
-    print("patient_data: ", patient_data)
+    # print("patient_data: ", patient_data)
 
     return patient_data
 
 def normalize_output(patient: models.Patient) -> models.Patient:
 
-    print("PATIENT OUT: ", patient)
+    # print("PATIENT OUT: ", patient)
     '''Mapping MIABIS compliant fields to BBMRI.de/GBA Implementation Guide'''
 
     patient.SEX = apply_map_IG(
@@ -104,9 +104,9 @@ def normalize_output(patient: models.Patient) -> models.Patient:
             "Plasma":"blood-plasma",
             "Serum":"blood-serum",
             "":"peripheral-blood-cells-vital",
-            "":"buffy-coat",
+            "Buffy Coat":"buffy-coat",
             "":"bone-marrow",
-            "":"csf-liquor",
+            "Liquor":"csf-liquor",
             "":"ascites",
             "Urine":"urine",
             "Saliva":"saliva",
@@ -121,20 +121,20 @@ def normalize_output(patient: models.Patient) -> models.Patient:
         ) 
 
     
-    patient.STORAGE_TEMPERATURE = apply_map_IG(
-        "STORAGE_TEMPERATURE",
-        patient.STORAGE_TEMPERATURE,
-        {
-            "-60 C to -85 C": "temperature-60to-85",
-            "-18 C to -35 C": "temperature-18to-35",
-            "2 C to 10 C": "temperature2to10",
-            "Other": "temperatureOther",
-            "RT":"temperatureRoom",
-            "LN":"temperatureLN",
-            "GN":"temperatureGN"
+    # patient.STORAGE_TEMPERATURE = apply_map_IG(
+    #     "STORAGE_TEMPERATURE",
+    #     patient.STORAGE_TEMPERATURE,
+    #     {
+    #         "-60 C to -85 C": "temperature-60to-85",
+    #         "-18 C to -35 C": "temperature-18to-35",
+    #         "2 C to 10 C": "temperature2to10",
+    #         "Other": "temperatureOther",
+    #         "RT":"temperatureRoom",
+    #         "LN":"temperatureLN",
+    #         "GN":"temperatureGN"
 
-        },
-    )  
+    #     },
+    # )  
     
     return patient
 

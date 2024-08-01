@@ -33,7 +33,7 @@ Employed by the FHIR-MODEL module to map each field/entity to its FHIR counterpa
 """
 
 # Configuration Info
-with open("general_config.yaml", "r") as config_file:
+with open("biobank_config.yaml", "r") as config_file:
     config_data = yaml.safe_load(config_file)
 
 BBMRI_STRUCTURE_DEFINITION_URL = config_data.get("bbmri_structure_definition_url", "")

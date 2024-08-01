@@ -32,18 +32,18 @@ class SAMPLE_MATERIAL_TYPE_ENUM(str, Enum):
     PLASMA = 'Plasma'
     OTHER = 'Other'
     SALIVA = 'Saliva'
+    LIQUOR = 'Liquor'
     SERUM = 'Serum'
     URINE = 'Urine'
 
 
 class STORAGE_TEMPERATURE_ENUM(str, Enum):
-    MIN60TOMIN85 = "-60 C to -85 C"
-    MIN18TOMIN36 = "-18 C to -35 C"
-    TEMMP2TO10 = "2 C to 10 C"
-    OTHER ="Other"
-    RT = "RT"
-    GN = "GN"
-    LN = "LN"
+    MIN60TOMIN85 = "temperature-60to-85"
+    MIN18TOMIN36 = "temperature-18to-36"
+    TEMMP2TO10 = "temperature1to10"
+    OTHER ="temperatureOther"
+    RT = "temperatureRoom"
+    LN = "temperatureLN"
 
 class Patient(BaseModel):
 
@@ -58,6 +58,7 @@ class Patient(BaseModel):
     DATE_DIAGNOSIS: date
     # Dignosis (ICD-10)
     DIAGNOSIS : str
+    DIAGNOSIS2: Optional[str]
     # Donor Age
     BIRTH_DATE : Optional[date]
     DONOR_AGE: Optional[int]

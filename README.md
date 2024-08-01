@@ -75,13 +75,15 @@ pip install -r fhir_converter/requirements.txt
 
 
 ## Configuration Files
+
 There are two main configuration files:
 
-- `general_config.yml`: Contains general configuration information such as the organization ID, the collection ID and server URL.
+- `biobank_config.yml`: Contains general configuration information such as the organization ID, the collection ID and server URL.
 
-- `field_mapping_config.yml`: Defines the mapping of local data into MIABIS CDM fields.
+- `mapping_config.yml`: Defines the mapping of local data into MIABIS CDM fields.
 
 ## Usage
+
 ``` shell
 cd fhir_converter
 convert.py --filename "../fhir/data/<INPUT_XLSX>" --outdir "../fhir/output"
@@ -89,10 +91,9 @@ convert.py --filename "../fhir/data/<INPUT_XLSX>" --outdir "../fhir/output"
 
 ## Output
 
-* `organization.json`: information about the resource Organization
+* `organization.json`: bundle that contains the resources Organization and Collection
 
-<!-- * `test{patient_ID}SAMPLE.json`: information about the resource Patient -->
-* `bundle-<BUNDLE_ID>.json`: bundle with all the Resources in the .xlsx file 
+* `bundle-<BUNDLE_ID>.json`: bundle that containsin the resources Patient, Specimen, Condition of the input .xlsx file 
 
 
 

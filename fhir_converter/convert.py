@@ -131,7 +131,7 @@ def convert(
             # normalize_input: make input fields MIABIS compliant
             if not miabis: # if data is not MIABIS compliant 
                 # patient_data = normalize_input(patient_data)  # aggiungere Flag!
-                patient_data = normalize_input(patient_data, "field_mapping_config.yml")
+                patient_data = normalize_input(patient_data, "mapping_config.yml")
 
             try:
                 ## Create Patient Resource with patient_data

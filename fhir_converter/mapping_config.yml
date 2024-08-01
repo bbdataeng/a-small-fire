@@ -7,11 +7,12 @@ field_mappings:
   # Donor/Clinical Information
   PATIENT_ID: ID Patient
   SEX: Sex
-  BIRTH_DATE: 
+  BIRTH_DATE: DOB
   DONOR_AGE: Donor age
   DIAGNOSIS: Biobanca_ICD code
+  DIAGNOSIS2: Biobanca_ICD code2
   AGE_AT_PRIMARY_DIAGNOSIS: Age at Diagnosis #manca
-  DATE_DIAGNOSIS : Diagnosis Date #manca
+  DATE_DIAGNOSIS : Diagnosis date #manca
 
   # Sample Information
   SAMPLE_ID: ID Sample
@@ -47,16 +48,19 @@ value_mappings:
     Urine: URINE
     Immortalized Cell Lines: CELLS
     Other: SN
+    Serum: SERUM
+    Plasma: PLASMA
+    Liquor: LIQUOR
 
   STORAGE_TEMPERATURE:
-    -60 C to -85 C:
+    temperature-60to-85:
       - "-85"
       - "-80"
-    -18 C to -35 C:
+    temperature-18to-35:
       - "-35"
-    2 C to 10 C:
+    temperature2to10:
       - "10"
-    RT: RT
-    LN: LN
-    Other: Other
+    temperatureRoom: RT
+    temperatureLN: LN
+    temperatureOther: Other
 

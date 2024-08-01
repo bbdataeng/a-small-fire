@@ -9,7 +9,7 @@ from fhir.resources.bundle import Bundle
 from fhir.resources.resource import Resource
 
 
-with open("general_config.yaml", "r") as config_file:
+with open("biobank_config.yaml", "r") as config_file:
     config_data = yaml.safe_load(config_file)
 SERVER_URL = config_data.get("server_url", "")
 
@@ -97,9 +97,22 @@ class FHIRSerializer:
             date_diagnosis=self.input_patient.DATE_DIAGNOSIS,
             age=self.input_patient.AGE_AT_PRIMARY_DIAGNOSIS,
         )
-
         # if the patient has been added yet-- > no duplicate diagnosis
         if not copy: self.add_to_bundle(bundle, diagnosis, patient_id=self.PATIENT_ID)
+
+        if self.input_patient.DIAGNOSIS2:
+            diagnosis2 = FHIRResources.get_diagnosis(
+            patient_ref=patient_ref,
+            diagnosis=self.input_patient.DIAGNOSIS2,
+            # hist_morphology=self.input_patient.HIST_MORPHOLOGY,
+            date_diagnosis=self.input_patient.DATE_DIAGNOSIS,
+            age=self.input_patient.AGE_AT_PRIMARY_DIAGNOSIS,
+        )
+            if not copy: self.add_to_bundle(bundle, diagnosis2, patient_id=self.PATIENT_ID)
+
+
+
+        
 
 
         # ##############################################
