@@ -6,7 +6,7 @@ The toolkit is based on the open source FHIR RESOURCES library available at http
 
 <!-- The toolkit uses the [CRC-ADOPT](https://ec.europa.eu/research/participants/documents/downloadPublic?documentIds=080166e5c9716d4e&appId=PPGMS) common data model. -->
 
-![workflow](https://github.com/bbdataeng/a-small-fhir/blob/simpler-fhir/figures/graphical_abstract.png)
+![workflow](https://github.com/bbdataeng/a-small-fhir/blob/simpler-fhir/figures/asmallFHIR_ga.png)
 
 
 ## Basic Model 
@@ -73,6 +73,10 @@ pip install -r fhir_converter/requirements.txt
 
 -SAMPLE_ID -->
 
+## Installation
+```
+git clone https://github.com/bbdataeng/a-small-fhir.git
+```
 
 ## Configuration Files
 
@@ -91,9 +95,9 @@ convert.py --filename "../fhir/data/<INPUT_XLSX>" --outdir "../fhir/output"
 
 ## Output
 
-* `organization.json`: bundle that contains the resources Organization and Collection
+* `organization.json`: bundle that contains the resources Organization/Biobank and Organization/Collection.
 
-* `bundle-<BUNDLE_ID>.json`: bundle that containsin the resources Patient, Specimen, Condition of the input .xlsx file 
+* `bundle-<BUNDLE_ID>.json`: bundle that contains the resources Patient, Specimen, Condition.
 
 
 

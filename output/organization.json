@@ -1,17 +1,17 @@
 {
     "resourceType": "Bundle",
-    "id": "8a39ff7a-7ea3-45c9-80be-55fb196bad20",
+    "id": "9fb6f85f-b5fc-45cc-81cd-fa40d24bcb0c",
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "http://localhost:8080/fhir/Organization/123456789",
+            "fullUrl": "http://localhost:8080/fhir/Organization/2343162",
             "request": {
                 "method": "PUT",
-                "url": "Organization/123456789"
+                "url": "Organization/2343162"
             },
             "resource": {
                 "resourceType": "Organization",
-                "id": "123456789",
+                "id": "2343162",
                 "meta": {
                     "profile": [
                         "https://fhir.bbmri.de/StructureDefinition/Collection"

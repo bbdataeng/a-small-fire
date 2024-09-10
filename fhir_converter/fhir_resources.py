@@ -31,6 +31,9 @@ from fhir.resources.age import Age
 fhir_resources.py -------------------------------------------------------------
 Employed by the FHIR-MODEL module to map each field/entity to its FHIR counterpart 
 """
+# import re 
+# from fhir.resources.fhirtypes import Id
+# Id.configure_constraints(regex=re.compile(r"^[A-Za-z0-9\-_.]+$")) # modifica regex x validazione per id
 
 # Configuration Info
 with open("biobank_config.yaml", "r") as config_file:
