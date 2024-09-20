@@ -95,7 +95,7 @@ class FHIRSerializer:
             diagnosis=self.input_patient.DIAGNOSIS,
             # hist_morphology=self.input_patient.HIST_MORPHOLOGY,
             date_diagnosis=self.input_patient.DATE_DIAGNOSIS,
-            age=self.input_patient.AGE_AT_PRIMARY_DIAGNOSIS,
+            age=self.input_patient.DIAGNOSIS_AGE,
         )
         # if the patient has been added yet-- > no duplicate diagnosis
         if not copy: self.add_to_bundle(bundle, diagnosis, patient_id=self.PATIENT_ID)
@@ -106,7 +106,7 @@ class FHIRSerializer:
             diagnosis=self.input_patient.DIAGNOSIS2,
             # hist_morphology=self.input_patient.HIST_MORPHOLOGY,
             date_diagnosis=self.input_patient.DATE_DIAGNOSIS,
-            age=self.input_patient.AGE_AT_PRIMARY_DIAGNOSIS,
+            age=self.input_patient.DIAGNOSIS_AGE,
         )
             if not copy: self.add_to_bundle(bundle, diagnosis2, patient_id=self.PATIENT_ID)
 

@@ -1,27 +1,22 @@
 # This configuration file defines the mapping of local data into MIABIS CDM fields
 
-
 # Define the names of each field
 field_mappings:
-
   # Donor/Clinical Information
   PATIENT_ID: PATIENT_ID
   SEX: SEX
   BIRTH_DATE: DOB
   DONOR_AGE: DONOR_AGE
   DIAGNOSIS: ICD-10
-  DIAGNOSIS2: 
-  AGE_AT_PRIMARY_DIAGNOSIS: AGE_AT_PRIMARY_DIAGNOSIS
-  DATE_DIAGNOSIS : DIAGNOSIS_DATE
+  DIAGNOSIS2: null
+  DIAGNOSIS_AGE: AGE_AT_PRIMARY_DIAGNOSIS
+  DATE_DIAGNOSIS: DIAGNOSIS_DATE
 
   # Sample Information
   SAMPLE_ID: SAMPLE_ID
   SAMPLING_DATE: SAMPLING_DATE
   MATERIAL_TYPE: MATERIAL_TYPE
-  STORAGE_TEMPERATURE: STORAGE_TEMPERATURE
-  
-  
-  
+  STORAGE_TEMPERATURE: STORAGE_TEMP
 
 # Define the names of each value
 value_mappings:
@@ -32,35 +27,35 @@ value_mappings:
     Unknown: unknown
 
   MATERIAL_TYPE:
-    Tissue (FFPE): FFPE
-    Tissue (Frozen):
+    TissueFFPE: FFPE
+    TissueFrozen: 
       - SNAP FROZEN
       - FROZEN
       - OCT
     Blood: BLOOD
-    Faeces: FECIS
-    Buffy Coat: BUFFY COAT
+    Faeces: FECES  
+    BuffyCoat: BUFFY COAT
     RNA: RNA
     DNA:
-    - DNA
-    - GDNA
+      - DNA
+      - GDNA
     Saliva: SALIVA
     Urine: URINE
-    Immortalized Cell Lines: CELLS
+    ImmortalizedCellLines: CELLS
+    IsolatedPathogen: PATHOGEN
     Other: SN
     Serum: SERUM
     Plasma: PLASMA
     Liquor: LIQUOR
 
   STORAGE_TEMPERATURE:
-    temperature-60to-85:
+    RT: RT 
+    LN: LN
+    Other: Other
+    -60to-85:
       - "-85"
       - "-80"
-    temperature-18to-35:
+    -18to-35:
       - "-35"
-    temperature2to10:
+    2to10:
       - "10"
-    temperatureRoom: RT
-    temperatureLN: LN
-    temperatureOther: Other
-

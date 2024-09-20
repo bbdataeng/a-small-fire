@@ -166,7 +166,7 @@ def convert(
 
         # Parse the first sheet only
         break
-
+    print("conversion process completed.")
 
 if __name__ == "__main__":
     app()

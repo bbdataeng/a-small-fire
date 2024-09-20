@@ -1,103 +1,83 @@
-# aSmallFHIR
 
-FHIR converter/transformer “toolkit” developed by the BBMRI-IT team to support the Transform step of the ETL process. 
+# a-small-FHIR
 
-The toolkit is based on the open source FHIR RESOURCES library available at https://github.com/nazrulworld/fhir.resources.
+**a-small-FHIR** is a toolkit developed by the BBMRI-IT team to support the transformation step in the ETL process, converting datasets into FHIR (Fast Healthcare Interoperability Resources) format.
 
-<!-- The toolkit uses the [CRC-ADOPT](https://ec.europa.eu/research/participants/documents/downloadPublic?documentIds=080166e5c9716d4e&appId=PPGMS) common data model. -->
+The toolkit is based on the open-source [FHIR RESOURCES](https://github.com/nazrulworld/fhir.resources) library.
 
 ![workflow](https://github.com/bbdataeng/a-small-fhir/blob/simpler-fhir/figures/asmallFHIR_ga.png)
 
+---
 
-## Basic Model 
+## Basic Model
 
-Minimal denominators' findable in the Federated Platform tools:  
-
-* Donor/Clinical Information
-    - Patient_ID
-    - Gender                  
-    - Diagnose ICD-10
-    - Diagnosis Age Donor 
-    - Date of Diagnosis
+The input dataset must contain at least the following essential fields:
 
 
-* Sample
-    - Sample_ID
-    - Donor Age
-    - Sample Type             
-    - Sampling Date 
-    - Storage Temperature     
+- **Sampling Date**
+- **Donor Birth Date**
+- **Diagnosis Age Donor**
+- **Gender**
+- **Date of Diagnosis**
+- **Diagnose ICD-10**
+- **Sample Type**
+- **Storage Temperature**
 
-## Modules
+Additionally, identifiers for the patient and sample are required:
 
-The main modules of the converter are: 
+- **Patient_ID**
+- **Sample_ID**
 
-<!-- <img src="https://github.com/antocruo/bbdataeng/assets/51079644/1e590644-4a46-48ba-9331-2499c8725259" width="500" height="500"/> -->
+---
 
-**Conversion:** overall wrapper, takes as input one excel (classic dataset table) and creates the FHIR-structured JSON to be uploaded on the Biobank Locator. 
+## Main Modules
 
-**Configuration:** contains a series of configuration values such as the organization id and the locator URL.
+The toolkit consists of several specialized modules:
 
-**Normalization:** the normalization module maps many non-compliant fields to a series of normalized fields, according to BBMRI implementation guide.
+### **Conversion**
+The primary module, which acts as an overall wrapper. It takes an Excel file (a classic dataset table) as input and creates a FHIR-structured JSON file, ready for upload to the Biobank Locator.
 
-**INPUT-MODELS:** contains all the possible values for the input employed in the validation and normalization process, according to MIABIS cdm.
+### **Configuration**
+This module contains various configuration values, such as the organization ID and the Biobank Locator URL.
 
-The FHIR final JSON is built by two separate modules: 
+### **Normalization**
+The normalization module maps non-compliant fields to normalized fields, following the BBMRI implementation guide.
 
-**FHIR-MODEL:** this module is the high-level converter from the dataset to the FHIR  
+### **Input-Model**
+This module contains all possible values for the input, used for validation and normalization, based on the MIABIS CDM.
 
-**FHIR-RESOURCES:** is employed by the FHIR-MODEL module and maps each field / entity to its FHIR counterpart 
+### **FHIR-Model**
+A high-level converter that transforms the dataset into FHIR format.
+
+### **FHIR-Resources**
+Used by the FHIR-MODEL module to map each field or entity to its corresponding FHIR structure.
+
+---
 
 ## Requirements
-``` shell
+
+To install the necessary dependencies, run:
+
+```bash
 pip install -r fhir_converter/requirements.txt
 ```
 
-<!-- Mandatory colnames:
-
--SEX
-
--DIAGNOSIS
-
--DATE_DIAGNOSIS
-
--DOB
-
--YEAR_OF_SAMPLE_COLLECTION
-
--SAMPLE_MATERIAL_TYPE
-
--STORAGE_TEMPERATURE
-
--PATIENT_ID
-
--SAMPLE_ID -->
+---
 
 ## Installation
-```
+
+Clone the repository with the following command:
+
+```bash
 git clone https://github.com/bbdataeng/a-small-fhir.git
 ```
 
+---
+
 ## Configuration Files
 
-There are two main configuration files:
+There are two main configuration files used by the toolkit:
 
-- `biobank_config.yml`: Contains general configuration information such as the organization ID, the collection ID and server URL.
-
-- `mapping_config.yml`: Defines the mapping of local data into MIABIS CDM fields.
-
-## Usage
-
-``` shell
-cd fhir_converter
-convert.py --filename "../fhir/data/<INPUT_XLSX>" --outdir "../fhir/output"
-```
-
-## Output
-
-* `organization.json`: bundle that contains the resources Organization/Biobank and Organization/Collection.
-
-* `bundle-<BUNDLE_ID>.json`: bundle that contains the resources Patient, Specimen, Condition.
-
-
+- **`biobank_config.yml`**: Contains general configuration information, such as organization ID, collection ID, and server URL.
+- **`mapping_config.yml`**: Defines the mapping of local data fields into MIABIS CDM fields.
 

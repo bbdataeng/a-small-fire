@@ -21,14 +21,16 @@ class FHIRNormalization:
 
 
 def apply_map(label: str, value: str, mapping: Dict[str, str]) -> str:
-    # print("value", value)
     for miabis_value, biobank_values in mapping.items():
+        # print('value:', value)
         if isinstance(biobank_values, str):
             # if a single string, convert it to a list
             biobank_values = [biobank_values]
-
+        # print('biobank_values:', biobank_values)
         if value in biobank_values:
+            # print('miabis_value:', miabis_value)
             return miabis_value
+    return value #leave the wrong value to better debugging
 
 def apply_map_IG(label: str, value: str, mapping: Dict[str, str]) -> str:
 
@@ -95,8 +97,8 @@ def normalize_output(patient: models.Patient) -> models.Patient:
             "MATERIAL_TYPE",
             patient.MATERIAL_TYPE,
             {"Tissue":"tissue",
-            "Tissue (FFPE)" : "tissue-formalin",
-            "Tissue (Frozen)":"tissue-frozen",
+            "TissueFFPE" : "tissue-formalin",
+            "TissueFrozen":"tissue-frozen",
             "":"tissue-paxgene-or-else",
             "":"tissue-other",
             "Liquid":"liquid",
@@ -104,7 +106,7 @@ def normalize_output(patient: models.Patient) -> models.Patient:
             "Plasma":"blood-plasma",
             "Serum":"blood-serum",
             "":"peripheral-blood-cells-vital",
-            "Buffy Coat":"buffy-coat",
+            "BuffyCoat":"buffy-coat",
             "":"bone-marrow",
             "Liquor":"csf-liquor",
             "":"ascites",
@@ -116,25 +118,25 @@ def normalize_output(patient: models.Patient) -> models.Patient:
             "DNA":"dna",
             "":"cf-dna",
             "RNA":"rna",
-            "Immortalized Cell Lines":"derivative-other",
+            "ImmortalizedCellLines":"derivative-other",
             },
         ) 
 
     
-    # patient.STORAGE_TEMPERATURE = apply_map_IG(
-    #     "STORAGE_TEMPERATURE",
-    #     patient.STORAGE_TEMPERATURE,
-    #     {
-    #         "-60 C to -85 C": "temperature-60to-85",
-    #         "-18 C to -35 C": "temperature-18to-35",
-    #         "2 C to 10 C": "temperature2to10",
-    #         "Other": "temperatureOther",
-    #         "RT":"temperatureRoom",
-    #         "LN":"temperatureLN",
-    #         "GN":"temperatureGN"
+    patient.STORAGE_TEMPERATURE = apply_map_IG(
+        "STORAGE_TEMPERATURE",
+        patient.STORAGE_TEMPERATURE,
+        {
+            "-60to-85": "temperature-60to-85",
+            "-18to-35": "temperature-18to-35",
+            "2to10": "temperature2to10",
+            "Other": "temperatureOther",
+            "RT":"temperatureRoom",
+            "LN":"temperatureLN",
+            "GN":"temperatureGN"
 
-    #     },
-    # )  
+        },
+    )  
     
     return patient
 
