@@ -1,7 +1,7 @@
 
-# a-small-FHIR
+# a-small-fire
 
-**a-small-FHIR** is a toolkit developed by the BBMRI-IT team to support the transformation step in the ETL process, converting datasets into FHIR (Fast Healthcare Interoperability Resources) format.
+**a-small-fire** is a toolkit developed by the BBMRI-IT team to support the transformation step in the ETL process, converting datasets into FHIR® tm (Fast Healthcare Interoperability Resources) format.
 
 The toolkit is based on the open-source [FHIR RESOURCES](https://github.com/nazrulworld/fhir.resources) library.
 
@@ -69,7 +69,7 @@ pip install -r fhir_converter/requirements.txt
 Clone the repository with the following command:
 
 ```bash
-git clone https://github.com/bbdataeng/a-small-fhir.git
+git clone https://github.com/bbdataeng/a-small-fire.git
 ```
 
 ---
