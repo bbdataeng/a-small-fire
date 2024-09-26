@@ -41,7 +41,7 @@ def apply_map_IG(label: str, value: str, mapping: Dict[str, str]) -> str:
 
  
 def load_config(config_path: str) -> Dict:
-    with open(config_path, 'r') as file:
+    with open(config_path, 'r', encoding='utf-8') as file:
         return yaml.safe_load(file)
     
 def normalize_input(patient_data: Dict[str, Any], config_path: str) -> Dict[str, Any]:
@@ -97,12 +97,12 @@ def normalize_output(patient: models.Patient) -> models.Patient:
             "MATERIAL_TYPE",
             patient.MATERIAL_TYPE,
             {"Tissue":"tissue",
-            "TissueFFPE" : "tissue-formalin",
-            "TissueFrozen":"tissue-frozen",
+            "Tissue (paraffin preserved)" : "tissue-formalin",
+            "Tissue (frozen)":"tissue-frozen",
             "":"tissue-paxgene-or-else",
             "":"tissue-other",
             "Liquid":"liquid",
-            "Blood":"whole-blood",
+            "Whole Blood":"whole-blood",
             "Plasma":"blood-plasma",
             "Serum":"blood-serum",
             "":"peripheral-blood-cells-vital",
@@ -118,7 +118,7 @@ def normalize_output(patient: models.Patient) -> models.Patient:
             "DNA":"dna",
             "":"cf-dna",
             "RNA":"rna",
-            "ImmortalizedCellLines":"derivative-other",
+            "Cell lines":"derivative-other",
             },
         ) 
 
@@ -127,13 +127,13 @@ def normalize_output(patient: models.Patient) -> models.Patient:
         "STORAGE_TEMPERATURE",
         patient.STORAGE_TEMPERATURE,
         {
-            "-60to-85": "temperature-60to-85",
-            "-18to-35": "temperature-18to-35",
-            "2to10": "temperature2to10",
+            "-60°C to -80°C": "temperature-60to-85",
+            "-18°C to -35°C": "temperature-18to-35",
+            "2°C to 10°C": "temperature2to10",
             "Other": "temperatureOther",
-            "RT":"temperatureRoom",
-            "LN":"temperatureLN",
-            "GN":"temperatureGN"
+            "Room temperature":"temperatureRoom",
+            "Liquid Nitrogen":"temperatureLN",
+            # "GN":"temperatureGN"
 
         },
     )  

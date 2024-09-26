@@ -9,14 +9,14 @@ field_mappings:
   DONOR_AGE: DONOR_AGE
   DIAGNOSIS: ICD-10
   DIAGNOSIS2: null
-  DIAGNOSIS_AGE: AGE_AT_PRIMARY_DIAGNOSIS
+  DIAGNOSIS_AGE: DIAGNOSIS_AGE
   DATE_DIAGNOSIS: DIAGNOSIS_DATE
 
   # Sample Information
   SAMPLE_ID: SAMPLE_ID
   SAMPLING_DATE: SAMPLING_DATE
   MATERIAL_TYPE: MATERIAL_TYPE
-  STORAGE_TEMPERATURE: STORAGE_TEMP
+  STORAGE_TEMPERATURE: STORAGE_TEMPERATURE
 
 # Define the names of each value
 value_mappings:
@@ -27,35 +27,34 @@ value_mappings:
     Unknown: unknown
 
   MATERIAL_TYPE:
-    TissueFFPE: FFPE
-    TissueFrozen: 
+    Tissue (paraffin preserved): TissueFFPE
+    Tissue (frozen): 
       - SNAP FROZEN
       - FROZEN
       - OCT
-    Blood: BLOOD
+    Whole Blood: BLOOD
     Faeces: FECES  
-    BuffyCoat: BUFFY COAT
+    Buffy Coat: BUFFY COAT
     RNA: RNA
     DNA:
       - DNA
       - GDNA
     Saliva: SALIVA
     Urine: URINE
-    ImmortalizedCellLines: CELLS
-    IsolatedPathogen: PATHOGEN
+    Cell lines: CELLS
     Other: SN
     Serum: SERUM
     Plasma: PLASMA
     Liquor: LIQUOR
 
   STORAGE_TEMPERATURE:
-    RT: RT 
-    LN: LN
+    Room temperature: RT 
+    Liquid Nitrogen: LN
     Other: Other
-    -60to-85:
+    -60°C to -80°C:
       - "-85"
       - "-80"
-    -18to-35:
+    -18°C to -35°C:
       - "-35"
-    2to10:
+    2°C to 10°C:
       - "10"

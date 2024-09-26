@@ -21,14 +21,13 @@ class SEX_ENUM(str, Enum):
     undifferentiated = "Undifferentiated"
 
 class SAMPLE_MATERIAL_TYPE_ENUM(str, Enum):
-    TISSUE_FFPE = 'TissueFFPE'
-    TISSUE_FROZEN = 'TissueFrozen'
-    BLOOD = 'Blood'
-    CELL = 'ImmortalizedCellLines'
+    TISSUE_FFPE = 'Tissue (frozen)'
+    TISSUE_FROZEN = 'Tissue (paraffin preserved)'
+    BLOOD = 'Whole Blood'
+    CELL = 'Cell lines'
     DNA = 'DNA'
     RNA = 'RNA'
     FAECES = 'Faeces'
-    PATHOGEN = 'IsolatedPathogen'
     PLASMA = 'Plasma'
     OTHER = 'Other'
     SALIVA = 'Saliva'
@@ -45,12 +44,12 @@ class STORAGE_TEMPERATURE_ENUM(str, Enum):
     # RT = "temperatureRoom"
     # LN = "temperatureLN"
 
-    MIN60TOMIN85 = "-60to-85"
-    MIN18TOMIN36 = "-18to-35"
-    TEMMP2TO10 = "2to10"
+    MIN60TOMIN85 = "-60°C to -80°C"
+    MIN18TOMIN36 = "-18°C to -35°C"
+    TEMMP2TO10 = "2°C to 10°C"
     OTHER ="Other"
-    RT = "RT"
-    LN = "LN"
+    RT = "Room temperature"
+    LN = "Liquid Nitrogen"
 
 class Patient(BaseModel):
 
