@@ -1,22 +1,28 @@
 {
     "resourceType": "Bundle",
-    "id": "6a456587-176e-4495-933b-5374cd171007",
+    "id": "ea91f95a-a01e-48b8-983a-fd4f8c851e06",
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "http://localhost:8080/fhir/Organization/2343162",
+            "fullUrl": "http://localhost:8080/fhir/Organization/xxdiseases",
             "request": {
                 "method": "PUT",
-                "url": "Organization/2343162"
+                "url": "Organization/xxdiseases"
             },
             "resource": {
                 "resourceType": "Organization",
-                "id": "2343162",
+                "id": "xxdiseases",
                 "meta": {
                     "profile": [
                         "https://fhir.bbmri.de/StructureDefinition/Collection"
                     ]
                 },
+                "identifier": [
+                    {
+                        "system": "http://www.bbmri-eric.eu/",
+                        "value": "bbmri-eric:ID:IT_00000:collection:xxdiseases"
+                    }
+                ],
                 "active": true,
                 "name": "XX Diseases",
                 "contact": [
@@ -48,24 +54,30 @@
                     }
                 ],
                 "partOf": {
-                    "reference": "Organization/0000001234"
+                    "reference": "Organization/bbdata"
                 }
             }
         },
         {
-            "fullUrl": "http://localhost:8080/fhir/Organization/0000001234",
+            "fullUrl": "http://localhost:8080/fhir/Organization/bbdata",
             "request": {
                 "method": "PUT",
-                "url": "Organization/0000001234"
+                "url": "Organization/bbdata"
             },
             "resource": {
                 "resourceType": "Organization",
-                "id": "0000001234",
+                "id": "bbdata",
                 "meta": {
                     "profile": [
                         "https://fhir.bbmri.de/StructureDefinition/Biobank"
                     ]
                 },
+                "identifier": [
+                    {
+                        "system": "http://www.bbmri-eric.eu/",
+                        "value": "bbmri-eric:ID:IT00000"
+                    }
+                ],
                 "active": true,
                 "name": "Biobanca Di Ricerca BBDATA",
                 "alias": [

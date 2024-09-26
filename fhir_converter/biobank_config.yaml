@@ -5,7 +5,8 @@ bbmri_structure_definition_url: "https://fhir.bbmri.de/StructureDefinition"
 server_url: "http://localhost:8080/fhir"
 
 # Biobank info 
-biobank_id: "0000001234"
+biobank_id: "bbdata"
+biobank_directory_id: bbmri-eric:ID:IT00000
 biobank_name: "Biobanca Di Ricerca BBDATA"
 
 biobank_alias:
@@ -35,7 +36,8 @@ biobank_contact:
 
 
 # Collection info 
-collection_id: "2343162"
+collection_id: "xxdiseases"
+collection_directory_id: bbmri-eric:ID:IT_00000:collection:xxdiseases
 collection_name: "XX Diseases"
 
 collection_alias:

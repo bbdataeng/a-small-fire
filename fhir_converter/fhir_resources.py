@@ -50,6 +50,8 @@ ORGANIZATION_NAME_BIO = config_data.get("biobank_name", "")
 ORGANIZATION_ALIAS_BIO = config_data.get("biobank_alias", [])
 ORGANIZATION_CONTACT_BIO = config_data.get("biobank_contact", [])
 
+BIOBANK_DIR_ID = config_data.get("biobank_directory_id", "")
+COLLECTION_DIR_ID = config_data.get("collection_directory_id", "")
 
 # Search on https://icd.who.int/browse10/2019/en
 ICD10_SYSTEM = "http://hl7.org/fhir/sid/icd-10"
@@ -81,6 +83,12 @@ class FHIRResources:
                 id=ORGANIZATION_ID_COLL,
                 meta=Meta(profile=[f"{BBMRI_STRUCTURE_DEFINITION_URL}/Collection"]),
                 active=True,
+                identifier=[
+                    {
+                    "system" : "http://www.bbmri-eric.eu/",
+                    "value" : COLLECTION_DIR_ID
+                    }
+                ],
                 name=ORGANIZATION_NAME_COLL,
                 alias=ORGANIZATION_ALIAS_COLL,
                 partOf=Reference(reference=f"Organization/{ORGANIZATION_ID_BIO}"),
@@ -105,6 +113,12 @@ class FHIRResources:
                 active=True,
                 name=ORGANIZATION_NAME_BIO,
                 alias=ORGANIZATION_ALIAS_BIO,
+                identifier=[
+                    {
+                    "system" : "http://www.bbmri-eric.eu/",
+                    "value" : BIOBANK_DIR_ID
+                    }
+                ],
                 contact=[
                     {
                         "address": Address(**contact["address"]),

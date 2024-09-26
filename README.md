@@ -72,6 +72,9 @@ Clone the repository with the following command:
 git clone https://github.com/bbdataeng/a-small-fire.git
 ```
 
+## Usage
+---bash
+
 ---
 
 ## Configuration Files
