@@ -1,8 +1,8 @@
 # a-small-fire
 
-**a-small-fire** is a toolkit developed by the BBMRI.it Data Engineering team to facilitate the transformation step of the ETL (Extract, Transform, Load) process, converting datasets into the FHIR® (Fast Healthcare Interoperability Resources) format.
+**a-small-fire** is a toolkit developed by the BBMRI.it Data Engineering team to facilitate the transformation step of the ETL (Extract, Transform, Load) process, converting datasets into the HL7 FHIR® (Fast Healthcare Interoperability Resources) standard.
 
-The toolkit is built on the open-source [FHIR RESOURCES](https://github.com/nazrulworld/fhir.resources) library.
+The toolkit is built on the open-source [FHIR Resources](https://github.com/nazrulworld/fhir.resources) library.
 
 ![workflow](https://github.com/bbdataeng/a-small-fhir/blob/simpler-fhir/figures/asmallfire.png)
 
@@ -32,23 +32,23 @@ In addition, the dataset must include unique identifiers for both the patient an
 
 The toolkit is structured into several key modules to handle different parts of the transformation process:
 
-### 1. **Conversion**
+### Conversion
    - The core module of the toolkit.
-   - Takes an Excel file (containing dataset tables) as input and generates a FHIR-structured JSON file ready for upload to the Biobank FHIR Store.
+   - Takes an Excel file as input and generates a FHIR-structured JSON file ready for upload to the Biobank FHIR Store.
 
-### 2. **Configuration**
+### Configuration
    - Manages various configuration settings, such as the organization ID and Biobank Locator URL.
 
-### 3. **Normalization**
+### Normalization
    - Maps dataset fields that do not follow the MIABIS standard into MIABIS-compliant fields.
 
-### 4. **Input-Model**
+### Input-Model
    - Contains all valid input values, which are used to validate and normalize data based on the MIABIS Common Data Model (CDM).
 
-### 5. **FHIR-Model**
+### FHIR-Model
    - A high-level converter that transforms the input dataset into the FHIR format, following the [BBMRI.de implementation guide](https://samply.github.io/bbmri-fhir-ig/).
 
-### 6. **FHIR-Resources**
+### FHIR-Resources
    - This module is responsible for mapping each field or entity in the dataset to its appropriate FHIR structure, helping to ensure compatibility with FHIR standards.
 
 ---
@@ -64,8 +64,6 @@ git clone https://github.com/bbdataeng/a-small-fire.git
 ```
 
 ### 2. Install dependencies
-
-Install the required dependencies by running the following command:
 
 ```bash
 pip install -r requirements.txt
@@ -98,7 +96,7 @@ py convert.py --filename <INPUT_DATA> --outdir "../output"
 ---
 
 ### Configuration Files
-There are two main configuration files that are critical for the toolkit:
+There are two main configuration files:
 
 - `biobank_config.yml:`
         Stores general configuration information, such as organization ID, collection ID, and the Biobank Locator server URL.
@@ -109,4 +107,4 @@ There are two main configuration files that are critical for the toolkit:
 
 ### Additional Resources
 
-For more information on the MIABIS standard and a sample dataset template, check out the [minimum-dataset-template](https://github.com/bbdataeng/a-small-fhir/blob/simpler-fhir/extra/minimum-dataset-template.xlsx).
+For more information on the MIABIS standard and a sample dataset template, check out the [minimum-dataset-template](https://github.com/bbdataeng/a-small-fire/blob/simpler-fhir/extra/minimal-dataset-template.xlsx).
