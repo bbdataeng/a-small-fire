@@ -1,10 +1,10 @@
 {
     "resourceType": "Bundle",
-    "id": "4799fbbb-cf2b-40bf-83fc-9db82d276aa6",
+    "id": "2f9a4a5f-46cb-4640-ae46-70efd27983c0",
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "http://localhost:8080/fhir/Organization/xxdiseases",
+            "fullUrl": "/Organization/xxdiseases",
             "request": {
                 "method": "PUT",
                 "url": "Organization/xxdiseases"
@@ -17,49 +17,49 @@
                         "https://fhir.bbmri.de/StructureDefinition/Collection"
                     ]
                 },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/CollectionType",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/CollectionType",
+                                    "code": "SAMPLE"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/DataCategory",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/DataCategory",
+                                    "code": "BIOLOGICAL_SAMPLES"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/OrganizationDescription",
+                        "valueString": "Collezione di campioni"
+                    }
+                ],
                 "identifier": [
                     {
                         "system": "http://www.bbmri-eric.eu/",
-                        "value": "bbmri-eric:ID:IT_00000:collection:xxdiseases"
+                        "value": "bbmri-eric:ID:IT_1230000:collection:xxdiseases"
                     }
                 ],
                 "active": true,
                 "name": "XX Diseases",
-                "contact": [
-                    {
-                        "telecom": [
-                            {
-                                "system": "phone",
-                                "value": "+395453534534",
-                                "use": "work",
-                                "rank": 1
-                            },
-                            {
-                                "system": "email",
-                                "value": "pippo.baudo@isnt.it",
-                                "use": "work",
-                                "rank": 1
-                            }
-                        ],
-                        "address": {
-                            "use": "work",
-                            "type": "physical",
-                            "line": [
-                                "Viale Manzoni"
-                            ],
-                            "city": "Rome",
-                            "postalCode": "00161",
-                            "country": "IT"
-                        }
-                    }
-                ],
                 "partOf": {
                     "reference": "Organization/bbdata"
                 }
             }
         },
         {
-            "fullUrl": "http://localhost:8080/fhir/Organization/bbdata",
+            "fullUrl": "/Organization/bbdata",
             "request": {
                 "method": "PUT",
                 "url": "Organization/bbdata"
@@ -72,41 +72,42 @@
                         "https://fhir.bbmri.de/StructureDefinition/Biobank"
                     ]
                 },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/OrganizationDescription",
+                        "valueString": "Biobanca di Popolazione"
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/JuridicalPerson",
+                        "valueString": "non lo so"
+                    }
+                ],
                 "identifier": [
                     {
                         "system": "http://www.bbmri-eric.eu/",
-                        "value": "bbmri-eric:ID:IT00000"
+                        "value": "bbmri-eric:ID:IT_1230000"
                     }
                 ],
                 "active": true,
                 "name": "Biobanca Di Ricerca BBDATA",
                 "alias": [
-                    "BB-BBDATA"
+                    "BBBBDATA"
                 ],
                 "contact": [
                     {
                         "telecom": [
                             {
                                 "system": "phone",
-                                "value": "+395453534534",
-                                "use": "work",
-                                "rank": 1
+                                "value": "+39 34534534534"
                             },
                             {
                                 "system": "email",
-                                "value": "pippo.baudo@isnt.it",
-                                "use": "work",
-                                "rank": 1
+                                "value": "fsiafaf@int.it"
                             }
                         ],
                         "address": {
-                            "use": "work",
-                            "type": "physical",
-                            "line": [
-                                "Viale Manzoni"
-                            ],
                             "city": "Rome",
-                            "postalCode": "00161",
+                            "postalCode": "84020",
                             "country": "IT"
                         }
                     }

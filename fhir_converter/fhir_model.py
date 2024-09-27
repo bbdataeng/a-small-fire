@@ -124,7 +124,7 @@ class FHIRSerializer:
             diagnosis=self.input_patient.DIAGNOSIS,
             collection_date=self.input_patient.SAMPLING_DATE,
             material_type=self.MATERIAL_TYPE,
-            temperature_room=self.input_patient.STORAGE_TEMPERATURE
+            storage_temp=self.input_patient.STORAGE_TEMPERATURE
             # surgery_start=self.SURGERY_START,
         )
         self.add_to_bundle(bundle, specimen, patient_id=self.PATIENT_ID, resource_id=self.SAMPLE_ID)

@@ -1,68 +1,104 @@
 # Configuration
 
-bbmri_structure_definition_url: "https://fhir.bbmri.de/StructureDefinition"
-# Server URL
-server_url: "http://localhost:8080/fhir"
 
-# Biobank info 
-biobank_id: "bbdata"
-biobank_directory_id: bbmri-eric:ID:IT00000
-biobank_name: "Biobanca Di Ricerca BBDATA"
+BBMRI_STRUCTURE_DEFINITION_URL: "https://fhir.bbmri.de/StructureDefinition"
+SERVER_URL: "http://localhost:8080/fhir"
 
-biobank_alias:
-  - "BB-BBDATA"
-
-biobank_contact:
-
-  - address:
-      use: "work"
-      type: "physical"
-      country: "IT"
-      city: "Rome"
-      postalCode: "00161"
-      line:
-        - "Viale Manzoni"
-
-    telecom:
-      - system: "phone"
-        value: "+395453534534"
-        use: "work"
-        rank: 1
-
-      - system: "email"
-        value: "pippo.baudo@isnt.it"
-        use: "work"
-        rank: 1
+# ---------------------------- Biobank info --------------------------------- #
+BIOBANK_ID: "bbdata"
+BIOBANK_DIRECTORY_ID: bbmri-eric:ID:IT_1230000
+BIOBANK_NAME: "Biobanca Di Ricerca BBDATA"
+BIOBANK_ALIAS: [BBBBDATA]
+BIOBANK_CITY: Rome
+BIOBANK_POSTAL_CODE: 84020  
+BIOBANK_COUNTRY: IT
+BIOBANK_CONTACT_FAMILY: Ranieri
+BIOBANK_CONTACT_GIVEN: Massimo 
+CONTACT_PHONE: +39 34534534534
+CONTACT_EMAIL: fsiafaf@int.it
+BIOBANK_DESCRIPTION: Biobanca di Popolazione
+BIOBANK_JURIDICALPERSON: non lo so 
 
 
-# Collection info 
-collection_id: "xxdiseases"
-collection_directory_id: bbmri-eric:ID:IT_00000:collection:xxdiseases
-collection_name: "XX Diseases"
+# --------------------------- Collection info ------------------------------- #
+COLLECTION_ID: "xxdiseases"
+COLLECTION_DIRECTORY_ID: bbmri-eric:ID:IT_1230000:collection:xxdiseases
+COLLECTION_NAME: "XX Diseases"
+COLLECTION_ALIAS: "gsdgsd"
+COLLECTION_TYPE_CODE: SAMPLE
+DATA_CATEGORY_CODE: BIOLOGICAL_SAMPLES
+COLLECTION_DESCRIPTION: Collezione di campioni 
 
-collection_alias:
 
-collection_contact:
 
-  - address:
-      use: "work"
-      type: "physical"
-      country: "IT"
-      city: "Rome"
-      postalCode: "00161"
-      line:
-        - "Viale Manzoni"
 
-    telecom:
 
-      - system: "phone"
-        value: "+395453534534"
-        use: "work"
-        rank: 1
+# bbmri_structure_definition_url: "https://fhir.bbmri.de/StructureDefinition"
+# # Server URL
+# server_url: "http://localhost:8080/fhir"
 
-      - system: "email"
-        value: "pippo.baudo@isnt.it"
-        use: "work"
-        rank: 1
+# # Biobank info 
+# biobank_id: "bbdata"
+# biobank_directory_id: bbmri-eric:ID:IT00000
+# biobank_name: "Biobanca Di Ricerca BBDATA"
+
+# biobank_alias:
+#   - "BB-BBDATA"
+
+# biobank_contact:
+
+#   - address:
+#       use: "work"
+#       type: "physical"
+#       country: "IT"
+#       city: "Rome"
+#       postalCode: "00161"
+#       line:
+#         - "Viale Manzoni"
+
+#     telecom:
+#       - system: "phone"
+#         value: "+395453534534"
+#         use: "work"
+#         rank: 1
+
+#       - system: "email"
+#         value: "pippo.baudo@isnt.it"
+#         use: "work"
+#         rank: 1
+
+
+# # Collection info 
+# collection_id: "xxdiseases"
+# collection_directory_id: bbmri-eric:ID:IT_00000:collection:xxdiseases
+# collection_name: "XX Diseases"
+# COLLECTION_TYPE_CODE: SAMPLE
+# DATA_CATEGORY_CODE: BIOLOGICAL_SAMPLES
+# COLLECTION_DESCRIPTION: 
+
+# collection_alias:
+
+# collection_contact:
+
+#   - address:
+#       use: "work"
+#       type: "physical"
+#       country: "IT"
+#       city: "Rome"
+#       postalCode: "00161"
+#       line:
+#         - "Viale Manzoni"
+
+#     telecom:
+
+#       - system: "phone"
+#         value: "+395453534534"
+#         use: "work"
+#         rank: 1
+
+#       - system: "email"
+#         value: "pippo.baudo@isnt.it"
+#         use: "work"
+#         rank: 1
 
 
