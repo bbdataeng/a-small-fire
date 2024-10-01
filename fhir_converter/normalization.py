@@ -8,6 +8,7 @@ from fhir.resources.fhirtypes import Date
 import re
 import yaml
 from input_models import MATERIAL_TYPE_ENUM, STORAGE_TEMPERATURE_ENUM, SEX_ENUM
+
 # import icd10
 
 
@@ -15,9 +16,7 @@ class FHIRNormalization:
 
     # https://www.icd10data.com/search
     @staticmethod
-    def get_diagnosis_icd10(
-        diag : str
-    ) -> str:
+    def get_diagnosis_icd10(diag: str) -> str:
         return diag
 
 
@@ -31,7 +30,8 @@ def apply_map(label: str, value: str, mapping: Dict[str, str]) -> str:
         if value in biobank_values:
             # print('miabis_value:', miabis_value)
             return miabis_value
-    return value #leave the wrong value to better debugging
+    return value  # leave the wrong value to better debugging
+
 
 def apply_map_IG(label: str, value: str, mapping: Dict[str, str]) -> str:
 
@@ -40,18 +40,18 @@ def apply_map_IG(label: str, value: str, mapping: Dict[str, str]) -> str:
 
     return mapping[value]
 
- 
-def load_config(config_path: str) -> Dict:
-    with open(config_path, 'r', encoding='utf-8') as file:
-        return yaml.safe_load(file)
 
+def load_config(config_path: str) -> Dict:
+    with open(config_path, "r", encoding="utf-8") as file:
+        return yaml.safe_load(file)
 
 
 ## -------------------- Input Normalization [Optional] --------------------- ##
 ## ------ Mapping to MIABIS standard according to mapping_config.yml ------- ##
 
+
 def normalize_input(patient_data: Dict[str, Any], config_path: str) -> Dict[str, Any]:
-    '''Normalize input data based on configuration'''
+    """Normalize input data based on configuration"""
 
     config = load_config(config_path)
     field_mappings = config.get("field_mappings", {})
@@ -62,7 +62,7 @@ def normalize_input(patient_data: Dict[str, Any], config_path: str) -> Dict[str,
         if biobank_field in patient_data:
             patient_data[miabis_field] = patient_data.pop(biobank_field)
 
-    patient_data['STORAGE_TEMPERATURE'] = str(patient_data['STORAGE_TEMPERATURE'])
+    patient_data["STORAGE_TEMPERATURE"] = str(patient_data["STORAGE_TEMPERATURE"])
     # value mappings
     for key, mapping in value_mappings.items():
         # print("KEY: ", key)
@@ -82,13 +82,12 @@ def normalize_input(patient_data: Dict[str, Any], config_path: str) -> Dict[str,
     return patient_data
 
 
-
 ## ------------------------- Output Normalization -------------------------- ##
 ## ----------------- Mapping to FHIR values (BBMRI.de IG) ------------------ ##
 
-def normalize_output(patient: models.Patient) -> models.Patient:
 
-    '''Mapping MIABIS compliant fields to BBMRI.de/GBA Implementation Guide'''
+def normalize_output(patient: models.Patient) -> models.Patient:
+    """Mapping MIABIS compliant fields to BBMRI.de/GBA Implementation Guide"""
 
     patient.SEX = apply_map_IG(
         "SEX",
@@ -99,38 +98,37 @@ def normalize_output(patient: models.Patient) -> models.Patient:
             SEX_ENUM.UNDIFFERENTIATED.value: "undifferentiated",
             SEX_ENUM.UNKNOWN.value: "unknown",
         },
-    )  
+    )
 
     patient.MATERIAL_TYPE = apply_map_IG(
         "MATERIAL_TYPE",
         patient.MATERIAL_TYPE,
         {
-            MATERIAL_TYPE_ENUM.ANY.value: "unknown",  
+            MATERIAL_TYPE_ENUM.ANY.value: "unknown",
             MATERIAL_TYPE_ENUM.BUFFY_COAT.value: "buffy-coat",
             MATERIAL_TYPE_ENUM.CDNA_MRNA.value: "rna",
             MATERIAL_TYPE_ENUM.CELL_LINES.value: "derivative-other",
             MATERIAL_TYPE_ENUM.DNA.value: "dna",
             MATERIAL_TYPE_ENUM.FECES.value: "stool-faeces",
             MATERIAL_TYPE_ENUM.MICRORNA.value: "rna",
-            MATERIAL_TYPE_ENUM.NASAL_SWAB.value: "swab", 
-            MATERIAL_TYPE_ENUM.NOT_AVAILABLE.value: "unknown",  
-            MATERIAL_TYPE_ENUM.OTHER.value: "liquid-other",  
-            MATERIAL_TYPE_ENUM.PATHOGEN.value: "unknown-pathogen",  
+            MATERIAL_TYPE_ENUM.NASAL_SWAB.value: "swab",
+            MATERIAL_TYPE_ENUM.NOT_AVAILABLE.value: "unknown",
+            MATERIAL_TYPE_ENUM.OTHER.value: "liquid-other",
+            MATERIAL_TYPE_ENUM.PATHOGEN.value: "unknown-pathogen",
             MATERIAL_TYPE_ENUM.PERIPHERAL_BLOOD_CELLS.value: "peripheral-blood-cells-vital",
             MATERIAL_TYPE_ENUM.PLASMA.value: "blood-plasma",
             MATERIAL_TYPE_ENUM.RNA.value: "rna",
             MATERIAL_TYPE_ENUM.SALIVA.value: "saliva",
             MATERIAL_TYPE_ENUM.SERUM.value: "blood-serum",
-            MATERIAL_TYPE_ENUM.THROAT_SWAB.value: "swab",  
+            MATERIAL_TYPE_ENUM.THROAT_SWAB.value: "swab",
             MATERIAL_TYPE_ENUM.TISSUE_FROZEN.value: "tissue-frozen",
             MATERIAL_TYPE_ENUM.TISSUE_PARAFIN_PRESERVED.value: "tissue-ffpe",
-            MATERIAL_TYPE_ENUM.TISSUE_STAINED_SECTIONS.value: "tissue-other",  
+            MATERIAL_TYPE_ENUM.TISSUE_STAINED_SECTIONS.value: "tissue-other",
             MATERIAL_TYPE_ENUM.URINE.value: "urine",
             MATERIAL_TYPE_ENUM.WHOLE_BLOOD.value: "whole-blood",
         },
     )
 
-    
     patient.STORAGE_TEMPERATURE = apply_map_IG(
         "STORAGE_TEMPERATURE",
         patient.STORAGE_TEMPERATURE,
@@ -142,8 +140,7 @@ def normalize_output(patient: models.Patient) -> models.Patient:
             STORAGE_TEMPERATURE_ENUM.RT.value: "temperatureRoom",
             STORAGE_TEMPERATURE_ENUM.LN.value: "temperatureLN",
             # "GN":"temperatureGN"
-
         },
-    )  
-    
+    )
+
     return patient

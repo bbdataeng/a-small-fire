@@ -80,10 +80,10 @@ def convert(
     # create a bundle with collection resource and biobank resource
     bundle = FHIRResources.get_bundle()
 
-    collection = FHIRResources.get_organization("Collection")
     biobank = FHIRResources.get_organization("Biobank")
-    bundle.entry.append(collection)
+    collection = FHIRResources.get_organization("Collection")
     bundle.entry.append(biobank)
+    bundle.entry.append(collection)
     bundle_data = bundle.dict()
     bundle_data = bbmri_post_serialization(bundle_data)
 

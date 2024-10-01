@@ -5,8 +5,8 @@ from fhir_resources import FHIRResources
 from loguru import logger as log
 from normalization import FHIRNormalization
 
-from fhir.resources.bundle import Bundle
-from fhir.resources.resource import Resource
+from fhir.resources.R4B.bundle import Bundle
+from fhir.resources.R4B.resource import Resource
 
 
 with open("biobank_config.yaml", "r") as config_file:

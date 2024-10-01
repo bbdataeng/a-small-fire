@@ -5,24 +5,39 @@ BBMRI_STRUCTURE_DEFINITION_URL: "https://fhir.bbmri.de/StructureDefinition"
 SERVER_URL: "http://localhost:8080/fhir"
 
 # ---------------------------- Biobank info --------------------------------- #
-BIOBANK_ID: "bbdata"
-BIOBANK_DIRECTORY_ID: bbmri-eric:ID:IT_1230000
+BIOBANK_ID: bbdata
+BIOBANK_DIRECTORY_ID: bbmri-eric:ID:IT_1230000 #(from https://directory.bbmri-eric.eu/ERIC/directory)
 BIOBANK_NAME: "Biobanca Di Ricerca BBDATA"
 BIOBANK_ALIAS: [BBBBDATA]
-BIOBANK_CITY: Rome
-BIOBANK_POSTAL_CODE: 84020  
-BIOBANK_COUNTRY: IT
-BIOBANK_CONTACT_FAMILY: Ranieri
-BIOBANK_CONTACT_GIVEN: Massimo 
-CONTACT_PHONE: +39 34534534534
-CONTACT_EMAIL: fsiafaf@int.it
 BIOBANK_DESCRIPTION: Biobanca di Popolazione
 BIOBANK_JURIDICALPERSON: non lo so 
+BIOBANK_CITY: Rome
+BIOBANK_LINE : [Via Manzoni 4]
+BIOBANK_POSTAL_CODE: 84020  
+BIOBANK_COUNTRY: IT
+
+## Contact 1: HEAD (Director)
+DIRECTOR_FAMILY_NAME: Ranieri
+DIRECTOR_GIVEN_NAME: [Massimo]
+DIRECTOR_PREFIX_NAME: [Dr]
+DIRECTOR_PHONE: +39 34534534534
+DIRECTOR_EMAIL: fsiafaf@int.it
+
+## Contact 2: Contact (Research)
+CONTACT_FAMILY_NAME: Ranieri
+CONTACT_GIVEN_NAME: [Massimo]
+CONTACT_PREFIX_NAME: [Dr]
+CONTACT_PHONE: +39 34534534534
+CONTACT_EMAIL: fsiafaf@int.it
+CONTACT_ADD_CITY: Rome
+CONTACT_ADD_LINE: [Via Manzoni 4]
+CONTACT_ADD_POSTAL_CODE: 84020  
+CONTACT_ADD_COUNTRY: IT
 
 
 # --------------------------- Collection info ------------------------------- #
 COLLECTION_ID: "xxdiseases"
-COLLECTION_DIRECTORY_ID: bbmri-eric:ID:IT_1230000:collection:xxdiseases
+COLLECTION_DIRECTORY_ID: bbmri-eric:ID:IT_1230000:collection:xxdiseases #(from https://directory.bbmri-eric.eu/ERIC/directory)
 COLLECTION_NAME: "XX Diseases"
 COLLECTION_ALIAS: "gsdgsd"
 COLLECTION_TYPE_CODE: SAMPLE

@@ -1,8 +1,128 @@
 {
     "resourceType": "Bundle",
-    "id": "2f9a4a5f-46cb-4640-ae46-70efd27983c0",
+    "id": "6fb175cb-dd2c-4fda-9ec7-6191604c66f2",
     "type": "transaction",
     "entry": [
+        {
+            "fullUrl": "/Organization/bbdata",
+            "request": {
+                "method": "PUT",
+                "url": "Organization/bbdata"
+            },
+            "resource": {
+                "resourceType": "Organization",
+                "id": "bbdata",
+                "meta": {
+                    "profile": [
+                        "https://fhir.bbmri.de/StructureDefinition/Biobank"
+                    ]
+                },
+                "extension": [
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/OrganizationDescription",
+                        "valueString": "Biobanca di Popolazione"
+                    },
+                    {
+                        "url": "https://fhir.bbmri.de/StructureDefinition/JuridicalPerson",
+                        "valueString": "non lo so"
+                    }
+                ],
+                "identifier": [
+                    {
+                        "system": "http://www.bbmri-eric.eu/",
+                        "value": "bbmri-eric:ID:IT_1230000"
+                    }
+                ],
+                "active": true,
+                "name": "Biobanca Di Ricerca BBDATA",
+                "alias": [
+                    "BBBBDATA"
+                ],
+                "address": [
+                    {
+                        "line": [
+                            "Via Manzoni 4"
+                        ],
+                        "city": "Rome",
+                        "postalCode": "84020",
+                        "country": "IT"
+                    }
+                ],
+                "contact": [
+                    {
+                        "extension": [
+                            {
+                                "url": "https://fhir.bbmri.de/StructureDefinition/ContactRole",
+                                "valueString": "Director"
+                            }
+                        ],
+                        "purpose": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/contactentity-type",
+                                    "code": "ADMIN",
+                                    "display": "Administrative"
+                                }
+                            ]
+                        },
+                        "name": {
+                            "family": "Ranieri",
+                            "given": [
+                                "Massimo"
+                            ],
+                            "prefix": [
+                                "Dr"
+                            ]
+                        },
+                        "telecom": [
+                            {
+                                "system": "phone",
+                                "value": "+39 34534534534"
+                            }
+                        ]
+                    },
+                    {
+                        "purpose": {
+                            "coding": [
+                                {
+                                    "system": "https://fhir.bbmri.de/CodeSystem/ContactType",
+                                    "code": "RESEARCH",
+                                    "display": "Research"
+                                }
+                            ],
+                            "text": "Contact for research inquiries."
+                        },
+                        "name": {
+                            "family": "Ranieri",
+                            "given": [
+                                "Massimo"
+                            ],
+                            "suffix": [
+                                "Dr"
+                            ]
+                        },
+                        "telecom": [
+                            {
+                                "system": "phone",
+                                "value": "+39 34534534534"
+                            },
+                            {
+                                "system": "email",
+                                "value": "fsiafaf@int.it"
+                            }
+                        ],
+                        "address": {
+                            "line": [
+                                "Via Manzoni 4"
+                            ],
+                            "city": "Rome",
+                            "postalCode": "84020",
+                            "country": "IT"
+                        }
+                    }
+                ]
+            }
+        },
         {
             "fullUrl": "/Organization/xxdiseases",
             "request": {
@@ -56,62 +176,6 @@
                 "partOf": {
                     "reference": "Organization/bbdata"
                 }
-            }
-        },
-        {
-            "fullUrl": "/Organization/bbdata",
-            "request": {
-                "method": "PUT",
-                "url": "Organization/bbdata"
-            },
-            "resource": {
-                "resourceType": "Organization",
-                "id": "bbdata",
-                "meta": {
-                    "profile": [
-                        "https://fhir.bbmri.de/StructureDefinition/Biobank"
-                    ]
-                },
-                "extension": [
-                    {
-                        "url": "https://fhir.bbmri.de/StructureDefinition/OrganizationDescription",
-                        "valueString": "Biobanca di Popolazione"
-                    },
-                    {
-                        "url": "https://fhir.bbmri.de/StructureDefinition/JuridicalPerson",
-                        "valueString": "non lo so"
-                    }
-                ],
-                "identifier": [
-                    {
-                        "system": "http://www.bbmri-eric.eu/",
-                        "value": "bbmri-eric:ID:IT_1230000"
-                    }
-                ],
-                "active": true,
-                "name": "Biobanca Di Ricerca BBDATA",
-                "alias": [
-                    "BBBBDATA"
-                ],
-                "contact": [
-                    {
-                        "telecom": [
-                            {
-                                "system": "phone",
-                                "value": "+39 34534534534"
-                            },
-                            {
-                                "system": "email",
-                                "value": "fsiafaf@int.it"
-                            }
-                        ],
-                        "address": {
-                            "city": "Rome",
-                            "postalCode": "84020",
-                            "country": "IT"
-                        }
-                    }
-                ]
             }
         }
     ]

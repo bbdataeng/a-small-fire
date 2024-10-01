@@ -7,26 +7,28 @@ import input_models as models
 from loguru import logger as log
 from normalization import FHIRNormalization
 
-from fhir.resources.address import Address
-from fhir.resources.bundle import Bundle
-from fhir.resources.codeableconcept import CodeableConcept
-from fhir.resources.codeablereference import CodeableReference
-from fhir.resources.coding import Coding
-from fhir.resources.condition import Condition
-from fhir.resources.contactpoint import ContactPoint
-from fhir.resources.extension import Extension
-from fhir.resources.fhirtypes import AgeType, String
-from fhir.resources.medicationstatement import MedicationStatement
-from fhir.resources.meta import Meta
-from fhir.resources.observation import Observation
-from fhir.resources.organization import Organization
-from fhir.resources.humanname import HumanName
-from fhir.resources.patient import Patient
-from fhir.resources.period import Period
-from fhir.resources.procedure import Procedure
-from fhir.resources.reference import Reference
-from fhir.resources.specimen import Specimen, SpecimenCollection
-from fhir.resources.age import Age
+from fhir.resources.R4B.address import Address
+from fhir.resources.R4B.bundle import Bundle
+from fhir.resources.R4B.codeableconcept import CodeableConcept
+from fhir.resources.R4B.codeablereference import CodeableReference
+from fhir.resources.R4B.coding import Coding
+from fhir.resources.R4B.condition import Condition
+from fhir.resources.R4B.contactpoint import ContactPoint
+from fhir.resources.R4B.extension import Extension
+from fhir.resources.R4B.fhirtypes import AgeType, String
+from fhir.resources.R4B.medicationstatement import MedicationStatement
+from fhir.resources.R4B.meta import Meta
+from fhir.resources.R4B.observation import Observation
+from fhir.resources.R4B.organization import Organization
+from fhir.resources.R4B.humanname import HumanName
+from fhir.resources.R4B.patient import Patient
+from fhir.resources.R4B.period import Period
+from fhir.resources.R4B.procedure import Procedure
+from fhir.resources.R4B.reference import Reference
+from fhir.resources.R4B.specimen import Specimen, SpecimenCollection
+from fhir.resources.R4B.age import Age
+
+
 
 # load variables from configuration file
 with open("biobank_config.yaml", "r") as file:
@@ -67,19 +69,102 @@ class FHIRResources:
                         "value": BIOBANK_DIRECTORY_ID,
                     }
                 ],
-                contact=[
-                    {
-                        "address": Address(
+                address=[Address(
+                            line = BIOBANK_LINE,
                             country=BIOBANK_COUNTRY,
                             city=BIOBANK_CITY,
                             postalCode=BIOBANK_POSTAL_CODE,
-                        ),
-                        "telecom": [
-                            {"system": "phone", "value": CONTACT_PHONE},
-                            {"system": "email", "value": CONTACT_EMAIL},
+                        )],
+                contact=[
+                    {
+                    "extension" : [
+                        {
+                        "url" : "https://fhir.bbmri.de/StructureDefinition/ContactRole",
+                        "valueString" : "Director"
+                        }
+                    ],
+                    "purpose" : {
+                        "coding" : [
+                        {
+                            "system" : "http://terminology.hl7.org/CodeSystem/contactentity-type",
+                            "code" : "ADMIN",
+                            "display" : "Administrative"
+                        }
+                        ]
+                    },
+                    "name" : {
+                        "family" : DIRECTOR_FAMILY_NAME,
+                        "given" : DIRECTOR_GIVEN_NAME,
+                        "prefix" : DIRECTOR_PREFIX_NAME
+                    },
+                    "telecom" : [
+                        {
+                        "system" : "phone",
+                        "value" : DIRECTOR_PHONE
+                        }
+                    ]
+                    },
+                    {
+                    "purpose" : {
+                        "coding" : [
+                        {
+                            "system" : "https://fhir.bbmri.de/CodeSystem/ContactType",
+                            "code" : "RESEARCH",
+                            "display" : "Research"
+                        }
                         ],
+                        "text" : "Contact for research inquiries."
+                    },
+                    "name" : {
+                        "family" : CONTACT_FAMILY_NAME,
+                        "given" : CONTACT_GIVEN_NAME,
+                        "suffix" : CONTACT_PREFIX_NAME
+                    },
+                    "telecom" : [
+                        {
+                        "system" : "phone",
+                        "value" : CONTACT_PHONE
+                        },
+                        {
+                        "system" : "email",
+                        "value" : CONTACT_EMAIL
+                        }
+                    ],
+                    "address" : {
+                        "line" : CONTACT_ADD_LINE,
+                        "city" : CONTACT_ADD_CITY,
+                        "postalCode" : CONTACT_ADD_POSTAL_CODE,
+                        "country" : CONTACT_ADD_COUNTRY
+                    }
                     }
                 ],
+        
+                    # first contact: Director
+                #     {  "address": [Address(
+                #             line = BIOBANK_LINE,
+                #             country=BIOBANK_COUNTRY,
+                #             city=BIOBANK_CITY,
+                #             postalCode=BIOBANK_POSTAL_CODE,
+                #         )],
+                        
+                #         "purpose": {
+                #         "coding": [
+                #             {
+                #             "code": "RESEARCH",
+                #             "display": "Research",
+                #             "system": "https://fhir.bbmri.de/CodeSystem/ContactType"
+                #             }]},
+                #         "name": HumanName(
+                #             family=BIOBANK_CONTACT_FAMILY,
+                #             given=[BIOBANK_CONTACT_GIVEN],
+                #             prefix=[BIOBANK_CONTACT_PREFIX],
+                #         ),
+                #         "telecom": [
+                #             {"system": "phone", "value": CONTACT_PHONE},
+                #             {"system": "email", "value": CONTACT_EMAIL},
+                #         ],
+                #     }
+                # ],
                 extension=[
                     {
                         "url": f"{BBMRI_STRUCTURE_DEFINITION_URL}/OrganizationDescription",
