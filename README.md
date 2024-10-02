@@ -4,7 +4,7 @@
 
 The toolkit is built on the open-source [FHIR Resources](https://github.com/nazrulworld/fhir.resources) library.
 
-![workflow](https://github.com/bbdataeng/a-small-fhir/blob/simpler-fhir/figures/asmallfire.png)
+![workflow](https://github.com/bbdataeng/a-small-fhir/blob/simpler-fhir/figures/graphical-abstract.png)
 
 ---
 
@@ -30,14 +30,11 @@ In addition, the dataset must include unique identifiers for both the patient an
 
 ## Key Modules
 
-The toolkit is structured into several key modules to handle different parts of the transformation process:
+The toolkit is structured into several key modules:
 
 ### Conversion
    - The core module of the toolkit.
    - Takes an Excel file as input and generates a FHIR-structured JSON file ready for upload to the Biobank FHIR Store.
-
-### Configuration
-   - Manages various configuration settings, such as the organization ID and Biobank Locator URL.
 
 ### Normalization
    - Maps dataset fields that do not follow the MIABIS standard into MIABIS-compliant fields.
@@ -49,7 +46,7 @@ The toolkit is structured into several key modules to handle different parts of 
    - A high-level converter that transforms the input dataset into the FHIR format, following the [BBMRI.de implementation guide](https://samply.github.io/bbmri-fhir-ig/).
 
 ### FHIR-Resources
-   - This module is responsible for mapping each field or entity in the dataset to its appropriate FHIR structure, helping to ensure compatibility with FHIR standards.
+   - This module is responsible for mapping each field in the dataset to its appropriate FHIR Resource.
 
 ---
 
@@ -72,7 +69,8 @@ pip install -r requirements.txt
 ---
 
 ### Usage
-The toolkit offers two main options depending on whether your input data already conforms to the MIABIS standard:
+
+The toolkit offers two main options depending on whether your input data already conforms to the [MIABIS](https://github.com/BBMRI-ERIC/miabis) standard:
 
 
 #### 1. Input Data in MIABIS Standard
@@ -93,6 +91,8 @@ cd fhir_converter
 py convert.py --filename <INPUT_DATA> --outdir "../output"   
 ```
 
+
+
 ---
 
 ### Configuration Files
@@ -104,6 +104,20 @@ There are two main configuration files:
 - `mapping_config.yml:`
         Defines how to map the fields in your local dataset to MIABIS CDM fields if your data is not already standardized.
 
+
+---
+
+### Output
+
+Two json files are generated from this tool:
+
+- `bundle-<BUNDLE_ID>.JSON:`
+        Stores a transaction bundle with Patient and Specimen FHIR Resources.
+
+- `organization.json:`
+        Stores a transaction bundle with Organization/Biobank and Organization/Collection FHIR Resources.
+
+--- 
 
 ### Additional Resources
 

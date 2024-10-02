@@ -1,6 +1,6 @@
 {
     "resourceType": "Bundle",
-    "id": "6fb175cb-dd2c-4fda-9ec7-6191604c66f2",
+    "id": "4398898e-fb3c-47c6-b549-d4632b2ee348",
     "type": "transaction",
     "entry": [
         {
@@ -20,11 +20,11 @@
                 "extension": [
                     {
                         "url": "https://fhir.bbmri.de/StructureDefinition/OrganizationDescription",
-                        "valueString": "Biobanca di Popolazione"
+                        "valueString": "Biobanca Santo Stefano is the Biobank of the IRCCS Ospedale Santo Stefano. It stores samples ..."
                     },
                     {
                         "url": "https://fhir.bbmri.de/StructureDefinition/JuridicalPerson",
-                        "valueString": "non lo so"
+                        "valueString": "IRCCS Ospedale Santo Stefano"
                     }
                 ],
                 "identifier": [
@@ -34,7 +34,7 @@
                     }
                 ],
                 "active": true,
-                "name": "Biobanca Di Ricerca BBDATA",
+                "name": "Biobanca Santo Stefano",
                 "alias": [
                     "BBBBDATA"
                 ],
@@ -43,7 +43,7 @@
                         "line": [
                             "Via Manzoni 4"
                         ],
-                        "city": "Rome",
+                        "city": "Naples",
                         "postalCode": "84020",
                         "country": "IT"
                     }
@@ -93,9 +93,9 @@
                             "text": "Contact for research inquiries."
                         },
                         "name": {
-                            "family": "Ranieri",
+                            "family": "D'Angelo",
                             "given": [
-                                "Massimo"
+                                "Nino"
                             ],
                             "suffix": [
                                 "Dr"
@@ -104,18 +104,18 @@
                         "telecom": [
                             {
                                 "system": "phone",
-                                "value": "+39 34534534534"
+                                "value": "+39 33133333"
                             },
                             {
                                 "system": "email",
-                                "value": "fsiafaf@int.it"
+                                "value": "nino@bb.it"
                             }
                         ],
                         "address": {
                             "line": [
                                 "Via Manzoni 4"
                             ],
-                            "city": "Rome",
+                            "city": "Naples",
                             "postalCode": "84020",
                             "country": "IT"
                         }
@@ -124,14 +124,14 @@
             }
         },
         {
-            "fullUrl": "/Organization/xxdiseases",
+            "fullUrl": "/Organization/KDN",
             "request": {
                 "method": "PUT",
-                "url": "Organization/xxdiseases"
+                "url": "Organization/KDN"
             },
             "resource": {
                 "resourceType": "Organization",
-                "id": "xxdiseases",
+                "id": "KDN",
                 "meta": {
                     "profile": [
                         "https://fhir.bbmri.de/StructureDefinition/Collection"
@@ -162,17 +162,17 @@
                     },
                     {
                         "url": "https://fhir.bbmri.de/StructureDefinition/OrganizationDescription",
-                        "valueString": "Collezione di campioni"
+                        "valueString": "Kidney disease sample collection"
                     }
                 ],
                 "identifier": [
                     {
                         "system": "http://www.bbmri-eric.eu/",
-                        "value": "bbmri-eric:ID:IT_1230000:collection:xxdiseases"
+                        "value": "bbmri-eric:ID:IT_1230000:collection:KDN"
                     }
                 ],
                 "active": true,
-                "name": "XX Diseases",
+                "name": "Kidney diseases",
                 "partOf": {
                     "reference": "Organization/bbdata"
                 }

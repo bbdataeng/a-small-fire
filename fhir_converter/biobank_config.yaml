@@ -1,119 +1,74 @@
-# Configuration
-
+# Configuration File for Biobank and Collection Information
 
 BBMRI_STRUCTURE_DEFINITION_URL: "https://fhir.bbmri.de/StructureDefinition"
+
+# URL of the local server *
 SERVER_URL: "http://localhost:8080/fhir"
 
-# ---------------------------- Biobank info --------------------------------- #
+# ---------------------------- Biobank Info --------------------------------- #
+
+# Unique ID for the biobank *
 BIOBANK_ID: bbdata
-BIOBANK_DIRECTORY_ID: bbmri-eric:ID:IT_1230000 #(from https://directory.bbmri-eric.eu/ERIC/directory)
-BIOBANK_NAME: "Biobanca Di Ricerca BBDATA"
+
+# ID used to identify the biobank in the BBMRI-ERIC directory *
+BIOBANK_DIRECTORY_ID: bbmri-eric:ID:IT_1230000
+
+# Full name of the biobank *
+BIOBANK_NAME: Biobanca Santo Stefano
+
+# Alternate name(s) or abbreviations used for the biobank (can be empty)
 BIOBANK_ALIAS: [BBBBDATA]
-BIOBANK_DESCRIPTION: Biobanca di Popolazione
-BIOBANK_JURIDICALPERSON: non lo so 
-BIOBANK_CITY: Rome
-BIOBANK_LINE : [Via Manzoni 4]
-BIOBANK_POSTAL_CODE: 84020  
+
+# A brief description of the biobank * 
+BIOBANK_DESCRIPTION: Biobanca Santo Stefano is the Biobank of the IRCCS Ospedale Santo Stefano. It stores samples ...
+
+# The legal entity responsible for the biobank *
+BIOBANK_JURIDICALPERSON: IRCCS Ospedale Santo Stefano
+
+# Location information for the biobank *
+BIOBANK_CITY: Naples
+BIOBANK_LINE: [Via Manzoni 4]
+BIOBANK_POSTAL_CODE: 84020
 BIOBANK_COUNTRY: IT
 
-## Contact 1: HEAD (Director)
+# -------------------------------- Contact Info ----------------------------- #
+
+# Contact details for the biobank director (primary contact person)
 DIRECTOR_FAMILY_NAME: Ranieri
 DIRECTOR_GIVEN_NAME: [Massimo]
-DIRECTOR_PREFIX_NAME: [Dr]
+DIRECTOR_PREFIX_NAME: [Dr]  # Professional title or prefix (e.g., Dr, Prof.)
 DIRECTOR_PHONE: +39 34534534534
-DIRECTOR_EMAIL: fsiafaf@int.it
+DIRECTOR_EMAIL: m.ranierif@bb.it
 
-## Contact 2: Contact (Research)
-CONTACT_FAMILY_NAME: Ranieri
-CONTACT_GIVEN_NAME: [Massimo]
+# Contact details for a secondary point of contact (Research contact) *
+CONTACT_FAMILY_NAME: D'Angelo
+CONTACT_GIVEN_NAME: [Nino]
 CONTACT_PREFIX_NAME: [Dr]
-CONTACT_PHONE: +39 34534534534
-CONTACT_EMAIL: fsiafaf@int.it
-CONTACT_ADD_CITY: Rome
+CONTACT_PHONE: +39 33133333
+CONTACT_EMAIL: nino@bb.it
+# Address details for the research contact (could be the same as biobank location) *
+CONTACT_ADD_CITY: Naples
 CONTACT_ADD_LINE: [Via Manzoni 4]
-CONTACT_ADD_POSTAL_CODE: 84020  
+CONTACT_ADD_POSTAL_CODE: 84020
 CONTACT_ADD_COUNTRY: IT
 
+# -------------------------------- Collection Info -------------------------- #
 
-# --------------------------- Collection info ------------------------------- #
-COLLECTION_ID: "xxdiseases"
-COLLECTION_DIRECTORY_ID: bbmri-eric:ID:IT_1230000:collection:xxdiseases #(from https://directory.bbmri-eric.eu/ERIC/directory)
-COLLECTION_NAME: "XX Diseases"
-COLLECTION_ALIAS: "gsdgsd"
-COLLECTION_TYPE_CODE: SAMPLE
+# Unique identifier for the collection
+COLLECTION_ID: KDN
+
+# Collection identifier used in the BBMRI-ERIC directory *
+COLLECTION_DIRECTORY_ID: bbmri-eric:ID:IT_1230000:collection:KDN
+
+# Name of the collection *
+COLLECTION_NAME: Kidney diseases
+
+# Alternate name or short name for the collection * 
+COLLECTION_ALIAS: KDN
+
+# A brief description of the collection *
+COLLECTION_DESCRIPTION: Kidney disease sample collection
+
+# Type of the collection and category code
+COLLECTION_TYPE_CODE: SAMPLE                
 DATA_CATEGORY_CODE: BIOLOGICAL_SAMPLES
-COLLECTION_DESCRIPTION: Collezione di campioni 
-
-
-
-
-
-# bbmri_structure_definition_url: "https://fhir.bbmri.de/StructureDefinition"
-# # Server URL
-# server_url: "http://localhost:8080/fhir"
-
-# # Biobank info 
-# biobank_id: "bbdata"
-# biobank_directory_id: bbmri-eric:ID:IT00000
-# biobank_name: "Biobanca Di Ricerca BBDATA"
-
-# biobank_alias:
-#   - "BB-BBDATA"
-
-# biobank_contact:
-
-#   - address:
-#       use: "work"
-#       type: "physical"
-#       country: "IT"
-#       city: "Rome"
-#       postalCode: "00161"
-#       line:
-#         - "Viale Manzoni"
-
-#     telecom:
-#       - system: "phone"
-#         value: "+395453534534"
-#         use: "work"
-#         rank: 1
-
-#       - system: "email"
-#         value: "pippo.baudo@isnt.it"
-#         use: "work"
-#         rank: 1
-
-
-# # Collection info 
-# collection_id: "xxdiseases"
-# collection_directory_id: bbmri-eric:ID:IT_00000:collection:xxdiseases
-# collection_name: "XX Diseases"
-# COLLECTION_TYPE_CODE: SAMPLE
-# DATA_CATEGORY_CODE: BIOLOGICAL_SAMPLES
-# COLLECTION_DESCRIPTION: 
-
-# collection_alias:
-
-# collection_contact:
-
-#   - address:
-#       use: "work"
-#       type: "physical"
-#       country: "IT"
-#       city: "Rome"
-#       postalCode: "00161"
-#       line:
-#         - "Viale Manzoni"
-
-#     telecom:
-
-#       - system: "phone"
-#         value: "+395453534534"
-#         use: "work"
-#         rank: 1
-
-#       - system: "email"
-#         value: "pippo.baudo@isnt.it"
-#         use: "work"
-#         rank: 1
-
-

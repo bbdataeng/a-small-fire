@@ -1,10 +1,9 @@
 # This configuration file defines the mapping of local data into MIABIS CDM fields
 # Please edit the mappings according to your input dataset
 
-# Define the names of each field ----------------------------------------------
+# ---------------------------- Field Mapping -------------------------------- #
 
 field_mappings:
-
   SAMPLE_ID: SAMPLE_ID
   PATIENT_ID: PATIENT_ID
   SEX: SEX
@@ -18,7 +17,7 @@ field_mappings:
   MATERIAL_TYPE: MATERIAL_TYPE
   STORAGE_TEMPERATURE: STORAGE_TEMPERATURE
 
-# Define the names of each value ----------------------------------------------
+# ---------------------------- Values Mapping -------------------------------- #
 
 value_mappings:
   SEX:
@@ -28,35 +27,33 @@ value_mappings:
     Unknown: unknown
 
   MATERIAL_TYPE:
-    Any: any 
+    Any: any
     Buffy Coat: BUFFY COAT
     cDNA / mRNA: RNA
     Cell lines: CELLS
     DNA: [DNA, GDNA]
-    Feces: FECES  
-    microRNA: RNA 
-    Nasal swab: NASAL SWAB 
-    Not available: NA 
+    Feces: FECES
+    microRNA: RNA
+    Nasal swab: NASAL SWAB
+    Not available: NA
     Other: SN
-    Pathogen: PATHOGEN 
+    Pathogen: PATHOGEN
     Peripheral blood cells: PERIPHERAL BLOOD CELLS
     Plasma: PLASMA
     RNA: RNA
     Saliva: SALIVA
     Serum: SERUM
-    Throat swab: THROAT SWAB 
+    Throat swab: THROAT SWAB
     Tissue (frozen): [FROZEN, OCT]
     Tissue (paraffin preserved): TissueFFPE
-    Tissue (stained sections/slides): STAINED_TISSUE 
+    Tissue (stained sections/slides): STAINED_TISSUE
     Urine: URINE
     Whole Blood: BLOOD
 
   STORAGE_TEMPERATURE:
-    Room temperature: RT 
+    Room temperature: RT
     Liquid Nitrogen: LN
     Other: Other
     -60°C to -80°C: ["-85", "-80"]
     -18°C to -35°C: ["-35"]
     2°C to 10°C: ["10"]
-
-

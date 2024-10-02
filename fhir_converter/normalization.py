@@ -9,8 +9,6 @@ import re
 import yaml
 from input_models import MATERIAL_TYPE_ENUM, STORAGE_TEMPERATURE_ENUM, SEX_ENUM
 
-# import icd10
-
 
 class FHIRNormalization:
 
