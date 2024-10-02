@@ -4,7 +4,7 @@
 
 The toolkit is built on the open-source [FHIR Resources](https://github.com/nazrulworld/fhir.resources) library.
 
-![workflow](https://github.com/bbdataeng/a-small-fhir/blob/simpler-fhir/figures/graphical-abstract.png)
+![workflow](https://github.com/bbdataeng/a-small-fire/blob/version4/figures/graphical-abstract.png)
 
 ---
 
