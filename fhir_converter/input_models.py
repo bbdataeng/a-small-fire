@@ -70,11 +70,12 @@ class Patient(BaseModel):
     # Patient pseudonym
     PATIENT_ID: Optional[str]
     # Age at diagnosis (rounded to years)
-    DIAGNOSIS_AGE: int
+    DIAGNOSIS_DONOR_AGE: int
     # Biological sex
     SEX: SEX_ENUM
     # Date of diagnosis
-    DATE_DIAGNOSIS: date
+    DIAGNOSIS_DATE: date
+
     # Dignosis (ICD-10)
     DIAGNOSIS : str
     DIAGNOSIS2: Optional[str]
