@@ -78,7 +78,7 @@ class FHIRSerializer:
             patient = FHIRResources.get_patient(
                 id = self.PATIENT_ID,
                 sex=self.input_patient.SEX,
-                age=self.input_patient.DONOR_AGE
+                age=self.input_patient.DIAGNOSIS_DONOR_AGE
                 # birthDate=self.input_patient.BIRTH_DATE
             )
         if not copy: self.add_to_bundle(bundle, patient, resource_id=self.PATIENT_ID)
@@ -94,8 +94,8 @@ class FHIRSerializer:
             patient_ref=patient_ref,
             diagnosis=self.input_patient.DIAGNOSIS,
             # hist_morphology=self.input_patient.HIST_MORPHOLOGY,
-            date_diagnosis=self.input_patient.DATE_DIAGNOSIS,
-            age=self.input_patient.DIAGNOSIS_AGE,
+            date_diagnosis=self.input_patient.DIAGNOSIS_DATE,
+            age=self.input_patient.DIAGNOSIS_DONOR_AGE,
         )
         # if the patient has been added yet-- > no duplicate diagnosis
         if not copy: self.add_to_bundle(bundle, diagnosis, patient_id=self.PATIENT_ID)
@@ -105,8 +105,8 @@ class FHIRSerializer:
             patient_ref=patient_ref,
             diagnosis=self.input_patient.DIAGNOSIS2,
             # hist_morphology=self.input_patient.HIST_MORPHOLOGY,
-            date_diagnosis=self.input_patient.DATE_DIAGNOSIS,
-            age=self.input_patient.DIAGNOSIS_AGE,
+            date_diagnosis=self.input_patient.DIAGNOSIS_DATE,
+            age=self.input_patient.DIAGNOSIS_DONOR_AGE,
         )
             if not copy: self.add_to_bundle(bundle, diagnosis2, patient_id=self.PATIENT_ID)
 
