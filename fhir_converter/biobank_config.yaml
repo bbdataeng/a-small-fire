@@ -8,13 +8,13 @@ SERVER_URL: "http://localhost:8080/fhir"
 # ---------------------------- Biobank Info --------------------------------- #
 
 # Unique ID for the biobank *
-BIOBANK_ID: bbdata
+BIOBANK_ID: BBB
 
 # ID used to identify the biobank in the BBMRI-ERIC directory *
 BIOBANK_DIRECTORY_ID: bbmri-eric:ID:IT_1230000
 
 # Full name of the biobank *
-BIOBANK_NAME: Biobanca Santo Stefano
+BIOBANK_NAME: Biobanca Pippo 
 
 # Alternate name(s) or abbreviations used for the biobank (can be empty)
 BIOBANK_ALIAS: [BBBBDATA]

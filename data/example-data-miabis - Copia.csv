@@ -1,0 +1,4 @@
+SAMPLE_ID;PATIENT_ID;DATE_DIAGNOSIS;SAMPLING_DATE;BIRTH_DATE;DIAGNOSIS_AGE;DONOR_AGE;SEX;DIAGNOSIS;MATERIAL_TYPE;STORAGE_TEMPERATURE
+sample-0;patient-0;2020-05-09;2020-05-09;1936-07-01;80;80;Male;C18.9;Tissue (frozen);Room temperature
+sample-1;patient-1;2020-05-09;2020-05-09;1936-07-01;82;82;Female;C18.1;Tissue (frozen);Room temperature
+sample-2;patient-0;2020-05-09;2020-05-09;1938-08-05;80;80;Male;C18.9;Tissue (paraffin preserved);-60°C to -80°C

@@ -1,17 +1,17 @@
 {
     "resourceType": "Bundle",
-    "id": "4398898e-fb3c-47c6-b549-d4632b2ee348",
+    "id": "fe3a6655-f0d3-40cd-b93b-56d5e341eca3",
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "/Organization/bbdata",
+            "fullUrl": "/Organization/BBI",
             "request": {
                 "method": "PUT",
-                "url": "Organization/bbdata"
+                "url": "Organization/BBI"
             },
             "resource": {
                 "resourceType": "Organization",
-                "id": "bbdata",
+                "id": "BBI",
                 "meta": {
                     "profile": [
                         "https://fhir.bbmri.de/StructureDefinition/Biobank"
@@ -34,7 +34,7 @@
                     }
                 ],
                 "active": true,
-                "name": "Biobanca Santo Stefano",
+                "name": "Biobanca Istituzionale",
                 "alias": [
                     "BBBBDATA"
                 ],
@@ -174,7 +174,7 @@
                 "active": true,
                 "name": "Kidney diseases",
                 "partOf": {
-                    "reference": "Organization/bbdata"
+                    "reference": "Organization/BBI"
                 }
             }
         }

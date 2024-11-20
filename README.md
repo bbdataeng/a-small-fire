@@ -111,7 +111,7 @@ There are two main configuration files:
 
 Two json files are generated from this tool:
 
-- `bundle-<BUNDLE_ID>.JSON:`
+- `bundle-<BUNDLE_ID>.json:`
         Stores a transaction bundle with Patient and Specimen FHIR Resources.
 
 - `organization.json:`
@@ -121,4 +121,4 @@ Two json files are generated from this tool:
 
 ### Additional Resources
 
-For more information on the MIABIS standard and a sample dataset template, check out the [minimum-dataset-template](https://github.com/bbdataeng/a-small-fire/blob/simpler-fhir/extra/minimal-dataset-template.xlsx).
+For more information on the MIABIS standard and a sample dataset template, check out the [minimum-dataset-template](https://github.com/bbdataeng/a-small-fire/blob/version4/extra/minimal-dataset-template.xlsx).
