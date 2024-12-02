@@ -1,17 +1,17 @@
 {
     "resourceType": "Bundle",
-    "id": "fe3a6655-f0d3-40cd-b93b-56d5e341eca3",
+    "id": "30a42b67-b386-4812-8c89-1525f17a4f0c",
     "type": "transaction",
     "entry": [
         {
-            "fullUrl": "/Organization/BBI",
+            "fullUrl": "/Organization/BBX",
             "request": {
                 "method": "PUT",
-                "url": "Organization/BBI"
+                "url": "Organization/BBX"
             },
             "resource": {
                 "resourceType": "Organization",
-                "id": "BBI",
+                "id": "BBX",
                 "meta": {
                     "profile": [
                         "https://fhir.bbmri.de/StructureDefinition/Biobank"
@@ -20,31 +20,27 @@
                 "extension": [
                     {
                         "url": "https://fhir.bbmri.de/StructureDefinition/OrganizationDescription",
-                        "valueString": "Biobanca Santo Stefano is the Biobank of the IRCCS Ospedale Santo Stefano. It stores samples ..."
+                        "valueString": "BB Research Biobank stores biological samples and associated data of ..."
                     },
                     {
                         "url": "https://fhir.bbmri.de/StructureDefinition/JuridicalPerson",
-                        "valueString": "IRCCS Ospedale Santo Stefano"
+                        "valueString": "IRCCS Ospedale X"
                     }
                 ],
                 "identifier": [
                     {
                         "system": "http://www.bbmri-eric.eu/",
-                        "value": "bbmri-eric:ID:IT_1230000"
+                        "value": "bbmri-eric:ID:IT_1234"
                     }
                 ],
                 "active": true,
-                "name": "Biobanca Istituzionale",
+                "name": "Biobanca Di Ricerca X",
                 "alias": [
-                    "BBBBDATA"
+                    "BB-X"
                 ],
                 "address": [
                     {
-                        "line": [
-                            "Via Manzoni 4"
-                        ],
-                        "city": "Naples",
-                        "postalCode": "84020",
+                        "city": "Rome",
                         "country": "IT"
                     }
                 ],
@@ -66,18 +62,14 @@
                             ]
                         },
                         "name": {
-                            "family": "Ranieri",
+                            "family": "Cognome",
                             "given": [
-                                "Massimo"
-                            ],
-                            "prefix": [
-                                "Dr"
+                                "Nome"
                             ]
                         },
                         "telecom": [
                             {
-                                "system": "phone",
-                                "value": "+39 34534534534"
+                                "system": "phone"
                             }
                         ]
                     },
@@ -93,30 +85,22 @@
                             "text": "Contact for research inquiries."
                         },
                         "name": {
-                            "family": "D'Angelo",
+                            "family": "Cognome",
                             "given": [
-                                "Nino"
-                            ],
-                            "suffix": [
-                                "Dr"
+                                "Nome"
                             ]
                         },
                         "telecom": [
                             {
-                                "system": "phone",
-                                "value": "+39 33133333"
+                                "system": "phone"
                             },
                             {
                                 "system": "email",
-                                "value": "nino@bb.it"
+                                "value": "nome.cognome@x.net"
                             }
                         ],
                         "address": {
-                            "line": [
-                                "Via Manzoni 4"
-                            ],
-                            "city": "Naples",
-                            "postalCode": "84020",
+                            "city": "Rome",
                             "country": "IT"
                         }
                     }
@@ -124,14 +108,14 @@
             }
         },
         {
-            "fullUrl": "/Organization/KDN",
+            "fullUrl": "/Organization/NND",
             "request": {
                 "method": "PUT",
-                "url": "Organization/KDN"
+                "url": "Organization/NND"
             },
             "resource": {
                 "resourceType": "Organization",
-                "id": "KDN",
+                "id": "NND",
                 "meta": {
                     "profile": [
                         "https://fhir.bbmri.de/StructureDefinition/Collection"
@@ -162,19 +146,19 @@
                     },
                     {
                         "url": "https://fhir.bbmri.de/StructureDefinition/OrganizationDescription",
-                        "valueString": "Kidney disease sample collection"
+                        "valueString": "BB-X Research Biobank stores biological samples and associated data of ..."
                     }
                 ],
                 "identifier": [
                     {
                         "system": "http://www.bbmri-eric.eu/",
-                        "value": "bbmri-eric:ID:IT_1230000:collection:KDN"
+                        "value": "bbmri-eric:ID:IT_1234:collection:0000"
                     }
                 ],
                 "active": true,
-                "name": "Kidney diseases",
+                "name": "Neurodegenerative and Neuromuscular Diseases",
                 "partOf": {
-                    "reference": "Organization/BBI"
+                    "reference": "Organization/BBX"
                 }
             }
         }
