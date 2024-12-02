@@ -1,8 +1,6 @@
-# py convert.py --filename "C:\\Users\\Antonella\\Desktop\\FHIR\\sample-colon-dataset.xlsx" --outdir "C:\\Users\\Antonella\\Desktop\\FHIR"
 import sys
 from pathlib import Path
 from typing import Dict
-import os
 import simplejson as json  # base json is unable to properly serialize Decimals
 import typer
 from fhir_model import FHIRSerializer, bbmri_post_serialization
@@ -14,7 +12,7 @@ from openpyxl import load_workbook
 from openpyxl.utils.exceptions import InvalidFileException
 from pydantic import ValidationError
 from tqdm import tqdm
-import time
+
 
 # from tqdm import tqdm
 
@@ -26,32 +24,6 @@ the BBMRI appendix format and creates the FHIR-structured JSON to be uploaded
 on the Biobank Locator
 
 -------------------------------------------------------------------------------
-
-Minimal denominators' findable in the Federated Platform tools:
-    # ########## Donor/Clinical Information
-    # Patient pseudonym
-    PATIENT_ID: Optional[str]
-    # Age at diagnosis (rounded to years)
-    AGE_AT_PRIMARY_DIAGNOSIS: int
-    # Biological sex
-    SEX: SEX_ENUM
-    # Date of diagnosis
-    DATE_DIAGNOSIS: date
-    # Diagnosis (ICD-10)
-    DIAGNOSIS : DIAGNOSIS_ENUM
-    # Donor Age / Date of birth
-    DONOR_AGE : date
-    # AGE: int
-
-    # ########## Sample
-    # Sample ID
-    SAMPLE_ID: str
-    # Material type
-    SAMPLE_MATERIAL_TYPE: SAMPLE_MATERIAL_TYPE_ENUM
-    # Year of sample collection
-    YEAR_OF_SAMPLE_COLLECTION: int
-    # Storage temperature
-    STORAGE_TEMPERATURE: Optional[str]
 
 """
 
