@@ -8,6 +8,7 @@ PyYAML==6.0.1
 simplejson==3.19.2
 typer==0.9.0
 simple-icd-10
+tqdm
 
 # fhir==0.0.4
 # loguru==0.7.2
