@@ -13,6 +13,8 @@ from normalization import normalize_input, normalize_output
 from openpyxl import load_workbook
 from openpyxl.utils.exceptions import InvalidFileException
 from pydantic import ValidationError
+from tqdm import tqdm
+import time
 
 # from tqdm import tqdm
 
@@ -112,9 +114,9 @@ def convert(
         counters: Dict[str, int] = {}
         ## for each cell, take the value and put it in patient_data dict with key = header
         # for row in ws.iter_rows(min_row=2, max_row=ws.max_row, max_col=len(header)):
-        for row_number, row in enumerate(
-            ws.iter_rows(min_row=2, max_row=ws.max_row, max_col=len(header)), start=2
-        ):
+        for row_number, row in tqdm(
+            enumerate(ws.iter_rows(min_row=2, max_row=ws.max_row, max_col=len(header)), start=2),
+            total=wb.active.max_row-1):
             if ws.row_dimensions[row_number].hidden:  # if the row is hidden, skip it
                 continue
 
@@ -163,6 +165,7 @@ def convert(
 
                 with open(f"{outdir}/bundle-{bundle.id}.json", "w") as f:
                     json.dump(bundle_data, f, default=str, indent=4)
+    
 
         # Parse the first sheet only
         break
