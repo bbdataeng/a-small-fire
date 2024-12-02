@@ -9,7 +9,7 @@ from fhir.resources.R4B.bundle import Bundle
 from fhir.resources.R4B.resource import Resource
 
 
-with open("biobank_config.yaml", "r") as config_file:
+with open("biobank_config.yaml", "r", encoding='utf-8') as config_file:
     config_data = yaml.safe_load(config_file)
 SERVER_URL = config_data.get("server_url", "")
 

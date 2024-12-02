@@ -31,7 +31,7 @@ from fhir.resources.R4B.age import Age
 
 
 # load variables from configuration file
-with open("biobank_config.yaml", "r") as file:
+with open("biobank_config.yaml", "r", encoding='utf-8') as file:
     config = yaml.safe_load(file)
 locals().update(config)
 
