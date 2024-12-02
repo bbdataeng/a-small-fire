@@ -3,72 +3,78 @@
 BBMRI_STRUCTURE_DEFINITION_URL: "https://fhir.bbmri.de/StructureDefinition"
 
 # URL of the local server *
-SERVER_URL: "http://localhost:8080/fhir"
+SERVER_URL: "https://localhost/bbmri-localdatamanagement/fhir"
 
 # ---------------------------- Biobank Info --------------------------------- #
 
 # Unique ID for the biobank *
-BIOBANK_ID: BBB
+BIOBANK_ID: BBX
 
 # ID used to identify the biobank in the BBMRI-ERIC directory *
-BIOBANK_DIRECTORY_ID: bbmri-eric:ID:IT_1230000
+BIOBANK_DIRECTORY_ID: bbmri-eric:ID:IT_1234
 
 # Full name of the biobank *
-BIOBANK_NAME: Biobanca Pippo 
+BIOBANK_NAME: Biobanca Di Ricerca X
 
 # Alternate name(s) or abbreviations used for the biobank (can be empty)
-BIOBANK_ALIAS: [BBBBDATA]
+BIOBANK_ALIAS: [BB-X]
 
 # A brief description of the biobank * 
-BIOBANK_DESCRIPTION: Biobanca Santo Stefano is the Biobank of the IRCCS Ospedale Santo Stefano. It stores samples ...
+BIOBANK_DESCRIPTION: >-
+  BB Research Biobank stores biological samples and associated data of
+  ...
 
 # The legal entity responsible for the biobank *
-BIOBANK_JURIDICALPERSON: IRCCS Ospedale Santo Stefano
+BIOBANK_JURIDICALPERSON: IRCCS Ospedale X
 
 # Location information for the biobank *
-BIOBANK_CITY: Naples
-BIOBANK_LINE: [Via Manzoni 4]
-BIOBANK_POSTAL_CODE: 84020
+BIOBANK_CITY: Rome
+BIOBANK_LINE: []
+BIOBANK_POSTAL_CODE: 
 BIOBANK_COUNTRY: IT
 
 # -------------------------------- Contact Info ----------------------------- #
 
 # Contact details for the biobank director (primary contact person)
-DIRECTOR_FAMILY_NAME: Ranieri
-DIRECTOR_GIVEN_NAME: [Massimo]
-DIRECTOR_PREFIX_NAME: [Dr]  # Professional title or prefix (e.g., Dr, Prof.)
-DIRECTOR_PHONE: +39 34534534534
-DIRECTOR_EMAIL: m.ranierif@bb.it
+DIRECTOR_FAMILY_NAME: Cognome
+DIRECTOR_GIVEN_NAME: [Nome]
+DIRECTOR_PREFIX_NAME: []  # Professional title or prefix (e.g., Dr, Prof.)
+DIRECTOR_PHONE: 
+DIRECTOR_EMAIL: nome.cognome@x.net
 
 # Contact details for a secondary point of contact (Research contact) *
-CONTACT_FAMILY_NAME: D'Angelo
-CONTACT_GIVEN_NAME: [Nino]
-CONTACT_PREFIX_NAME: [Dr]
-CONTACT_PHONE: +39 33133333
-CONTACT_EMAIL: nino@bb.it
+CONTACT_FAMILY_NAME: Cognome
+CONTACT_GIVEN_NAME: [Nome]
+CONTACT_PREFIX_NAME: []
+CONTACT_PHONE: 
+CONTACT_EMAIL: nome.cognome@x.net
 # Address details for the research contact (could be the same as biobank location) *
-CONTACT_ADD_CITY: Naples
-CONTACT_ADD_LINE: [Via Manzoni 4]
-CONTACT_ADD_POSTAL_CODE: 84020
+CONTACT_ADD_CITY: Rome
+CONTACT_ADD_LINE: []
+CONTACT_ADD_POSTAL_CODE: 
 CONTACT_ADD_COUNTRY: IT
 
 # -------------------------------- Collection Info -------------------------- #
 
 # Unique identifier for the collection
-COLLECTION_ID: KDN
+COLLECTION_ID: NND
 
 # Collection identifier used in the BBMRI-ERIC directory *
-COLLECTION_DIRECTORY_ID: bbmri-eric:ID:IT_1230000:collection:KDN
+COLLECTION_DIRECTORY_ID: bbmri-eric:ID:IT_1234:collection:0000
 
 # Name of the collection *
-COLLECTION_NAME: Kidney diseases
+COLLECTION_NAME: Neurodegenerative and Neuromuscular Diseases
 
 # Alternate name or short name for the collection * 
-COLLECTION_ALIAS: KDN
+COLLECTION_ALIAS: NND
 
 # A brief description of the collection *
-COLLECTION_DESCRIPTION: Kidney disease sample collection
+COLLECTION_DESCRIPTION: >-
+  BB-X Research Biobank stores biological samples and associated data of
+  ...
 
 # Type of the collection and category code
 COLLECTION_TYPE_CODE: SAMPLE                
 DATA_CATEGORY_CODE: BIOLOGICAL_SAMPLES
+
+# *mandatory fields

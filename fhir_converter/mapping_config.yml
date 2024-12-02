@@ -4,18 +4,18 @@
 # ---------------------------- Field Mapping -------------------------------- #
 
 field_mappings:
-  SAMPLE_ID: SAMPLE_ID
-  PATIENT_ID: PATIENT_ID
-  SEX: SEX
+  SAMPLE_ID: ID Sample
+  PATIENT_ID: ID Patient
+  SEX: Sex
   BIRTH_DATE: DOB
-  DIAGNOSIS_DONOR_AGE: DIAGNOSIS_DONOR_AGE
-  DIAGNOSIS: ICD-10
-  DIAGNOSIS2: null
+  DIAGNOSIS_DONOR_AGE: Age at Diagnosis
+  DIAGNOSIS: Biobanca_ICD code
+  DIAGNOSIS2: Biobanca_ICD code2
   # DIAGNOSIS_AGE: DIAGNOSIS_AGE
-  DIAGNOSIS_DATE: DIAGNOSIS_DATE
-  SAMPLING_DATE: SAMPLING_DATE
-  MATERIAL_TYPE: MATERIAL_TYPE
-  STORAGE_TEMPERATURE: STORAGE_TEMPERATURE
+  DIAGNOSIS_DATE: Diagnosis date
+  SAMPLING_DATE: Sampling date
+  MATERIAL_TYPE: Sample Type
+  STORAGE_TEMPERATURE: Storage Temperature
 
 # ---------------------------- Values Mapping -------------------------------- #
 
@@ -36,7 +36,7 @@ value_mappings:
     microRNA: RNA
     Nasal swab: NASAL SWAB
     Not available: NA
-    Other: SN
+    Other: LIQUOR
     Pathogen: PATHOGEN
     Peripheral blood cells: PERIPHERAL BLOOD CELLS
     Plasma: PLASMA
