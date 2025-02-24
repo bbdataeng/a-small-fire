@@ -14,28 +14,30 @@ from pydantic import ValidationError
 from tqdm import tqdm
 
 
-# from tqdm import tqdm
-
-
 """
 conversion.py -----------------------------------------------------------------
 overall wrapper, takes as input one excel (classic dataset table) written in 
 the BBMRI appendix format and creates the FHIR-structured JSON to be uploaded 
-on the Biobank Locator
-
+on the Biobank Locator.
 -------------------------------------------------------------------------------
-
 """
 
 
 app = typer.Typer()
 
-
+log.remove()
+log.add(
+    sys.stderr,
+    format="<level>{time:YYYY-MM-DD HH:mm:ss}</level> | <level>{level}</level> | <black>{message}</black>",
+    colorize=True,
+)
 @app.command()
 def convert(
     filename: Path = typer.Option(..., help="Path of input file"),
     outdir: Path = typer.Option(..., help="Path of output folder"),
     miabis: bool = typer.Option(default= False, help= "Flag for MIABIS normalization"),
+    colnames: bool = typer.Option(default= False, help= "Flag for colnames"),
+
 ) -> None:
 
     if not filename.exists():
@@ -70,7 +72,7 @@ def convert(
             log.warning("Ignoring hidden sheet: {}", ws.title)
             continue
 
-        log.info("Reading sheet {}", ws.title)
+        # log.info("Reading sheet {}", ws.title)
 
         ## create header
         ## for each cell save the value (header name), until None (columns end)
@@ -86,49 +88,77 @@ def convert(
         counters: Dict[str, int] = {}
         ## for each cell, take the value and put it in patient_data dict with key = header
         # for row in ws.iter_rows(min_row=2, max_row=ws.max_row, max_col=len(header)):
+        total_rows = 0
+        valid_rows = 0
+        invalid_rows = 0
+        missing_fields_count = 0
+
+        
         for row_number, row in tqdm(
             enumerate(ws.iter_rows(min_row=2, max_row=ws.max_row, max_col=len(header)), start=2),
             total=wb.active.max_row-1):
-            if ws.row_dimensions[row_number].hidden:  # if the row is hidden, skip it
+
+            if ws.row_dimensions[row_number].hidden: # if the row is hidden: skip
                 continue
 
+            # total_rows += 1
             patient_data: Dict[str, str] = {}
 
             for cell in row:
                 patient_data[header[cell.col_idx - 1]] = cell.value
 
-            if all(
-                value is None for value in patient_data.values()
-            ):  # if all the fields are None --> stop (no more rows)
+            if all(value is None for value in patient_data.values()):
+            # if all the fields are None --> stop (no more rows)
                 break
 
-            # normalize_input: make input fields MIABIS compliant
-            if not miabis: # if data is not MIABIS compliant 
-                # patient_data = normalize_input(patient_data)  # aggiungere Flag!
+            if not miabis:  # if not MIABIS-compliant   
                 patient_data = normalize_input(patient_data, "mapping_config.yml")
-
+            if colnames:    # if MIABIS-compliant but with different field names
+                patient_data = normalize_input(patient_data, "mapping_config.yml", colnames  = True)
+ 
             try:
-                ## Create Patient Resource with patient_data
-                ## validation of fields with pydantic --> check MIABIS compliance
                 patient = PatientInputModel(**patient_data)
             except ValidationError as e:
-                print(e)
+                invalid_rows += 1
+                sample_id = patient_data.get("SAMPLE_ID", "UNKNOWN")
 
-                for field in str(e).split("\n")[1::2]:
-                    log.error(
-                        "{}: {} = [{}]",
-                        patient_data.get("SAMPLE_ID", ""),
-                        field,
-                        patient_data.get(field, "N/A"),
-                    )
+                # Check missing mandatory fields
+                has_missing_fields = any(error["msg"] == "field required" for error in e.errors())
+                if has_missing_fields:
+                    missing_fields_count += 1  
+
+                print("\n")
+                log.error("Error in row {} (SAMPLE_ID: {})\n-----------------------------", row_number-1, sample_id)
+
+                for error in e.errors():
+                    field = error["loc"][0]
+                    error_message = error["msg"]
+                    received_value = patient_data.get(field, "N/A")
+
+                    if error_message == "field required":
+                        log.error("❌ Missing required field: {}", field)
+                   
+                    else:
+                        # Show admitted values
+                        allowed_values = error["ctx"].get("enum_values") if "ctx" in error and "enum_values" in error["ctx"] else None
+                        if allowed_values:
+                            log.error("🚫  Invalid value for field: {} | Value received: [{}]\nAllowed values: {}", 
+                                    field, received_value, allowed_values)
+                        elif error_message == "DIAGNOSIS must be a valid ICD-10 code":
+                             log.error("🚫  Invalid ICD-10 code: {} | Value received: [{}]", 
+                                    field, received_value)
+                        else:
+                            pass
+
+                log.error("==============================================\n")
+                                        
             else:
-                patient = normalize_output(patient)  # mapping to BBMRI implementation guide
-                # print("PATIENT\n", patient)
-                patient_serializer = FHIRSerializer(patient, counters) # mapping to FHIR resources
+                valid_rows += 1
+                patient = normalize_output(patient)
+                patient_serializer = FHIRSerializer(patient, counters)
 
                 pat_id = patient_serializer.PATIENT_ID
                 copy = pat_id in patients_ids
-
                 patients_ids.append(pat_id)
 
                 sample_id, bundle = patient_serializer.serialize_patient(bundle, copy)
@@ -137,7 +167,21 @@ def convert(
 
                 with open(f"{outdir}/bundle-{bundle.id}.json", "w") as f:
                     json.dump(bundle_data, f, default=str, indent=4)
-    
+            total_rows += 1
+            
+        # Final report with invalid rows
+        print("\nData Quality Report:")
+        log.info(f"Total Processed Rows: {total_rows}")
+        log.info(f"Valid Rows: {valid_rows}")
+        log.info(f"Invalid Rows: {invalid_rows}")
+        log.info(f"Total Rows with Missing Fields {missing_fields_count}")
+
+        if invalid_rows == 0:
+            log.success("Conversion completed successfully!")
+            print(f"Conversion completed successfully! Bundles generated in {outdir} folder.")
+        else:
+            log.warning(f"Process completed with {invalid_rows} errors!")
+            print(f"Process completed with {invalid_rows} errors. Check the logs for more details.")
 
         # Parse the first sheet only
         break
@@ -145,3 +189,5 @@ def convert(
 
 if __name__ == "__main__":
     app()
+
+
