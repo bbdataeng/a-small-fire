@@ -48,7 +48,7 @@ def load_config(config_path: str) -> Dict:
 ## ------ Mapping to MIABIS standard according to mapping_config.yml ------- ##
 
 
-def normalize_input(patient_data: Dict[str, Any], config_path: str) -> Dict[str, Any]:
+def normalize_input(patient_data: Dict[str, Any], config_path: str, colnames = False) -> Dict[str, Any]:
     """Normalize input data based on configuration"""
 
     config = load_config(config_path)
@@ -59,15 +59,21 @@ def normalize_input(patient_data: Dict[str, Any], config_path: str) -> Dict[str,
     for miabis_field, biobank_field in field_mappings.items():
         if biobank_field in patient_data:
             patient_data[miabis_field] = patient_data.pop(biobank_field)
-
+    try: # if no diagnosis date is provided, it is equal to sampling date
+        patient_data["DIAGNOSIS_DATE"]
+    except:
+        patient_data["DIAGNOSIS_DATE"] = patient_data['SAMPLING_DATE']
     patient_data["STORAGE_TEMPERATURE"] = str(patient_data["STORAGE_TEMPERATURE"])
-    # value mappings
-    for key, mapping in value_mappings.items():
-        # print("KEY: ", key)
-        # print("MAPPING: ", mapping)
-        # print("patient_data[key]", patient_data[key])
-        if key in patient_data:
-            patient_data[key] = apply_map(key, patient_data[key], mapping)
+
+    
+    if not colnames:
+        # value mappings
+        for key, mapping in value_mappings.items():
+            # print("KEY: ", key)
+            # print("MAPPING: ", mapping)
+            # print("patient_data[key]", patient_data[key])
+            if key in patient_data:
+                patient_data[key] = apply_map(key, patient_data[key], mapping)
 
     # try:
     #     patient_data['DATE_DIAGNOSIS']
