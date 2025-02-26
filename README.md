@@ -79,7 +79,7 @@ If your input data already follows the MIABIS standard, you can use the `--miabi
 
 ```bash
 cd fhir_converter
-py convert.py --filename <INPUT_DATA> --outdir "../output" --miabis  
+python convert.py --filename <INPUT_DATA> --outdir "../output" --miabis  
 ```
 
 #### 2. Input Data Not in MIABIS Standard
@@ -88,7 +88,7 @@ If your input data is not in the MIABIS standard, you’ll need to edit the `map
 
 ```bash
 cd fhir_converter
-py convert.py --filename <INPUT_DATA> --outdir "../output"   
+python convert.py --filename <INPUT_DATA> --outdir "../output"   
 ```
 
 
