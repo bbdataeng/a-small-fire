@@ -129,7 +129,7 @@ def convert(
 
                 print("\n")
                 log.error("Error in row {} (SAMPLE_ID: {})\n-----------------------------", row_number-1, sample_id)
-
+                print(patient_data)
                 for error in e.errors():
                     field = error["loc"][0]
                     error_message = error["msg"]
@@ -148,7 +148,8 @@ def convert(
                              log.error("🚫  Invalid ICD-10 code: {} | Value received: [{}]", 
                                     field, received_value)
                         else:
-                            pass
+                            log.error("❌ Missing value for required field: {} | Value received: [{}]", 
+                                    field, received_value)
 
                 log.error("==============================================\n")
                                         
