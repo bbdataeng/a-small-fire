@@ -129,7 +129,6 @@ def convert(
 
                 print("\n")
                 log.error("Error in row {} (SAMPLE_ID: {})\n-----------------------------", row_number-1, sample_id)
-                print(patient_data)
                 for error in e.errors():
                     field = error["loc"][0]
                     error_message = error["msg"]
@@ -142,10 +141,10 @@ def convert(
                         # Show admitted values
                         allowed_values = error["ctx"].get("enum_values") if "ctx" in error and "enum_values" in error["ctx"] else None
                         if allowed_values:
-                            log.error("🚫  Invalid value for field: {} | Value received: [{}]\nAllowed values: {}", 
+                            log.error("🚫 Invalid value for field: {} | Value received: [{}]\nAllowed values: {}", 
                                     field, received_value, allowed_values)
                         elif error_message == "DIAGNOSIS must be a valid ICD-10 code":
-                             log.error("🚫  Invalid ICD-10 code: {} | Value received: [{}]", 
+                             log.error("🚫 Invalid ICD-10 code: {} | Value received: [{}]", 
                                     field, received_value)
                         else:
                             log.error("❌ Missing value for required field: {} | Value received: [{}]", 
