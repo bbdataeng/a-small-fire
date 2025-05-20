@@ -5,7 +5,7 @@ from pydantic import BaseModel, root_validator, validator
 from pydantic import parse_obj_as
 from typing import List
 import simple_icd_10 as icd
-
+import re
 # import icd10
 
 # all the possible values for the input employed in the validation and normalization process.
@@ -106,7 +106,22 @@ class Patient(BaseModel):
 
 
 
+    @validator('BIRTH_DATE', pre=True)
+    def validate_birth_date(cls, v):
+        if not v:
+            raise ValueError("BIRTH_DATE must be a valid date (YYYY-MM-DD) or year (YYYY).")
+        if isinstance(v, date):
+            return v
 
+        s = str(v).strip()
+
+        if s.isdigit():
+            if len(s) == 4: # year only
+                return date(int(s), 1, 1)
+            # number with less than 4 digits
+            raise ValueError("BIRTH_DATE must be a valid date (YYYY-MM-DD) or year (YYYY).")
+
+        return v
 
 
 
