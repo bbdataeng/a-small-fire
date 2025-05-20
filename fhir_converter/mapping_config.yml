@@ -1,19 +1,17 @@
 # This configuration file defines the mapping of local data into MIABIS CDM fields
 # Please edit the mappings according to your input dataset
-
 # ---------------------------- Field Mapping -------------------------------- #
-
 field_mappings:
-  SAMPLE_ID: ID Sample
-  PATIENT_ID: ID Patient
-  SEX: Sex
-  BIRTH_DATE: DOB
-  DIAGNOSIS_DONOR_AGE: Age at Diagnosis
-  DIAGNOSIS: Biobanca_ICD code
-  DIAGNOSIS2: Biobanca_ICD code2
+  SAMPLE_ID: Sample_ID
+  PATIENT_ID: Patient_ID
+  SEX: Gender
+  BIRTH_DATE: Donor Birth Date
+  DIAGNOSIS_DONOR_AGE: Diagnosis Age Donor
+  DIAGNOSIS: Diagnosis ICD-10
+  DIAGNOSIS2: /
   # DIAGNOSIS_AGE: DIAGNOSIS_AGE
-  DIAGNOSIS_DATE: Diagnosis date
-  SAMPLING_DATE: Sampling date
+  DIAGNOSIS_DATE: Date of Diagnosis
+  SAMPLING_DATE: Sampling Date
   MATERIAL_TYPE: Sample Type
   STORAGE_TEMPERATURE: Storage Temperature
 
@@ -28,32 +26,32 @@ value_mappings:
 
   MATERIAL_TYPE:
     Any: any
-    Buffy Coat: BUFFY COAT
+    Buffy Coat: Buffy Coat
     cDNA / mRNA: RNA
-    Cell lines: CELLS
+    Cell lines: [CELLS, CELL]
     DNA: [DNA, GDNA]
-    Feces: FECES
+    Feces: Feces
     microRNA: RNA
     Nasal swab: NASAL SWAB
     Not available: NA
-    Other: LIQUOR
-    Pathogen: PATHOGEN
+    Other: Liquor
+    Pathogen: Pathogen
     Peripheral blood cells: PERIPHERAL BLOOD CELLS
-    Plasma: PLASMA
+    Plasma: Plasma
     RNA: RNA
-    Saliva: SALIVA
-    Serum: SERUM
-    Throat swab: THROAT SWAB
-    Tissue (frozen): [FROZEN, OCT]
-    Tissue (paraffin preserved): TissueFFPE
-    Tissue (stained sections/slides): STAINED_TISSUE
-    Urine: URINE
-    Whole Blood: BLOOD
+    Saliva: Saliva
+    Serum: Serum
+    Throat swab: Throat Swab
+    Tissue (frozen): [Tissue]
+    Tissue (paraffin preserved): [FFPE, Tissue FFPE]
+    Tissue (stained sections/slides): Stained Tissue
+    Urine: Urine
+    Whole Blood: Blood
 
   STORAGE_TEMPERATURE:
     Room temperature: RT
     Liquid Nitrogen: LN
     Other: Other
     -60°C to -80°C: ["-85", "-80"]
-    -18°C to -35°C: ["-35"]
-    2°C to 10°C: ["10"]
+    -18°C to -35°C: ["-20"]
+    2°C to 10°C: ["10", "4"]
