@@ -26,6 +26,25 @@ In addition, the dataset must include unique identifiers for both the patient an
 - **Patient_ID**
 - **Sample_ID**
 
+## Data Formats
+
+## Data Format Notes
+
+Data should follow the **[MIABIS](https://github.com/BBMRI-ERIC/miabis/tree/5a478a90ad31bc0164d76566ee3d948c76a925a6) Common Data Model**.  
+If your dataset does not use MIABIS-standard, please define your own mappings in `mapping_config.yml`.
+
+| Field                    | Expected Format                             | Notes                                                                 |
+|--------------------------|---------------------------------------------|-----------------------------------------------------------------------|
+| **SAMPLING_DATE**        | `YYYY-MM-DD`                                |                                                                      |
+| **BIRTH_DATE**     | `YYYY-MM-DD` or partial (`YYYY`)            | If only a 4-digit year is provided, it will be interpreted as `YYYY-01-01` |
+| **DIAGNOSIS_AGE**  | Integer (e.g., `45`)                        |                                                                      |
+| **SEX**               | MIABIS vocabulary   |                                                                      |
+| **DIAGNOSIS_DATE**    | `YYYY-MM-DD`                                |                                                                      |
+| **DIAGNOSIS**     | Valid ICD-10 code (e.g., `C50.9`)           |                                                                      |
+| **MATERIAL_TYPE**          | MIABIS vocabulary                           |                                                                      |
+| **STORAGE_TEMPERATURE**  | MIABIS vocabulary                                  |                                                                      |
+| **PATIENT_ID**, **SAMPLE_ID** | Unique alphanumeric strings            |                                                                      |
+
 ---
 
 ## Key Modules
