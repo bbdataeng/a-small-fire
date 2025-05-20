@@ -26,7 +26,6 @@ In addition, the dataset must include unique identifiers for both the patient an
 - **Patient_ID**
 - **Sample_ID**
 
-## Data Formats
 
 ## Data Format Notes
 
