@@ -4,7 +4,8 @@
 
 The toolkit is built on the open-source [FHIR Resources](https://github.com/nazrulworld/fhir.resources) library.
 
-<u>NOTICE</u>: THE BBMRI-ERIC ecosystem is transitioning towards MIABIS ON FHIR still unsupported from this toolkit. If you are part of BBMRI-ERIC please align with HQ-CS IT if considering employing this application to create new interoperable Federated Platform datasets.
+**NOTICE:** THE BBMRI-ERIC ecosystem is transitioning towards MIABIS ON FHIR still unsupported from this toolkit. If you are part of BBMRI-ERIC please align with HQ-CS IT if considering employing this application to create new interoperable Federated Platform datasets. 
+The BBMRI.it data team is reachable at data@bbmri.it.
 
 If you use this toolkit please cite us at [Cruoglio et. al, JDIQ 2025](https://dl.acm.org/doi/full/10.1145/3769117).
 
