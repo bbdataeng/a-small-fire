@@ -2,6 +2,10 @@
 
 **a-small-fire** is a toolkit developed by the BBMRI.it Data Engineering team to facilitate the transformation step of the ETL (Extract, Transform, Load) process, converting datasets into the HL7 FHIR® (Fast Healthcare Interoperability Resources) standard.
 
+NOTICE: THE BBMRI-ERIC ecosystem is transitioning towards MIABIS ON FHIR still unsupported from this toolkit. If you are part of BBMRI-ERIC please align with HQ-CS IT if considering employing this application to create new interoperable Federated Platform datasets.
+
+If you use this toolkit please cite us at [Cruoglio et. al, JDIQ 2025](https://dl.acm.org/doi/full/10.1145/3769117).
+
 The toolkit is built on the open-source [FHIR Resources](https://github.com/nazrulworld/fhir.resources) library.
 
 ![workflow](https://github.com/bbdataeng/a-small-fire/blob/version4/figures/graphical-abstract.png)
