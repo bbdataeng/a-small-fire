@@ -75,6 +75,14 @@ The toolkit is structured into several key modules:
 
 ## Installation and Setup
 
+### 0. Requirements
+
+Please notice that this toolkit requires **Python 3.10 or 3.11**. Python 3.12+ is untested, and Python 3.13/3.14 cause compatibility errors with Pydantic v1 (used by `fhir.resources`). It is recommended to create a dedicated virtual environment:
+```bash
+python3.11 -m venv .venv
+source .venv/bin/activate  # on Windows: .venv\Scripts\activate
+```
+
 To get started with the toolkit, follow these steps:
 
 ### 1. Clone the Repository
@@ -86,6 +94,7 @@ git clone https://github.com/bbdataeng/a-small-fire.git
 ### 2. Install dependencies
 
 ```bash
+cd a-small-fire
 pip install -r requirements.txt
 ```
 
@@ -102,6 +111,8 @@ If your input data already follows the MIABIS standard, you can use the `--miabi
 
 ```bash
 cd fhir_converter
+```
+```bash
 python convert.py --filename <INPUT_DATA> --outdir "../output" --miabis  
 ```
 
@@ -111,8 +122,11 @@ If your input data is not in the MIABIS standard, you’ll need to edit the `map
 
 ```bash
 cd fhir_converter
+```
+```bash
 python convert.py --filename <INPUT_DATA> --outdir "../output"   
 ```
+
 
 
 
